@@ -36,4 +36,25 @@ date.toFirstOfMonth(); //2020/08/01
 date.toFirstOfYear(); //2020/01/01
 date.toFirstWeekOfYear(); //2020/01/05
 date.toLastOfMonth(); //2020/08/31
+date.toLastOfWeek(); //2020/08/22
+date.toLastOfYear(); //2020/12/31
+date.toLastWeekOfYear(); //2020/12/27
+```
+
+## using calendars, format & locals
+
+```javascript
+var date = new DateObject({ calendar: "georgian", format: "dddd DD MMMM" });
+
+date.format(); //Thursday 20 August
+
+date.calendar = "persian"; //Panjshanbeh 30 Mordad
+date.local = "fa"; //پنچشنبه 30 مرداد
+date._format = "YY/MM/DD"; //۹۹/۰۵/۳۰
+
+date.setCalendar("georgian").setLocal("en"); //20/08/20
+
+date = new DateObject(new Date());
+
+date.convert("persian").format(); //1399/05/30
 ```
