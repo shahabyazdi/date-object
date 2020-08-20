@@ -58,3 +58,29 @@ date = new DateObject(new Date());
 
 date.convert("persian").format(); //1399/05/30
 ```
+
+## other
+
+```javascript
+var today = new DateObject();
+var yesterday = new DateObject(today).setDay(today.day - 1);
+
+console.log(`${yesterday.year}/${yesterday.month}/${yesterday.day}`); //2020/8/19
+
+today.month.name; //August
+today.month.length; //31
+today.month.index; //7
+today.month.number; //8
+
+today.weekDay.name; //Thursday
+today.weekDay.index; //4
+today.weekDay.number; //5
+
+today.dayOfBeginning; //737657
+today.dayOfYear; //233
+today.weekOfYear; //34
+
+today.weeks; // array [{ name: 'Sunday', shortName: 'Sun', ...}]
+today.months; //array [{ name: 'January', shortName: 'Jan', ...}]
+today.leaps; //array [4,   8,  12,  16,  20,...]
+```
