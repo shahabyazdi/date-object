@@ -3,5 +3,6 @@
 ## example
 
 ```
-const DateObject = new DateObject()
+const dateObject = new DateObject()
+dateObject.format() //2020/08/20
 ```

@@ -1,5 +1,6 @@
 # dependencies
 /node_modules
+test.js
 
 # misc
 npm-debug.log*
