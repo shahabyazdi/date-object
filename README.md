@@ -1,5 +1,8 @@
 # Date Object
 
+supported calendars : `georgian` , `persian`
+supported locals : `en` , `fa`
+
 ## example
 
 ```javascript
