@@ -1,5 +1,5 @@
 {
-  "name": "date-object",
+  "name": "DateObject",
   "version": "0.1.0",
   "description": "Date Object",
   "main": "index.js",
@@ -12,7 +12,13 @@
   },
   "keywords": [
     "Date",
-    "Object"
+    "Object",
+    "calendar",
+    "persian",
+    "georgian",
+    "farsi",
+    "english",
+    "locals"
   ],
   "author": "Shahab Yazdi sh.yazdi@gmail.com",
   "license": "MIT",

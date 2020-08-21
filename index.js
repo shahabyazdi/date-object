@@ -515,6 +515,7 @@ class DateObject {
         this.#day = ~~days
         this.#calendar = calendar
         this.#getLeaps()
+        this.#fix()
 
         return this
     }

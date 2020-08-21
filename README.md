@@ -248,6 +248,9 @@ date.toLastOfMonth(); //2020/01/31
 date.toLastOfWeek(); //2020/02/01
 date.toLastOfYear(); //2020/12/31
 date.toLastWeekOfYear(); //2020/12/27
+
+date.toString(); //2020/12/27
+date.toDate(); //instanceof Date
 ```
 
 # using calendars, format & locals
