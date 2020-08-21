@@ -10,7 +10,33 @@ class DateObject {
     #local = DateObject.locals.EN
     #calendar = DateObject.calendars.GEORGIAN
     #leaps = []
-    #types = ["YYYY", "YY", "MMMM", "MMM", "MM", "M", "DDDD", "DDD", "DD", "D", "dddd", "ddd", "HH", "H", "hh", "h", "mm", "m", "ss", "s", "SSS", "SS", "S", "a", "A"]
+    #types = {
+        YYYY: /\d{4}/,
+        YY: /\d\d/,
+        MMMM: /[A-z]{3,9}/,
+        MMM: /[A-z]{3,9}/,
+        MM: /\d\d/,
+        M: /\d{1}/,
+        DDDD: /\d{1,3}/,
+        DDD: /\d{1,3}/,
+        DD: /\d\d/,
+        D: /\d/,
+        dddd: /[A-z]{3,9}/,
+        ddd: /[A-z]{3,9}/,
+        HH: /\d\d/,
+        H: /\d/,
+        hh: /\d\d/,
+        h: /\d/,
+        mm: /\d\d/,
+        m: /\d/,
+        ss: /\d\d/,
+        s: /\d/,
+        SSS: /\d{3}/,
+        SS: /\d\d/,
+        S: /\d/,
+        a: /[a-z]{3,9}/,
+        A: /[a-z]{3,9}/
+    }
 
     #reverse = {
         "YYYY": string => this.#year = Number(string),
@@ -181,9 +207,7 @@ class DateObject {
 
         this.#format = format
 
-        if (typeof date === "string") {
-            this.parse(date)
-        }
+        if (typeof date === "string") this.parse(date)
 
         const setDate = () => {
             if (month === 0) month = 1
@@ -237,9 +261,12 @@ class DateObject {
         }
 
         if (!date) setDate()
-        if (mustGetLeaps) this.getLeaps()
 
-        this.fixDate()
+        if (mustGetLeaps) {
+            this.#getLeaps()
+
+            this.#fix()
+        }
     }
 
     parse(string) {
@@ -255,41 +282,45 @@ class DateObject {
             }
         }
 
-        const regex = /(\d{2,4})?\W?([A-z]{3,9}|\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,3})?\W?(am|pm)?/
-        let [, year, month, day, hour, minute, second, millisecond, a] = string.match(regex)
+        if (!format) {
+            const regex = /(\d{2,4})?\W?([A-z]{3,9}|\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,3})?\W?(am|pm)?/
+            let [, year, month, day, hour, minute, second, millisecond, a] = string.match(regex)
 
-        if (month) {
-            if (/\d+/.test(month)) {
-                month = Number(month) - 1
-            } else {
-                month = this.months.findIndex($month => new RegExp(month, "i").test($month.name))
+            if (month) {
+                if (/\d+/.test(month)) {
+                    month = Number(month) - 1
+                } else {
+                    month = this.months.findIndex($month => new RegExp(month, "i").test($month.name))
+                }
             }
-        }
 
-        this.#year = year ? Number(year) : 0
-        this.#month = month || 0
-        this.#day = Number(day || 1)
-        this.#hour = Number(hour || 0)
-        this.#minute = Number(minute || 0)
-        this.#second = Number(second || 0)
-        this.#millisecond = Number(millisecond || 0)
+            this.#year = year ? Number(year) : 0
+            this.#month = month || 0
+            this.#day = Number(day || 1)
+            this.#hour = Number(hour || 0)
+            this.#minute = Number(minute || 0)
+            this.#second = Number(second || 0)
+            this.#millisecond = Number(millisecond || 0)
 
-        if (a && a === "pm" && this.#hour < 12) {
-            this.#hour = this.#hour + 12
-        }
-
-        if (format) {
-            for (let key in this.#reverse) {
+            if (a && a === "pm" && this.#hour < 12) {
+                this.#hour = this.#hour + 12
+            }
+        } else {
+            for (let key in this.#types) {
                 const match = format.match(new RegExp(key))
 
                 if (!match) continue
 
-                const str = string.substring(match.index, match.index + match[0].length)
-
+                const str = string.substring(match.index, string.length).match(this.#types[key])[0]
                 this.#reverse[key](str)
 
                 format = format.replace(key, "?".repeat(key.length))
             }
+
+            if (!this.#hour) this.#hour = 0
+            if (!this.#minute) this.#minute = 0
+            if (!this.#second) this.#second = 0
+            if (!this.#millisecond) this.#millisecond = 0
         }
 
         if (string.includes(this.#meridiems[this.#local][1].lowerCase) && this.#hour < 12) {
@@ -301,7 +332,7 @@ class DateObject {
         }
     }
 
-    fixDate() {
+    #fix = () => {
         const setMonth = () => {
             let mustGetLeaps = false
 
@@ -319,7 +350,7 @@ class DateObject {
                 mustGetLeaps = true
             }
 
-            if (mustGetLeaps) this.getLeaps()
+            if (mustGetLeaps) this.#getLeaps()
         }
 
         while (this.#millisecond >= 1000) {
@@ -380,7 +411,7 @@ class DateObject {
         }
     }
 
-    getLeaps() {
+    #getLeaps = () => {
         let year = 1
         this.#leaps = []
 
@@ -393,9 +424,7 @@ class DateObject {
                 while (year <= this.#year) {
                     offset += delta
 
-                    if (offset > 1) {
-                        offset -= 1
-                    }
+                    if (offset > 1) offset -= 1
 
                     if (offset >= 0.257800926 && offset <= 0.5) {
                         let $correct = correct[year] || year
@@ -485,7 +514,7 @@ class DateObject {
         this.#month = month
         this.#day = ~~days
         this.#calendar = calendar
-        this.getLeaps()
+        this.#getLeaps()
 
         return this
     }
@@ -496,7 +525,7 @@ class DateObject {
         let index = 100 //can be any number
         let object = {}
 
-        for (let key of this.#types) {
+        for (let key in this.#types) {
             if (format.includes(key)) {
                 format = format.replace(key, index)
                 object[index] = this.getProperty(key)
@@ -633,7 +662,7 @@ class DateObject {
     toLastOfMonth() {
         this.#day = 0
         this.#month += 1
-        this.fixDate()
+        this.#fix()
         return this
     }
 
@@ -672,8 +701,8 @@ class DateObject {
     }
 
     get dayOfBeginning() {
-        let days = (this.#year - 1) * 365
 
+        let days = (this.#year - 1) * 365
         days += this.dayOfYear
         days += this.isLeap ? (this.leaps.length - 1) : this.leaps.length
 
@@ -801,38 +830,38 @@ class DateObject {
 
     set year(value) {
         this.#year = value
-        this.getLeaps()
-        this.fixDate()
+        this.#getLeaps()
+        this.#fix()
     }
 
     set month(value) {
         this.#month = value - 1
-        this.fixDate()
+        this.#fix()
     }
 
     set day(value) {
         this.#day = value
-        this.fixDate()
+        this.#fix()
     }
 
     set hour(value) {
         this.#hour = value
-        this.fixDate()
+        this.#fix()
     }
 
     set minute(value) {
         this.#minute = value
-        this.fixDate()
+        this.#fix()
     }
 
     set second(value) {
         this.#second = value
-        this.fixDate()
+        this.#fix()
     }
 
     set millisecond(value) {
         this.#millisecond = value
-        this.fixDate()
+        this.#fix()
     }
 
     set calendar(calendar) {
