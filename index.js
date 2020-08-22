@@ -261,11 +261,9 @@ class DateObject {
         }
 
         if (!date) setDate()
-        if (this.#year === 0) this.year = -1
 
         if (mustGetLeaps) {
             this.#getLeaps()
-
             this.#fix()
         }
     }
@@ -338,8 +336,10 @@ class DateObject {
             let mustGetLeaps = false
 
             while (this.#month < 1) {
+                this.#month += 12
                 this.#year -= 1
-                this.#month = 12 + this.#month
+
+                if (this.#year === 0) this.#year = -1
 
                 mustGetLeaps = true
             }
@@ -347,6 +347,8 @@ class DateObject {
             while (this.#month > 11) {
                 this.#month -= 12
                 this.#year += 1
+
+                if (this.#year === 0) this.#year = 1
 
                 mustGetLeaps = true
             }
@@ -511,15 +513,6 @@ class DateObject {
         year = ~~(days / 365) + 1
         days = days % 365
         month = 0
-
-        if (days < 0) days *= -1
-
-        for (let $month of target.months) {
-            if (days < $month.length) break
-
-            days -= $month.length
-            month++
-        }
 
         this.#year = year
         this.#month = month
@@ -713,11 +706,13 @@ class DateObject {
     }
 
     get dayOfBeginning() {
-        let days = (this.#year > 0 ? (this.#year - 1) : (this.#year + 1)) * 365
+        let days = (this.#year > 0 ? (this.#year - 1) : this.#year) * 365
         let leapsLength = this.isLeap ? (this.leaps.length - 1) : this.leaps.length
 
-        days += this.#year > 0 ? this.dayOfYear : (-1 * this.dayOfYear)
-        days = days + (this.#year > 0 ? leapsLength : (-1 * leapsLength))
+        if (this.#year > 0) days += leapsLength
+        if (this.#year < 0) days -= leapsLength
+
+        days += this.dayOfYear
 
         return days
     }

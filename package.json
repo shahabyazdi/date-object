@@ -1,6 +1,6 @@
 {
   "name": "date-object",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Date Object",
   "main": "index.js",
   "scripts": {
