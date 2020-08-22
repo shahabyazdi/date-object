@@ -896,5 +896,3 @@ class DateObject {
         this.#format = format
     }
 }
-
-module.exports = DateObject
