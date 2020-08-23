@@ -13,16 +13,16 @@ class DateObject {
     #types = {
         YYYY: /\d{4}/,
         YY: /\d\d/,
-        MMMM: /[A-z]{2,9}/,
-        MMM: /[A-z]{2,9}/,
+        MMMM: /[A-z]+/, //month name
+        MMM: /[A-z]+/, //month shortName
         MM: /\d\d/,
         M: /\d/,
         DDDD: /\d{1,3}/,
         DDD: /\d{1,3}/,
         DD: /\d\d/,
         D: /\d/,
-        dddd: /[A-z]{2,9}/,
-        ddd: /[A-z]{2,9}/,
+        dddd: /[A-z]+/, //weekDay name
+        ddd: /[A-z]+/, //weekDay shortName
         HH: /\d\d/,
         H: /\d/,
         hh: /\d\d/,
@@ -47,6 +47,8 @@ class DateObject {
         "M": string => this.#month = Number(string) - 1,
         "DD": string => this.#day = Number(string),
         "D": string => this.#day = Number(string),
+        "dddd": string => null,
+        "ddd": string => null,
         "HH": string => this.#hour = Number(string),
         "H": string => this.#hour = Number(string),
         "hh": string => {
@@ -164,13 +166,13 @@ class DateObject {
         },
         [DateObject.calendars.PERSIAN]: {
             [DateObject.locals.EN]: [
-                { name: "Panjshanbeh", shortName: "Panj", index: 5 },
-                { name: "Jomeh", shortName: "Jom", index: 6 },
-                { name: "Shanbeh", shortName: "Shan", index: 0 },
-                { name: "YekShanbeh", shortName: "Yek", index: 1 },
-                { name: "Doshanbeh", shortName: "do", index: 2 },
+                { name: "Panjshanbeh", shortName: "Pa", index: 5 },
+                { name: "Jomeh", shortName: "Jo", index: 6 },
+                { name: "Shanbeh", shortName: "Sh", index: 0 },
+                { name: "YekShanbeh", shortName: "Ye", index: 1 },
+                { name: "Doshanbeh", shortName: "Do", index: 2 },
                 { name: "Seshanbeh", shortName: "Se", index: 3 },
-                { name: "Chaharshanbeh", shortName: "Char", index: 4 },
+                { name: "Chaharshanbeh", shortName: "Ch", index: 4 },
             ],
             [DateObject.locals.FA]: [
                 { name: "پنجشنبه", shortName: "پنج", index: 5 },
@@ -261,11 +263,9 @@ class DateObject {
         }
 
         if (!date) setDate()
-        if (this.#year === 0) this.year = -1
 
         if (mustGetLeaps) {
             this.#getLeaps()
-
             this.#fix()
         }
     }
@@ -307,15 +307,11 @@ class DateObject {
                 this.#hour = this.#hour + 12
             }
         } else {
-            for (let key in this.#types) {
-                const match = format.match(new RegExp(key))
+            const formatArray = format.split(/[^\w\u0600-\u06FF]/)
+            const stringArray = string.split(/[^\w\u0600-\u06FF]/)
 
-                if (!match) continue
-
-                const str = string.substring(match.index, string.length).match(this.#types[key])[0]
-                this.#reverse[key](str)
-
-                format = format.replace(key, "?".repeat(key.length))
+            for (let i = 0; i < formatArray.length; i++) {
+                if (stringArray[i]) this.#reverse[formatArray[i]](stringArray[i])
             }
 
             if (!this.#hour) this.#hour = 0
@@ -338,8 +334,10 @@ class DateObject {
             let mustGetLeaps = false
 
             while (this.#month < 1) {
+                this.#month += 12
                 this.#year -= 1
-                this.#month = 12 + this.#month
+
+                if (this.#year === 0) this.#year = -1
 
                 mustGetLeaps = true
             }
@@ -347,6 +345,8 @@ class DateObject {
             while (this.#month > 11) {
                 this.#month -= 12
                 this.#year += 1
+
+                if (this.#year === 0) this.#year = 1
 
                 mustGetLeaps = true
             }
@@ -511,15 +511,6 @@ class DateObject {
         year = ~~(days / 365) + 1
         days = days % 365
         month = 0
-
-        if (days < 0) days *= -1
-
-        for (let $month of target.months) {
-            if (days < $month.length) break
-
-            days -= $month.length
-            month++
-        }
 
         this.#year = year
         this.#month = month
@@ -713,11 +704,13 @@ class DateObject {
     }
 
     get dayOfBeginning() {
-        let days = (this.#year > 0 ? (this.#year - 1) : (this.#year + 1)) * 365
+        let days = (this.#year > 0 ? (this.#year - 1) : this.#year) * 365
         let leapsLength = this.isLeap ? (this.leaps.length - 1) : this.leaps.length
 
-        days += this.#year > 0 ? this.dayOfYear : (-1 * this.dayOfYear)
-        days = days + (this.#year > 0 ? leapsLength : (-1 * leapsLength))
+        if (this.#year > 0) days += leapsLength
+        if (this.#year < 0) days -= leapsLength
+
+        days += this.dayOfYear
 
         return days
     }
