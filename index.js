@@ -378,6 +378,7 @@ class DateObject {
 
     constructor(object = { date: new Date() }) {
         if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
+        if (typeof object === "number") object = { date: new Date(object * 1000) }
 
         let { calendar, local, format, date, year, month, day, hour, minute, second, millisecond } = object
         let mustGetLeaps = true
@@ -390,6 +391,7 @@ class DateObject {
         this.#format = format
 
         if (typeof date === "string") this.parse(date)
+        if (typeof date === "number") date = new Date(date * 1000)
 
         const setDate = () => {
             if (month === 0) month = 1
@@ -476,13 +478,13 @@ class DateObject {
                 }
             }
 
-            this.#year = year ? Number(year) : 0
-            this.#month = month || 0
-            this.#day = Number(day || 1)
-            this.#hour = Number(hour || 0)
-            this.#minute = Number(minute || 0)
-            this.#second = Number(second || 0)
-            this.#millisecond = Number(millisecond || 0)
+            this.#year = Number(year)
+            this.#month = Number(month)
+            this.#day = Number(day)
+            this.#hour = Number(hour)
+            this.#minute = Number(minute)
+            this.#second = Number(second)
+            this.#millisecond = Number(millisecond)
 
             if (a && a === "pm" && this.#hour < 12) {
                 this.#hour = this.#hour + 12
@@ -496,11 +498,6 @@ class DateObject {
 
                 if (reverse && stringArray[i]) reverse(stringArray[i])
             }
-
-            if (!this.#hour) this.#hour = 0
-            if (!this.#minute) this.#minute = 0
-            if (!this.#second) this.#second = 0
-            if (!this.#millisecond) this.#millisecond = 0
         }
 
         if (string.includes(this.#meridiems[this.#local][1].shortName) && this.#hour < 12) {
@@ -595,6 +592,11 @@ class DateObject {
             this.#day -= this.month.length
             this.#month++
         }
+
+        if (!this.#hour) this.#hour = 0
+        if (!this.#minute) this.#minute = 0
+        if (!this.#second) this.#second = 0
+        if (!this.#millisecond) this.#millisecond = 0
     }
 
     #getLeaps = () => {
@@ -692,6 +694,7 @@ class DateObject {
     }
 
     format(format) {
+        if (format && typeof format !== "string") return
         if (!format) format = this.#format || "YYYY/MM/DD"
 
         let index = 100 //can be any number
@@ -701,7 +704,7 @@ class DateObject {
             while (format.includes(key)) {
                 format = format.replace(key, index)
                 object[index] = this.getProperty(key)
-                console.log(object[index], key, this.getProperty(key));
+
                 index++
             }
         }
@@ -870,7 +873,11 @@ class DateObject {
     toDate() {
         if (this.#calendar !== DateObject.calendars.GEORGIAN) this.convert(DateObject.calendars.GEORGIAN)
 
-        return new Date(this.#year, this.#month, this.#day, this.#hour, this.#second)
+        return new Date(this.#year, this.#month, this.#day, this.#hour, this.#minute, this.#second, this.#millisecond)
+    }
+
+    toUnix() {
+        return this.unix
     }
 
     get dayOfBeginning() {
@@ -1023,39 +1030,70 @@ class DateObject {
         return this.#leaps.includes(this.#year)
     }
 
+    get unix() {
+        return Math.round(this.toDate().getTime() / 1000)
+    }
+
     set year(value) {
+        value = this.#toNumber(value)
+
+        if (!value) return
+
         this.#year = value
         this.#getLeaps()
         this.#fix()
     }
 
     set month(value) {
-        this.#month = value - 1
+        value = this.#toNumber(value)
 
+        if (!value) return
+
+        this.#month = value - 1
         this.#fix()
     }
 
     set day(value) {
+        value = this.#toNumber(value)
+
+        if (!value) return
+
         this.#day = value
         this.#fix()
     }
 
     set hour(value) {
+        value = this.#toNumber(value)
+
+        if (!value) return
+
         this.#hour = value
         this.#fix()
     }
 
     set minute(value) {
+        value = this.#toNumber(value)
+
+        if (!value) return
+
         this.#minute = value
         this.#fix()
     }
 
     set second(value) {
+        value = this.#toNumber(value)
+
+        if (!value) return
+
         this.#second = value
         this.#fix()
     }
 
     set millisecond(value) {
+        value = this.#toNumber(value)
+
+        if (!value) return
+
         this.#millisecond = value
         this.#fix()
     }
@@ -1067,13 +1105,19 @@ class DateObject {
     set local(local) {
         local = local.toUpperCase()
 
-        if (!DateObject.locals[local]) local = DateObject.locals.en
+        if (!DateObject.locals[local]) local = DateObject.locals.EN
 
         this.#local = local
     }
 
     set _format(format) {
+        if (typeof format !== "string") return
+
         this.#format = format
+    }
+
+    #toNumber = value => {
+        if (!Number.isNaN(Number(value))) return Number(value)
     }
 }
 

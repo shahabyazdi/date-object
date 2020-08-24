@@ -30,7 +30,15 @@ date = new DateObject("2020/08/01");
 date.format("YYYY/MM/DD hh:mm:ss.SSS a"); //2020/08/01 00:00:00.0 am
 ```
 
-### 1-2- JavaScript Date
+### 1-2- Number (unix timestamp)
+
+```javascript
+var date = new DateObject(1597994736);
+
+date.format("dddd DD MMMM @ hh:mm:ss.SSS a"); //Friday 21 August @ 11:55:36.0 am
+```
+
+### 1-3- JavaScript Date
 
 ```javascript
 var $date = new Date(2019, 8, 20);
@@ -40,7 +48,7 @@ var date = new DateObject($date);
 date.format(); //2019/09/20
 ```
 
-### 1-3- DateObject
+### 1-4- DateObject
 
 ```javascript
 var $date = new DateObject("2019/09/20");
@@ -50,13 +58,13 @@ var date = new DateObject($date);
 date.format(); //2019/09/20
 ```
 
-### 1-4- Object
+### 1-5- Object
 
-#### 1-4-1-
+#### 1-5-1-
 
 ```javascript
 {
-  date: String or JavaScript Date or DateObject, //default new Date()
+  date: String , Number(unix timestamp), JavaScript Date or DateObject, //default new Date()
   calendar: `georgian` or `persian`, //default `georgian`
   local: `en` or `fa`, //default `en`
   format: `String` //default `YYYY/MM/DD`
@@ -91,7 +99,7 @@ date = new DateObject({
 date.format(); //31 Mordad 1399
 ```
 
-#### 1-4-2-
+#### 1-5-2-
 
 ```javascript
 {
@@ -237,6 +245,7 @@ date.dayOfBeginning; //737658
 date.dayOfYear; //234
 date.daysLeft; //132
 date.weekOfYear; //34
+date.unix; //1597951800
 
 date.weeks; // array [{ name: 'Sunday', shortName: 'Sun', ...}]
 date.months; //array [{ name: 'January', shortName: 'Jan', ...}]
@@ -258,13 +267,8 @@ date.format("YYYY-MM-DD"); //2020-08-07
 
 date.setCalendar("persian").setFormat("YYYY/MM/DD").parse("1399/06/03");
 date.format(); //1399/06/03
-date.format(); //1399/06/03
 
-date
-  .setCalendar("persian")
-  .setFormat("YYYY/MM/DD HH:mm")
-  .parse("1399/06/03 12:32");
-
+date.setFormat("YYYY/MM/DD HH:mm").parse("1399/06/03 12:32");
 date.format("dddd DD MMMM @ hh:mm a"); //Doshanbeh 03 Shahrivar @ 12:32 am
 ```
 
@@ -284,6 +288,7 @@ date.toLastWeekOfYear(); //2020/12/27
 
 date.toString(); //2020/12/27
 date.toDate(); //instanceof Date
+date.toUnix(); //1609014600
 ```
 
 # using calendars, format & locals

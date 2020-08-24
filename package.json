@@ -1,7 +1,7 @@
 {
   "name": "date-object",
-  "version": "0.1.4",
-  "description": "Date Object",
+  "version": "0.1.6",
+  "description": "JavaScript library for working with Date and Time in different calendars and locals",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
