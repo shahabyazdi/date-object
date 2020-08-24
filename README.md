@@ -6,7 +6,15 @@ default: `georgian`
 supported locals: `en` , `fa`
 default: `en`
 
-# example
+React: [react-date-object](https://github.com/shahabyazdi/react-date-object)
+
+# Install
+
+```shell
+npm install date-object --save
+```
+
+# Example
 
 ## 1- new instance
 
@@ -235,7 +243,32 @@ date.months; //array [{ name: 'January', shortName: 'Jan', ...}]
 date.leaps; //array [4,   8,  12,  16,  20,...]
 ```
 
-## 4- other methods
+## 4- parse method
+
+```javascript
+var date = new DateObject();
+
+date._format = "dddd DD MMMM YYYY";
+
+date.parse("Monday 24 August 2020");
+date.format("YYYY/MM/DD"); //2020/08/24
+
+date.parse("Friday 07 August 2020");
+date.format("YYYY-MM-DD"); //2020-08-07
+
+date.setCalendar("persian").setFormat("YYYY/MM/DD").parse("1399/06/03");
+date.format(); //1399/06/03
+date.format(); //1399/06/03
+
+date
+  .setCalendar("persian")
+  .setFormat("YYYY/MM/DD HH:mm")
+  .parse("1399/06/03 12:32");
+
+date.format("dddd DD MMMM @ hh:mm a"); //Doshanbeh 03 Shahrivar @ 12:32 am
+```
+
+## 5- other methods
 
 ```javascript
 var date = new DateObject();

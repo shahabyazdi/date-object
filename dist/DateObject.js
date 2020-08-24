@@ -47,8 +47,6 @@ class DateObject {
         "M": string => this.#month = Number(string) - 1,
         "DD": string => this.#day = Number(string),
         "D": string => this.#day = Number(string),
-        "dddd": string => null,
-        "ddd": string => null,
         "HH": string => this.#hour = Number(string),
         "H": string => this.#hour = Number(string),
         "hh": string => {
@@ -81,109 +79,282 @@ class DateObject {
     }
 
     #months = {
-        [DateObject.calendars.GEORGIAN]: {
-            [DateObject.locals.EN]: [
-                { name: "January", shortName: "Jan", length: 31 },
-                { name: "February", shortName: "Feb", length: undefined },
-                { name: "March", shortName: "Mar", length: 31 },
-                { name: "April", shortName: "Apr", length: 30 },
-                { name: "May", shortName: "May", length: 31 },
-                { name: "June", shortName: "June", length: 30 },
-                { name: "July", shortName: "July", length: 31 },
-                { name: "August", shortName: "Aug", length: 31 },
-                { name: "September", shortName: "Sept", length: 30 },
-                { name: "October", shortName: "Oct", length: 31 },
-                { name: "November", shortName: "Nov", length: 30 },
-                { name: "December", shortName: "Dec", length: 31 }
-            ],
-            [DateObject.locals.FA]: [
-                { name: "ژانویه", shortName: "Jan", length: 31 },
-                { name: "فوریه", shortName: "Feb", length: undefined },
-                { name: "مارس", shortName: "Mar", length: 31 },
-                { name: "آوریل", shortName: "Apr", length: 30 },
-                { name: "مه", shortName: "May", length: 31 },
-                { name: "ژوئن", shortName: "June", length: 30 },
-                { name: "ژوئیه", shortName: "July", length: 31 },
-                { name: "اوت", shortName: "Aug", length: 31 },
-                { name: "سپتامبر", shortName: "Sept", length: 30 },
-                { name: "اکتبر", shortName: "Oct", length: 31 },
-                { name: "نوامبر", shortName: "Nov", length: 30 },
-                { name: "دسامبر", shortName: "Dec", length: 31 }
-            ]
-        },
-        [DateObject.calendars.PERSIAN]: {
-            [DateObject.locals.EN]: [
-                { name: "Farvardin", shortName: "Far", length: 31 },
-                { name: "Ordibehesht", shortName: "Ord", length: 31 },
-                { name: "Khordad", shortName: "Khor", length: 31 },
-                { name: "Tir", shortName: "Tir", length: 31 },
-                { name: "Mordad", shortName: "Mor", length: 31 },
-                { name: "Shahrivar", shortName: "Sha", length: 31 },
-                { name: "Mehr", shortName: "Mehr", length: 30 },
-                { name: "Aban", shortName: "Aban", length: 30 },
-                { name: "Azar", shortName: "Azar", length: 30 },
-                { name: "Dey", shortName: "Dey", length: 30 },
-                { name: "Bahman", shortName: "Bah", length: 30 },
-                { name: "Esfand", shortName: "Esf", length: undefined }
-            ],
-            [DateObject.locals.FA]: [
-                { name: "فروردین", shortName: "فر", length: 31 },
-                { name: "اردیبهشت", shortName: "ارد", length: 31 },
-                { name: "خرداد", shortName: "خرد", length: 31 },
-                { name: "تیر", shortName: "تیر", length: 31 },
-                { name: "مرداد", shortName: "مر", length: 31 },
-                { name: "شهریور", shortName: "شه", length: 31 },
-                { name: "مهر", shortName: "مهر", length: 30 },
-                { name: "آبان", shortName: "آبا", length: 30 },
-                { name: "آذر", shortName: "آذر", length: 30 },
-                { name: "دی", shortName: "دی", length: 30 },
-                { name: "بهمن", shortName: "بهم", length: 30 },
-                { name: "اسفند", shortName: "اسف", length: undefined }
-            ]
-        }
+        [DateObject.calendars.GEORGIAN]: [
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "January", shortName: "Jan" },
+                    [DateObject.locals.FA]: { name: "ژانویه", shortName: "ژان" }
+                }
+            },
+            {
+                length: undefined,
+                locals: {
+                    [DateObject.locals.EN]: { name: "February", shortName: "Feb" },
+                    [DateObject.locals.FA]: { name: "فوریه", shortName: "فور" }
+                }
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "March", shortName: "Mar" },
+                    [DateObject.locals.FA]: { name: "مارس", shortName: "ما" }
+                }
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "April", shortName: "Apr" },
+                    [DateObject.locals.FA]: { name: "آوریل", shortName: "آور" }
+                }
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "May", shortName: "May" },
+                    [DateObject.locals.FA]: { name: "مه", shortName: "مه" }
+                }
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "June", shortName: "June" },
+                    [DateObject.locals.FA]: { name: "ژوئن", shortName: "ژوئن" }
+                }
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "July", shortName: "July" },
+                    [DateObject.locals.FA]: { name: "ژوئیه", shortName: "ژوئیه" }
+                }
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "August", shortName: "Aug" },
+                    [DateObject.locals.FA]: { name: "اوت", shortName: "اوت" }
+                }
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "September", shortName: "Sept" },
+                    [DateObject.locals.FA]: { name: "سپتامبر", shortName: "سپ" }
+                }
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "October", shortName: "Oct" },
+                    [DateObject.locals.FA]: { name: "اکتبر", shortName: "اک" }
+                }
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "November", shortName: "Nov" },
+                    [DateObject.locals.FA]: { name: "نوامبر", shortName: "نو" }
+                }
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "December", shortName: "Dec" },
+                    [DateObject.locals.FA]: { name: "دسامبر", shortName: "دس" }
+                }
+            }
+        ],
+        [DateObject.calendars.PERSIAN]: [
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Farvardin", shortName: "Far" },
+                    [DateObject.locals.FA]: { name: "فروردین", shortName: "فر" }
+                },
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Ordibehesht", shortName: "Ord" },
+                    [DateObject.locals.FA]: { name: "اردیبهشت", shortName: "ار" }
+                },
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Khordad", shortName: "Khor" },
+                    [DateObject.locals.FA]: { name: "خرداد", shortName: "خرد" }
+                },
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Tir", shortName: "Tir" },
+                    [DateObject.locals.FA]: { name: "تیر", shortName: "تیر" }
+                },
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Mordad", shortName: "Mor" },
+                    [DateObject.locals.FA]: { name: "مرداد", shortName: "مر" }
+                },
+            },
+            {
+                length: 31,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Shahrivar", shortName: "Sha" },
+                    [DateObject.locals.FA]: { name: "شهریور", shortName: "شه" }
+                },
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Mehr", shortName: "Mehr" },
+                    [DateObject.locals.FA]: { name: "مهر", shortName: "مه" }
+                },
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Aban", shortName: "Aban" },
+                    [DateObject.locals.FA]: { name: "آبان", shortName: "آبا" }
+                },
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Azar", shortName: "Azar" },
+                    [DateObject.locals.FA]: { name: "آذر", shortName: "آذ" }
+                },
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Dey", shortName: "Dey" },
+                    [DateObject.locals.FA]: { name: "دی", shortName: "دی" }
+                },
+            },
+            {
+                length: 30,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Bahman", shortName: "Bah" },
+                    [DateObject.locals.FA]: { name: "بهمن", shortName: "بهم" }
+                },
+            },
+            {
+                length: undefined,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Esfand", shortName: "Esf" },
+                    [DateObject.locals.FA]: { name: "اسفند", shortName: "اسف" }
+                },
+            }
+        ]
     }
-
     #weeks = {
-        [DateObject.calendars.GEORGIAN]: {
-            [DateObject.locals.EN]: [
-                { name: "Sunday", shortName: "Sun", index: 0 },
-                { name: "Monday", shortName: "Mon", index: 1 },
-                { name: "Tuesday", shortName: "Tue", index: 2 },
-                { name: "Wednesday", shortName: "Wed", index: 3 },
-                { name: "Thursday", shortName: "Thu", index: 4 },
-                { name: "Friday", shortName: "Fri", index: 5 },
-                { name: "Saturday", shortName: "Sat", index: 6 }
-            ],
-            [DateObject.locals.FA]: [
-                { name: "یکشنبه", shortName: "یک", index: 0 },
-                { name: "دوشنبه", shortName: "دو", index: 1 },
-                { name: "سه شنبه", shortName: "سه", index: 2 },
-                { name: "چهارشنبه", shortName: "چهار", index: 3 },
-                { name: "پنجشنبه", shortName: "پنج", index: 4 },
-                { name: "جمعه", shortName: "جم", index: 5 },
-                { name: "شنبه", shortName: "شن", index: 6 },
-            ]
-        },
-        [DateObject.calendars.PERSIAN]: {
-            [DateObject.locals.EN]: [
-                { name: "Panjshanbeh", shortName: "Pa", index: 5 },
-                { name: "Jomeh", shortName: "Jo", index: 6 },
-                { name: "Shanbeh", shortName: "Sh", index: 0 },
-                { name: "YekShanbeh", shortName: "Ye", index: 1 },
-                { name: "Doshanbeh", shortName: "Do", index: 2 },
-                { name: "Seshanbeh", shortName: "Se", index: 3 },
-                { name: "Chaharshanbeh", shortName: "Ch", index: 4 },
-            ],
-            [DateObject.locals.FA]: [
-                { name: "پنجشنبه", shortName: "پنج", index: 5 },
-                { name: "جمعه", shortName: "جم", index: 6 },
-                { name: "شنبه", shortName: "شن", index: 0 },
-                { name: "یکشنبه", shortName: "یک", index: 1 },
-                { name: "دوشنبه", shortName: "دو", index: 2 },
-                { name: "سه شنبه", shortName: "سه", index: 3 },
-                { name: "چهارشنبه", shortName: "چهار", index: 4 },
-            ]
-        }
+        [DateObject.calendars.GEORGIAN]: [
+            {
+                index: 0,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Sunday", shortName: "Sun" },
+                    [DateObject.locals.FA]: { name: "یکشنبه", shortName: "یک" }
+                }
+            },
+            {
+                index: 1,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Monday", shortName: "Mon" },
+                    [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" }
+                }
+            },
+            {
+                index: 2,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Tuesday", shortName: "Tue" },
+                    [DateObject.locals.FA]: { name: "سه شنبه", shortName: "سه" }
+                }
+            },
+            {
+                index: 3,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Wednesday", shortName: "Wed" },
+                    [DateObject.locals.FA]: { name: "چهارشنبه", shortName: "چهار" }
+                }
+            },
+            {
+                index: 4,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Thursday", shortName: "Thu" },
+                    [DateObject.locals.FA]: { name: "پنجشنبه", shortName: "پنج" }
+                }
+            },
+            {
+                index: 5,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Friday", shortName: "Fri" },
+                    [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" }
+                }
+            },
+            {
+                index: 6,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Saturday", shortName: "Sat" },
+                    [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" }
+                }
+            }
+        ],
+        [DateObject.calendars.PERSIAN]: [
+            {
+                index: 5,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Panjshanbeh", shortName: "Pa" },
+                    [DateObject.locals.FA]: { name: "پنجشنبه", shortName: "پنج" }
+                }
+            },
+            {
+                index: 6,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Jomeh", shortName: "Jo" },
+                    [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" }
+                }
+            },
+            {
+                index: 0,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Shanbeh", shortName: "Sh" },
+                    [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" }
+                }
+            },
+            {
+                index: 1,
+                locals: {
+                    [DateObject.locals.EN]: { name: "YekShanbeh", shortName: "Ye" },
+                    [DateObject.locals.FA]: { name: "یکشنبه", shortName: "یک" }
+                }
+            },
+            {
+                index: 2,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Doshanbeh", shortName: "Do" },
+                    [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" }
+                }
+            },
+            {
+                index: 3,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Seshanbeh", shortName: "Se" },
+                    [DateObject.locals.FA]: { name: "سه شنبه", shortName: "سه" }
+                }
+            },
+            {
+                index: 4,
+                locals: {
+                    [DateObject.locals.EN]: { name: "Chaharshanbeh", shortName: "Ch" },
+                    [DateObject.locals.FA]: { name: "چهارشنبه", shortName: "چهار" }
+                }
+            },
+        ],
     }
 
     #digits = {
@@ -192,8 +363,17 @@ class DateObject {
     }
 
     #meridiems = {
-        [DateObject.locals.EN]: [{ lowerCase: "am", upperCase: "AM" }, { lowerCase: "pm", upperCase: "PM" }],
-        [DateObject.locals.FA]: [{ lowerCase: "ق.ظ", upperCase: "قبل از ظهر" }, { lowerCase: "ب.ظ", upperCase: "بعد از ظهر" }]
+        [DateObject.locals.EN]: [{ name: "AM", shortName: "am" }, { name: "PM", shortName: "pm" }],
+        [DateObject.locals.FA]: [{ name: "قبل از ظهر", shortName: "ق.ظ" }, { name: "بعد از ظهر", shortName: "ب.ظ" }]
+    }
+
+    #epoch = {
+        [DateObject.calendars.PERSIAN]: {
+            [DateObject.calendars.GEORGIAN]: 226895
+        },
+        [DateObject.calendars.GEORGIAN]: {
+            [DateObject.calendars.PERSIAN]: -226895
+        }
     }
 
     constructor(object = { date: new Date() }) {
@@ -263,6 +443,7 @@ class DateObject {
         }
 
         if (!date) setDate()
+        if (this.#year === 0) this.#year = -1
 
         if (mustGetLeaps) {
             this.#getLeaps()
@@ -311,7 +492,9 @@ class DateObject {
             const stringArray = string.split(/[^\w\u0600-\u06FF]/)
 
             for (let i = 0; i < formatArray.length; i++) {
-                if (stringArray[i]) this.#reverse[formatArray[i]](stringArray[i])
+                let reverse = this.#reverse[formatArray[i]]
+
+                if (reverse && stringArray[i]) reverse(stringArray[i])
             }
 
             if (!this.#hour) this.#hour = 0
@@ -320,11 +503,11 @@ class DateObject {
             if (!this.#millisecond) this.#millisecond = 0
         }
 
-        if (string.includes(this.#meridiems[this.#local][1].lowerCase) && this.#hour < 12) {
+        if (string.includes(this.#meridiems[this.#local][1].shortName) && this.#hour < 12) {
             this.#hour = this.#hour + 12
         }
 
-        if (string.includes(this.#meridiems[this.#local][1].upperCase) && this.#hour < 12) {
+        if (string.includes(this.#meridiems[this.#local][1].name) && this.#hour < 12) {
             this.#hour = this.#hour + 12
         }
     }
@@ -353,6 +536,8 @@ class DateObject {
 
             if (mustGetLeaps) this.#getLeaps()
         }
+
+        if (Number.isNaN(Number(this.#year)) || Number.isNaN(Number(this.#month)) || Number.isNaN(Number(this.#day))) return
 
         while (this.#millisecond >= 1000) {
             this.#millisecond -= 1000
@@ -459,49 +644,33 @@ class DateObject {
         if (!calendar) throw new Error("calendar not found")
         if (calendar === this.#calendar) return this
 
-        const difference = () => {
-            let difference = 0
-
-            switch (this.#calendar) {
-                case DateObject.calendars.PERSIAN:
-                    if (calendar === DateObject.calendars.GEORGIAN) difference = 226895
-                    break
-                case DateObject.calendars.GEORGIAN:
-                    if (calendar === DateObject.calendars.PERSIAN) difference = -226895
-                    break
-                default: difference = 0
-            }
-
-            return difference
-        }
-
-        const offset = () => {
-            let offset = 0
+        const yearEpoch = () => {
+            let yearEpoch = 0
 
             switch (this.#calendar + "->" + calendar) {
                 case "PERSIAN->GEORGIAN":
                 case "GEORGIAN->PERSIAN":
                     if (this.#month < 10 || (this.#month === 10 && this.#day <= (this.isLeap ? 11 : 10))) {
-                        offset = calendar === DateObject.calendars.GEORGIAN ? 621 : -621
+                        yearEpoch = calendar === DateObject.calendars.GEORGIAN ? 621 : -621
                     } else {
-                        offset = calendar === DateObject.calendars.GEORGIAN ? 622 : -622
+                        yearEpoch = calendar === DateObject.calendars.GEORGIAN ? 622 : -622
                     }
                     break
-                default: offset = 0
+                default: yearEpoch = 0
             }
 
-            return offset
+            return yearEpoch
         }
 
         let year = this.#year
         let days = this.dayOfBeginning
         let month = undefined
         let target = undefined
-        days += difference()
+        days += this.#epoch[this.#calendar][calendar]
 
         target = new DateObject({
             calendar,
-            year: year + offset(),
+            year: year + yearEpoch(),
             month: 1,
             day: 1
         })
@@ -532,6 +701,7 @@ class DateObject {
             while (format.includes(key)) {
                 format = format.replace(key, index)
                 object[index] = this.getProperty(key)
+                console.log(object[index], key, this.getProperty(key));
                 index++
             }
         }
@@ -576,8 +746,8 @@ class DateObject {
             case "SSS": return this.#millisecond
             case "SS": return this.#millisecond.toString().substring(0, 2)
             case "S": return this.#millisecond.toString().substring(0, 1)
-            case "a": return this.hour > 12 ? this.#meridiems[this.#local][1].lowerCase : this.#meridiems[this.#local][0].lowerCase
-            case "A": return this.hour > 12 ? this.#meridiems[this.#local][1].upperCase : this.#meridiems[this.#local][0].upperCase
+            case "a": return this.hour >= 12 ? this.#meridiems[this.#local][1].shortName : this.#meridiems[this.#local][0].shortName
+            case "A": return this.hour >= 12 ? this.#meridiems[this.#local][1].name : this.#meridiems[this.#local][0].name
             default: return ""
         }
     }
@@ -719,7 +889,7 @@ class DateObject {
         let days = this.#day
         let months = this.months
 
-        for (let i = 0; i <= months.length; i++) {
+        for (let i = 0; i < months.length; i++) {
             if (i >= this.#month) break
 
             days += months[i].length
@@ -744,6 +914,8 @@ class DateObject {
     get month() {
         let month = this.months[this.#month]
 
+        if (!month) return []
+
         month.index = this.#month
         month.number = month.index + 1
 
@@ -763,12 +935,15 @@ class DateObject {
 
         if (index < 0) index += 7
 
-        let weekDay = this.#weeks[this.#calendar][this.#local][index]
+        let weekDay = this.#weeks[this.#calendar][index]
 
-        weekDay.number = weekDay.index + 1
+        if (!weekDay) return {}
 
-        weekDay.toString = function () {
-            return this.number
+        weekDay = {
+            index: weekDay.index,
+            number: weekDay.index + 1,
+            toString: function () { return this.number },
+            ...weekDay.locals[this.#local]
         }
 
         return weekDay
@@ -791,7 +966,7 @@ class DateObject {
     }
 
     get months() {
-        let months = this.#months[this.#calendar][this.#local]
+        let months = this.#months[this.#calendar]
 
         switch (this.#calendar) {
             case DateObject.calendars.PERSIAN:
@@ -801,14 +976,21 @@ class DateObject {
                 months[1].length = this.isLeap ? 29 : 28
         }
 
+        months = months.map(month => {
+            return {
+                length: month.length,
+                ...month.locals[this.#local]
+            }
+        })
+
         return months
     }
 
     get weeks() {
-        let weeks = this.#weeks[this.#calendar][this.#local]
+        let weeks = this.#weeks[this.#calendar]
 
         weeks.sort((a, b) => a.index - b.index)
-        weeks = weeks.map(week => { return { ...week, number: week.index + 1 } })
+        weeks = weeks.map(week => { return { index: week.index, number: week.index + 1, ...week.locals[this.#local] } })
 
         return weeks
     }
@@ -829,6 +1011,10 @@ class DateObject {
         return this.#meridiems[this.#local]
     }
 
+    get digits() {
+        return this.#digits[this.#local]
+    }
+
     get _format() {
         return this.#format
     }
@@ -845,6 +1031,7 @@ class DateObject {
 
     set month(value) {
         this.#month = value - 1
+
         this.#fix()
     }
 
