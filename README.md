@@ -232,6 +232,7 @@ date.month = 8;
 date.day = 21;
 
 date.isLeap; //true
+date.isValid; //true
 date.month.name; //August
 date.month.length; //31
 date.month.index; //7

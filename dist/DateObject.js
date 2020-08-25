@@ -380,11 +380,10 @@ class DateObject {
         if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
         if (typeof object === "number") object = { date: new Date(object * 1000) }
 
-        let { calendar, local, format, date, year, month, day, hour, minute, second, millisecond } = object
+        let { calendar = "georgian", local = "en", format, date, year, month, day, hour, minute, second, millisecond } = object
         let mustGetLeaps = true
 
-        if (calendar) this.#calendar = DateObject.calendars[calendar.toUpperCase()]
-        if (!this.#calendar) throw new Error("calendar not found")
+        if (calendar) this.#calendar = DateObject.calendars[calendar.toUpperCase()] || DateObject.calendars.GEORGIAN
         if (local) this.#local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
         if (calendar && !date && !year && !month && !day && !hour && !minute && !second && !millisecond) date = new Date()
 
@@ -396,13 +395,13 @@ class DateObject {
         const setDate = () => {
             if (month === 0) month = 1
 
-            this.#year = year
-            this.#month = month - 1
-            this.#day = day
-            this.#hour = hour
-            this.#minute = minute
-            this.#second = second
-            this.#millisecond = millisecond
+            this.#year = this.#toNumber(year)
+            this.#month = this.#toNumber(month - 1)
+            this.#day = this.#toNumber(day)
+            this.#hour = this.#toNumber(hour) || 0
+            this.#minute = this.#toNumber(minute) || 0
+            this.#second = this.#toNumber(second) || 0
+            this.#millisecond = this.#toNumber(millisecond) || 0
         }
 
         if (date instanceof DateObject) {
@@ -454,7 +453,7 @@ class DateObject {
     }
 
     parse(string) {
-        if (!string) return
+        if (!string) return this
 
         let format = this.#format
 
@@ -507,6 +506,8 @@ class DateObject {
         if (string.includes(this.#meridiems[this.#local][1].name) && this.#hour < 12) {
             this.#hour = this.#hour + 12
         }
+
+        return this
     }
 
     #fix = () => {
@@ -534,7 +535,7 @@ class DateObject {
             if (mustGetLeaps) this.#getLeaps()
         }
 
-        if (Number.isNaN(Number(this.#year)) || Number.isNaN(Number(this.#month)) || Number.isNaN(Number(this.#day))) return
+        if (!this.isValid) return
 
         while (this.#millisecond >= 1000) {
             this.#millisecond -= 1000
@@ -1028,6 +1029,10 @@ class DateObject {
 
     get isLeap() {
         return this.#leaps.includes(this.#year)
+    }
+
+    get isValid() {
+        return !Number.isNaN(Number(this.#year + this.#month + this.#day))
     }
 
     get unix() {
