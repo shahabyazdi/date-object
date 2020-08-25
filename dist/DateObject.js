@@ -507,6 +507,8 @@ class DateObject {
             this.#hour = this.#hour + 12
         }
 
+        this.#fix()
+
         return this
     }
 
