@@ -1,6 +1,6 @@
 {
   "name": "date-object",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "JavaScript library for working with Date and Time in different calendars and locals",
   "main": "index.js",
   "scripts": {

@@ -408,10 +408,10 @@ class DateObject {
             this.#year = date.year
             this.#month = date.month.index
             this.#day = date.day
-            this.#hour = date.hour
-            this.#minute = date.minute
-            this.#second = date.second
-            this.#millisecond = date.millisecond
+            this.#hour = date.hour || 0
+            this.#minute = date.minute || 0
+            this.#second = date.second || 0
+            this.#millisecond = date.millisecond || 0
             this.#calendar = date.calendar.toUpperCase()
             this.#local = date.local.toUpperCase()
             this.#format = date._format
@@ -883,6 +883,10 @@ class DateObject {
         return this.unix
     }
 
+    valueOf() {
+        return this.toDate().valueOf()
+    }
+
     get dayOfBeginning() {
         let days = (this.#year > 0 ? (this.#year - 1) : this.#year) * 365
         let leapsLength = this.isLeap ? (this.leaps.length - 1) : this.leaps.length
@@ -1043,9 +1047,6 @@ class DateObject {
 
     set year(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#year = value
         this.#getLeaps()
         this.#fix()
@@ -1053,54 +1054,36 @@ class DateObject {
 
     set month(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#month = value - 1
         this.#fix()
     }
 
     set day(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#day = value
         this.#fix()
     }
 
     set hour(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#hour = value
         this.#fix()
     }
 
     set minute(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#minute = value
         this.#fix()
     }
 
     set second(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#second = value
         this.#fix()
     }
 
     set millisecond(value) {
         value = this.#toNumber(value)
-
-        if (!value) return
-
         this.#millisecond = value
         this.#fix()
     }
