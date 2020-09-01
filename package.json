@@ -1,6 +1,6 @@
 {
   "name": "date-object",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "JavaScript library for working with Date and Time in different calendars and locals",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,7 @@
     "persian",
     "georgian",
     "farsi",
+    "arabic",
     "english",
     "locals"
   ],
