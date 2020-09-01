@@ -280,86 +280,86 @@ class DateObject {
         [DateObject.calendars.ARABIC]: [
             {
                 length: 30, locals: {
-                    [DateObject.locals.AR]: { name: "محرم", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Muharram", shortName: "" },
-                    [DateObject.locals.FA]: { name: "محرم", shortName: "" },
+                    [DateObject.locals.AR]: { name: "محرم", shortName: "محرم" },
+                    [DateObject.locals.EN]: { name: "Muharram", shortName: "Mu" },
+                    [DateObject.locals.FA]: { name: "محرم", shortName: "محرم" },
                 }
             },
             {
                 length: 29, locals: {
-                    [DateObject.locals.AR]: { name: "صفر", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Safar", shortName: "" },
-                    [DateObject.locals.FA]: { name: "صفر", shortName: "" },
+                    [DateObject.locals.AR]: { name: "صفر", shortName: "صفر" },
+                    [DateObject.locals.EN]: { name: "Safar", shortName: "Sa" },
+                    [DateObject.locals.FA]: { name: "صفر", shortName: "صفر" },
                 }
             },
             {
                 length: 30, locals: {
-                    [DateObject.locals.AR]: { name: "ربیع الاول", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Rabi`al-Awwal", shortName: "" },
-                    [DateObject.locals.FA]: { name: "ربیع الاول", shortName: "" },
+                    [DateObject.locals.AR]: { name: "ربیع الاول", shortName: "ربیع الاول" },
+                    [DateObject.locals.EN]: { name: "Rabi`al-Awwal", shortName: "RI" },
+                    [DateObject.locals.FA]: { name: "ربیع الاول", shortName: "ربیع الاول" },
                 }
             },
             {
                 length: 29, locals: {
-                    [DateObject.locals.AR]: { name: "ربیع الثانی", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Rabi`ath-Thani", shortName: "" },
-                    [DateObject.locals.FA]: { name: "ربیع الثانی", shortName: "" },
+                    [DateObject.locals.AR]: { name: "ربیع الثانی", shortName: "ربیع الثانی" },
+                    [DateObject.locals.EN]: { name: "Rabi`ath-Thani", shortName: "RII" },
+                    [DateObject.locals.FA]: { name: "ربیع الثانی", shortName: "ربیع الثانی" },
                 }
             },
             {
                 length: 30, locals: {
-                    [DateObject.locals.AR]: { name: "جمادی الاول", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Jumada l-Ula", shortName: "" },
-                    [DateObject.locals.FA]: { name: "جمادی الاول", shortName: "" },
+                    [DateObject.locals.AR]: { name: "جمادی الاول", shortName: "جمادی الاول" },
+                    [DateObject.locals.EN]: { name: "Jumada l-Ula", shortName: "JI" },
+                    [DateObject.locals.FA]: { name: "جمادی الاول", shortName: "جمادی الاول" },
                 }
             },
             {
                 length: 29, locals: {
-                    [DateObject.locals.AR]: { name: "جمادی الثانی", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Jumada t-Tania", shortName: "" },
-                    [DateObject.locals.FA]: { name: "جمادی الثانی", shortName: "" },
+                    [DateObject.locals.AR]: { name: "جمادی الثانی", shortName: "جمادی الثانی" },
+                    [DateObject.locals.EN]: { name: "Jumada t-Tania", shortName: "JII" },
+                    [DateObject.locals.FA]: { name: "جمادی الثانی", shortName: "جمادی الثانی" },
                 }
             },
             {
                 length: 30, locals: {
-                    [DateObject.locals.AR]: { name: "رجب", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Rajab", shortName: "" },
-                    [DateObject.locals.FA]: { name: "رجب", shortName: "" },
+                    [DateObject.locals.AR]: { name: "رجب", shortName: "رجب" },
+                    [DateObject.locals.EN]: { name: "Rajab", shortName: "Ra" },
+                    [DateObject.locals.FA]: { name: "رجب", shortName: "رجب" },
                 }
             },
             {
                 length: 29, locals: {
-                    [DateObject.locals.AR]: { name: "شعبان", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Sha`ban", shortName: "" },
-                    [DateObject.locals.FA]: { name: "شعبان", shortName: "" },
+                    [DateObject.locals.AR]: { name: "شعبان", shortName: "شعبان" },
+                    [DateObject.locals.EN]: { name: "Sha`ban", shortName: "Sh" },
+                    [DateObject.locals.FA]: { name: "شعبان", shortName: "شعبان" },
                 }
             },
             {
                 length: 30, locals: {
-                    [DateObject.locals.AR]: { name: "رمضان", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Ramadan", shortName: "" },
-                    [DateObject.locals.FA]: { name: "رمضان", shortName: "" },
+                    [DateObject.locals.AR]: { name: "رمضان", shortName: "رمضان" },
+                    [DateObject.locals.EN]: { name: "Ramadan", shortName: "Ra" },
+                    [DateObject.locals.FA]: { name: "رمضان", shortName: "رمضان" },
                 }
             },
             {
                 length: 29, locals: {
-                    [DateObject.locals.AR]: { name: "شوال", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Shawwal", shortName: "" },
-                    [DateObject.locals.FA]: { name: "شوال", shortName: "" },
+                    [DateObject.locals.AR]: { name: "شوال", shortName: "شوال" },
+                    [DateObject.locals.EN]: { name: "Shawwal", shortName: "Sh" },
+                    [DateObject.locals.FA]: { name: "شوال", shortName: "شوال" },
                 }
             },
             {
                 length: 30, locals: {
-                    [DateObject.locals.AR]: { name: "ذیقعده ", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Dhu l-Qa`da ", shortName: "" },
-                    [DateObject.locals.FA]: { name: "ذیقعده ", shortName: "" },
+                    [DateObject.locals.AR]: { name: "ذیقعده ", shortName: "ذیقعده" },
+                    [DateObject.locals.EN]: { name: "Dhu l-Qa`da ", shortName: "DhQ" },
+                    [DateObject.locals.FA]: { name: "ذیقعده ", shortName: "ذیقعده" },
                 }
             },
             {
                 length: undefined, locals: {
-                    [DateObject.locals.AR]: { name: "ذیحجه", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Dhu l-Hijja", shortName: "" },
-                    [DateObject.locals.FA]: { name: "ذیحجه", shortName: "" },
+                    [DateObject.locals.AR]: { name: "ذیحجه", shortName: "ذیحجه" },
+                    [DateObject.locals.EN]: { name: "Dhu l-Hijja", shortName: "DhH" },
+                    [DateObject.locals.FA]: { name: "ذیحجه", shortName: "ذیحجه" },
                 }
             }
         ]
@@ -485,51 +485,51 @@ class DateObject {
         [DateObject.calendars.ARABIC]: [
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "السّبت", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Saturday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "شنبه", shortName: "" },
+                    [DateObject.locals.AR]: { name: "السّبت", shortName: "السّبت" },
+                    [DateObject.locals.EN]: { name: "as-sabt", shortName: "as-sabt" },
+                    [DateObject.locals.FA]: { name: "شنبه", shortName: "السّبت" },
                 }
             },
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "الأحد", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Sunday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "يکشنبه", shortName: "" },
+                    [DateObject.locals.AR]: { name: "الأحد", shortName: "الأحد" },
+                    [DateObject.locals.EN]: { name: "al-'ahad", shortName: "al-'ahad" },
+                    [DateObject.locals.FA]: { name: "يکشنبه", shortName: "یک" },
                 }
             },
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Monday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "دوشنبه", shortName: "" },
+                    [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "الإثنينِ" },
+                    [DateObject.locals.EN]: { name: "al-'ithnayn", shortName: "al-'ithnayn" },
+                    [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" },
                 }
             },
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Tuesday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "سه شنبه	", shortName: "" },
+                    [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "الثلاثاء" },
+                    [DateObject.locals.EN]: { name: "ath-thalatha", shortName: "ath-thalatha" },
+                    [DateObject.locals.FA]: { name: "سه شنبه	", shortName: "سه" },
                 }
             },
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "الأربعاء", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Wednesday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "چهار شنبه", shortName: "" },
+                    [DateObject.locals.AR]: { name: "الأربعاء", shortName: "الأربعاء" },
+                    [DateObject.locals.EN]: { name: "al-'arb`a'", shortName: "al-'arb`a'" },
+                    [DateObject.locals.FA]: { name: "چهار شنبه", shortName: "چهار" },
                 }
             },
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "الخميس", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Thursday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "پنج شنبه	", shortName: "" },
+                    [DateObject.locals.AR]: { name: "الخميس", shortName: "الخميس" },
+                    [DateObject.locals.EN]: { name: "al-khamis", shortName: "al-khamis" },
+                    [DateObject.locals.FA]: { name: "پنج شنبه	", shortName: "پنج" },
                 }
             },
             {
                 index: 0, locals: {
-                    [DateObject.locals.AR]: { name: "الجمعة", shortName: "" },
-                    [DateObject.locals.EN]: { name: "Friday", shortName: "" },
-                    [DateObject.locals.FA]: { name: "جمعه", shortName: "" },
+                    [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" },
+                    [DateObject.locals.EN]: { name: "al-jum`a", shortName: "al-jum`a" },
+                    [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" },
                 }
             }
         ]
