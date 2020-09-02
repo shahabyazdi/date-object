@@ -484,42 +484,42 @@ class DateObject {
         ],
         [DateObject.calendars.ARABIC]: [
             {
-                index: 0, locals: {
+                index: 1, locals: {
                     [DateObject.locals.AR]: { name: "الأحد", shortName: "اح" },
                     [DateObject.locals.EN]: { name: "al-'ahad", shortName: "Aha" },
                     [DateObject.locals.FA]: { name: "يکشنبه", shortName: "یک" },
                 }
             },
             {
-                index: 0, locals: {
+                index: 2, locals: {
                     [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "ثن" },
                     [DateObject.locals.EN]: { name: "al-'ithnayn", shortName: "Ith" },
                     [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" },
                 }
             },
             {
-                index: 0, locals: {
+                index: 3, locals: {
                     [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "ثل" },
                     [DateObject.locals.EN]: { name: "ath-thalatha", shortName: "Tha" },
                     [DateObject.locals.FA]: { name: "سه شنبه	", shortName: "سه" },
                 }
             },
             {
-                index: 0, locals: {
+                index: 4, locals: {
                     [DateObject.locals.AR]: { name: "الأربعاء", shortName: "ار" },
                     [DateObject.locals.EN]: { name: "al-'arb`a'", shortName: "Arb" },
                     [DateObject.locals.FA]: { name: "چهار شنبه", shortName: "چهار" },
                 }
             },
             {
-                index: 0, locals: {
+                index: 5, locals: {
                     [DateObject.locals.AR]: { name: "الخميس", shortName: "خم" },
                     [DateObject.locals.EN]: { name: "al-khamis", shortName: "Kha" },
                     [DateObject.locals.FA]: { name: "پنج شنبه	", shortName: "پنج" },
                 }
             },
             {
-                index: 0, locals: {
+                index: 6, locals: {
                     [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" },
                     [DateObject.locals.EN]: { name: "al-jum`a", shortName: "Jum" },
                     [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" },
