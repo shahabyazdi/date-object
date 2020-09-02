@@ -14,6 +14,14 @@ React: [react-date-object](https://github.com/shahabyazdi/react-date-object)
 npm install date-object --save
 ```
 
+# Usage
+
+```javascript
+var DateObject = require("date-object");
+
+var dateObject = new DateObject();
+```
+
 # Example
 
 ## 1- new instance
