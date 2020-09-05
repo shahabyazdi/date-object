@@ -593,10 +593,13 @@ class DateObject {
             this.#minute = date.minute || 0
             this.#second = date.second || 0
             this.#millisecond = date.millisecond || 0
-            this.#calendar = calendar || date.calendar.toUpperCase()
             this.#local = local || date.local.toUpperCase()
             this.#format = format || date._format
             this.#leaps = date.leaps
+            this.#calendar = date.calendar.toUpperCase()
+
+            if (calendar) this.convert(calendar)
+
             mustGetLeaps = false
         }
 
