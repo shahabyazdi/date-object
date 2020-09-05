@@ -559,11 +559,11 @@ class DateObject {
         if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
         if (typeof object === "number") object = { date: new Date(object * 1000) }
 
-        let { calendar = "GREGORIAN", local = "en", format, date, year, month, day, hour, minute, second, millisecond } = object
+        let { calendar, local, format, date, year, month, day, hour, minute, second, millisecond } = object
         let mustGetLeaps = true
 
-        if (calendar) this.#calendar = DateObject.calendars[calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
-        if (local) this.#local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
+        if (calendar) calendar = DateObject.calendars[calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
+        if (local) local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
         if (calendar && !date && !year && !month && !day && !hour && !minute && !second && !millisecond) date = new Date()
 
         this.#format = format
@@ -581,6 +581,8 @@ class DateObject {
             this.#minute = this.#toNumber(minute) || 0
             this.#second = this.#toNumber(second) || 0
             this.#millisecond = this.#toNumber(millisecond) || 0
+            this.#calendar = calendar || DateObject.calendars.GREGORIAN
+            this.#local = local || DateObject.locals.EN
         }
 
         if (date instanceof DateObject) {
@@ -591,9 +593,9 @@ class DateObject {
             this.#minute = date.minute || 0
             this.#second = date.second || 0
             this.#millisecond = date.millisecond || 0
-            this.#calendar = date.calendar.toUpperCase()
-            this.#local = date.local.toUpperCase()
-            this.#format = date._format
+            this.#calendar = calendar || date.calendar.toUpperCase()
+            this.#local = local || date.local.toUpperCase()
+            this.#format = format || date._format
             this.#leaps = date.leaps
             mustGetLeaps = false
         }
