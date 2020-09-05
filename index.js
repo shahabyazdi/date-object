@@ -103,7 +103,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "March", shortName: "Mar" },
                     [DateObject.locals.FA]: { name: "مارس", shortName: "ما" },
-                    [DateObject.locals.FA]: { name: "مارس", shortName: "ما" }
+                    [DateObject.locals.AR]: { name: "مارس", shortName: "ما" }
                 }
             },
             {
@@ -111,7 +111,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "April", shortName: "Apr" },
                     [DateObject.locals.FA]: { name: "آوریل", shortName: "آور" },
-                    [DateObject.locals.FA]: { name: "إبريل", shortName: "إبر" },
+                    [DateObject.locals.AR]: { name: "إبريل", shortName: "إبر" },
                 }
             },
             {
@@ -119,7 +119,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "May", shortName: "May" },
                     [DateObject.locals.FA]: { name: "مه", shortName: "مه" },
-                    [DateObject.locals.FA]: { name: "مايو", shortName: "ما" },
+                    [DateObject.locals.AR]: { name: "مايو", shortName: "ما" },
                 }
             },
             {
@@ -127,7 +127,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "June", shortName: "June" },
                     [DateObject.locals.FA]: { name: "ژوئن", shortName: "ژو" },
-                    [DateObject.locals.FA]: { name: "يونيو", shortName: "يو" }
+                    [DateObject.locals.AR]: { name: "يونيو", shortName: "يو" }
                 }
             },
             {
@@ -135,7 +135,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "July", shortName: "July" },
                     [DateObject.locals.FA]: { name: "ژوئیه", shortName: "ژوئیه" },
-                    [DateObject.locals.FA]: { name: "يوليو", shortName: "يوليو" },
+                    [DateObject.locals.AR]: { name: "يوليو", shortName: "يوليو" },
                 }
             },
             {
@@ -143,7 +143,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "August", shortName: "Aug" },
                     [DateObject.locals.FA]: { name: "اوت", shortName: "اوت" },
-                    [DateObject.locals.FA]: { name: "أغسطس", shortName: "أغس" }
+                    [DateObject.locals.AR]: { name: "أغسطس", shortName: "أغس" }
                 }
             },
             {
@@ -151,7 +151,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "September", shortName: "Sept" },
                     [DateObject.locals.FA]: { name: "سپتامبر", shortName: "سپ" },
-                    [DateObject.locals.FA]: { name: "سبتمبر", shortName: "سب" },
+                    [DateObject.locals.AR]: { name: "سبتمبر", shortName: "سب" },
                 }
             },
             {
@@ -159,7 +159,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "October", shortName: "Oct" },
                     [DateObject.locals.FA]: { name: "اکتبر", shortName: "اک" },
-                    [DateObject.locals.FA]: { name: "أكتوبر", shortName: "اک" },
+                    [DateObject.locals.AR]: { name: "أكتوبر", shortName: "اک" },
                 }
             },
             {
@@ -167,7 +167,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "November", shortName: "Nov" },
                     [DateObject.locals.FA]: { name: "نوامبر", shortName: "نو" },
-                    [DateObject.locals.FA]: { name: "نوفمبر", shortName: "نو" },
+                    [DateObject.locals.AR]: { name: "نوفمبر", shortName: "نو" },
                 }
             },
             {
@@ -175,7 +175,7 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "December", shortName: "Dec" },
                     [DateObject.locals.FA]: { name: "دسامبر", shortName: "دس" },
-                    [DateObject.locals.FA]: { name: "ديسمبر", shortName: "دس" },
+                    [DateObject.locals.AR]: { name: "ديسمبر", shortName: "دس" },
                 }
             }
         ],
@@ -612,8 +612,8 @@ class DateObject {
             second = date.getSeconds()
             millisecond = date.getMilliseconds()
 
-            if (this.#calendar !== DateObject.calendars.GREGORIAN) {
-                let dateObject = new DateObject({ year, month, day, hour, minute, second }).convert(this.#calendar)
+            if (calendar !== DateObject.calendars.GREGORIAN) {
+                let dateObject = new DateObject({ year, month, day, hour, minute, second }).convert(calendar)
 
                 year = dateObject.year
                 month = dateObject.month.number
