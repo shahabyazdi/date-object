@@ -568,7 +568,12 @@ class DateObject {
 
         this.#format = format
 
-        if (typeof date === "string") this.parse(date)
+        if (typeof date === "string") {
+            if (calendar) this.#calendar = calendar
+
+            this.parse(date)
+        }
+
         if (typeof date === "number") date = new Date(date * 1000)
 
         const setDate = () => {
@@ -1056,9 +1061,11 @@ class DateObject {
     }
 
     toDate() {
-        if (this.#calendar !== DateObject.calendars.GREGORIAN) this.convert(DateObject.calendars.GREGORIAN)
+        let date = new DateObject(this)
 
-        return new Date(this.#year, this.#month, this.#day, this.#hour, this.#minute, this.#second, this.#millisecond)
+        if (this.#calendar !== DateObject.calendars.GREGORIAN) date.convert(DateObject.calendars.GREGORIAN)
+
+        return new Date(date.#year, date.#month, date.#day, date.#hour, date.#minute, date.#second, date.#millisecond)
     }
 
     toUnix() {
@@ -1070,7 +1077,7 @@ class DateObject {
     }
 
     valueOf() {
-        return this.toDate().valueOf()
+        return this.dayOfBeginning
     }
 
     get dayOfBeginning() {
