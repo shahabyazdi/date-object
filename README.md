@@ -329,34 +329,34 @@ date.toJulianDay(); //2459210
 date.valueOf(); //737786
 date.toObject();
 /**
- * {
- *     year: 2020,
- *     month: {
- *         length: 31,
- *         name: 'August',
- *         shortName: 'Aug',
- *         index: 7,
- *         number: 8,
- *         toString: " [Function (anonymous)]"
- *     },
- *     day: 16,
- *     weekDay: {
- *         index: 0,
- *         number: 1,
- *         toString: "[Function: toString]",
- *         name: 'Sunday',
- *         shortName: 'Sun'
- *     },
- *     hour: 11,
- *     minute: 8,
- *     second: 34,
- *     millisecond: 0,
- *     weekOfYear: 33,
- *     dayOfYear: 229,
- *     daysLeft: 137,
- *     calendar: 'gregorian',
- *     local: 'en'
- * }
+ *{
+ *    year: 2020,
+ *    month: {
+ *        length: 31,
+ *        name: 'December',
+ *        shortName: 'Dec',
+ *        index: 11,
+ *        number: 12,
+ *        toString: [Function (anonymous)]
+ *    },
+ *    day: 27,
+ *    weekDay: {
+ *        index: 0,
+ *        number: 1,
+ *        toString: [Function: toString],
+ *        name: 'Sunday',
+ *        shortName: 'Sun'
+ *    },
+ *    hour: 11,
+ *    minute: 8,
+ *    second: 34,
+ *    millisecond: 0,
+ *    weekOfYear: 52,
+ *    dayOfYear: 362,
+ *    daysLeft: 4,
+ *    calendar: 'gregorian',
+ *    local: 'en'
+ *}
  */
 ```
 
