@@ -899,6 +899,7 @@ class DateObject {
     }
 
     format(format) {
+        if (!this.isValid) return ""
         if (format && typeof format !== "string") return
         if (!format) format = this.#format || "YYYY/MM/DD"
 
@@ -908,9 +909,9 @@ class DateObject {
         for (let key in this.#types) {
             while (format.includes(key)) {
                 let id = `~~r00${index}~`
+
                 format = format.replace(key, id)
                 object[id] = this.getProperty(key)
-
                 index++
             }
         }
@@ -948,8 +949,8 @@ class DateObject {
             case "H": return this.hour
             case "dddd": return this.weekDay.name
             case "ddd": return this.weekDay.shortName
-            case "hh": return pad(this.hour > 12 ? this.hour - 12 : this.hour)
-            case "h": return this.hour > 12 ? this.hour - 12 : this.hour
+            case "hh": return pad(this.hour > 12 ? this.hour - 12 : this.hour || 12)
+            case "h": return this.hour > 12 ? this.hour - 12 : this.hour || 12
             case "mm": return pad(this.minute)
             case "m": return this.minute
             case "ss": return pad(this.second)
@@ -1159,7 +1160,7 @@ class DateObject {
     get month() {
         let month = this.months[this.#month]
 
-        if (!month) return []
+        if (!month) return {}
 
         month.index = this.#month
         month.number = month.index + 1
