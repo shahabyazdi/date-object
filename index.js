@@ -140,7 +140,7 @@ class DateObject {
             {
                 length: 30,
                 locals: {
-                    [DateObject.locals.EN]: { name: "June", shortName: "June" },
+                    [DateObject.locals.EN]: { name: "June", shortName: "Jun" },
                     [DateObject.locals.FA]: { name: "ژوئن", shortName: "ژو" },
                     [DateObject.locals.AR]: { name: "يونيو", shortName: "يو" }
                 }
@@ -148,7 +148,7 @@ class DateObject {
             {
                 length: 31,
                 locals: {
-                    [DateObject.locals.EN]: { name: "July", shortName: "July" },
+                    [DateObject.locals.EN]: { name: "July", shortName: "Jul" },
                     [DateObject.locals.FA]: { name: "ژوئیه", shortName: "ژوئیه" },
                     [DateObject.locals.AR]: { name: "يوليو", shortName: "يوليو" },
                 }
@@ -164,7 +164,7 @@ class DateObject {
             {
                 length: 30,
                 locals: {
-                    [DateObject.locals.EN]: { name: "September", shortName: "Sept" },
+                    [DateObject.locals.EN]: { name: "September", shortName: "Sep" },
                     [DateObject.locals.FA]: { name: "سپتامبر", shortName: "سپ" },
                     [DateObject.locals.AR]: { name: "سبتمبر", shortName: "سب" },
                 }
@@ -214,7 +214,7 @@ class DateObject {
             {
                 length: 31,
                 locals: {
-                    [DateObject.locals.EN]: { name: "Khordad", shortName: "Khor" },
+                    [DateObject.locals.EN]: { name: "Khordad", shortName: "Kho" },
                     [DateObject.locals.FA]: { name: "خرداد", shortName: "خرد" },
                     [DateObject.locals.AR]: { name: "خرداد", shortName: "خرد" }
                 },
@@ -246,7 +246,7 @@ class DateObject {
             {
                 length: 30,
                 locals: {
-                    [DateObject.locals.EN]: { name: "Mehr", shortName: "Mehr" },
+                    [DateObject.locals.EN]: { name: "Mehr", shortName: "Meh" },
                     [DateObject.locals.FA]: { name: "مهر", shortName: "مه" },
                     [DateObject.locals.AR]: { name: "مهر", shortName: "مه" }
                 },
@@ -254,7 +254,7 @@ class DateObject {
             {
                 length: 30,
                 locals: {
-                    [DateObject.locals.EN]: { name: "Aban", shortName: "Aban" },
+                    [DateObject.locals.EN]: { name: "Aban", shortName: "Aba" },
                     [DateObject.locals.FA]: { name: "آبان", shortName: "آبا" },
                     [DateObject.locals.AR]: { name: "آبان", shortName: "آبا" }
                 },
@@ -262,7 +262,7 @@ class DateObject {
             {
                 length: 30,
                 locals: {
-                    [DateObject.locals.EN]: { name: "Azar", shortName: "Azar" },
+                    [DateObject.locals.EN]: { name: "Azar", shortName: "Aza" },
                     [DateObject.locals.FA]: { name: "آذر", shortName: "آذ" },
                     [DateObject.locals.AR]: { name: "آذر", shortName: "آذ" }
                 },
@@ -574,21 +574,24 @@ class DateObject {
         if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
         if (typeof object === "number") object = { date: new Date(object * 1000) }
 
-        let { calendar, local, format, date, year, month, day, hour, minute, second, millisecond } = object
+        let { calendar = DateObject.calendars.GREGORIAN, local, format, date, year, month, day, hour, minute, second, millisecond } = object
         let mustGetLeaps = true
 
-        if (calendar) calendar = DateObject.calendars[calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
-        if (local) local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
+        if (calendar) {
+            calendar = DateObject.calendars[calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
+            this.#calendar = calendar
+        }
+
+        if (local) {
+            local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
+            this.#local = local
+        }
+
         if (calendar && !date && !year && !month && !day && !hour && !minute && !second && !millisecond) date = new Date()
 
         this.#format = format
 
-        if (typeof date === "string") {
-            if (calendar) this.#calendar = calendar
-
-            this.parse(date)
-        }
-
+        if (typeof date === "string") this.parse(date)
         if (typeof date === "number") date = new Date(date * 1000)
 
         const setDate = () => {
