@@ -574,7 +574,7 @@ class DateObject {
         if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
         if (typeof object === "number") object = { date: new Date(object * 1000) }
 
-        let { calendar = DateObject.calendars.GREGORIAN, local, format, date, year, month, day, hour, minute, second, millisecond } = object
+        let { calendar, local, format, date, year, month, day, hour, minute, second, millisecond } = object
         let mustGetLeaps = true
 
         if (calendar) {
