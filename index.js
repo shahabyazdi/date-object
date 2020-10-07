@@ -958,9 +958,9 @@ class DateObject {
             case "m": return this.minute
             case "ss": return pad(this.second)
             case "s": return this.second
-            case "SSS": return this.#millisecond
-            case "SS": return this.#millisecond.toString().substring(0, 2)
-            case "S": return this.#millisecond.toString().substring(0, 1)
+            case "SSS": return this.#millisecond < 10 ? `00${this.#millisecond}` : this.#millisecond < 100 ? `0${this.#millisecond}` : this.#millisecond
+            case "SS": return this.#millisecond < 10 ? `00` : this.#millisecond < 100 ? ("0" + this.#millisecond).substring(2, 0) : this.#millisecond.toString().substring(0, 2)
+            case "S": return this.#millisecond < 10 ? "0" : this.#millisecond < 100 ? "0" : this.#millisecond.toString().substring(0, 1)
             case "a": return this.hour >= 12 ? this.#meridiems[this.#local][1].shortName : this.#meridiems[this.#local][0].shortName
             case "A": return this.hour >= 12 ? this.#meridiems[this.#local][1].name : this.#meridiems[this.#local][0].name
             default: return ""
@@ -1023,6 +1023,52 @@ class DateObject {
 
     setCalendar(calendar) {
         this.calendar = calendar
+
+        return this
+    }
+
+    add(duration, type) {
+        duration = this.#toNumber(duration)
+
+        if (!duration || !type) return this
+
+        switch (type) {
+            case "years":
+            case "year":
+            case "y":
+                this.year += duration
+                break
+            case "months":
+            case "month":
+            case "M":
+                this.month += duration
+                break
+            case "days":
+            case "day":
+            case "d":
+                this.day += duration
+                break
+            case "hours":
+            case "hour":
+            case "h":
+                this.hour += duration
+                break
+            case "minutes":
+            case "minute":
+            case "m":
+                this.minute += duration
+                break
+            case "seconds":
+            case "second":
+            case "s":
+                this.second += duration
+                break
+            case "milliseconds":
+            case "millisecond":
+            case "ms":
+                this.millisecond += duration
+                break
+        }
 
         return this
     }
@@ -1279,6 +1325,7 @@ class DateObject {
 
     set year(value) {
         value = this.#toNumber(value)
+
         this.#year = value
         this.#getLeaps()
         this.#fix()
@@ -1339,7 +1386,7 @@ class DateObject {
     }
 
     #toNumber = value => {
-        if (!Number.isNaN(Number(value))) return parseInt(value)
+        if (!isNaN(value)) return parseInt(value)
     }
 }
 
