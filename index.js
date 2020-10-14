@@ -588,7 +588,7 @@ class DateObject {
             this.#local = local
         }
 
-        if (calendar || local && (!date && !year && !month && !day && !hour && !minute && !second && !millisecond)) date = new Date()
+        if ((calendar || local) && (!date && !year && !month && !day && !hour && !minute && !second && !millisecond)) date = new Date()
 
         this.#format = format
 
