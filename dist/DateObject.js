@@ -9,6 +9,7 @@ class DateObject {
     #format
     #local = DateObject.locals.EN
     #calendar = DateObject.calendars.GREGORIAN
+    #isUTC
     #leaps = []
     #types = {
         YYYY: /\d{4}/,
@@ -635,8 +636,16 @@ class DateObject {
             second = date.getSeconds()
             millisecond = date.getMilliseconds()
 
-            if (calendar !== DateObject.calendars.GREGORIAN) {
-                let dateObject = new DateObject({ year, month, day, hour, minute, second }).convert(calendar)
+            if (calendar && calendar !== DateObject.calendars.GREGORIAN) {
+                let dateObject = new DateObject({
+                    year,
+                    month,
+                    day,
+                    hour,
+                    minute,
+                    second,
+                    millisecond
+                }).convert(calendar)
 
                 year = dateObject.year
                 month = dateObject.month.number
@@ -1134,6 +1143,15 @@ class DateObject {
         if (this.#calendar !== DateObject.calendars.GREGORIAN) date.convert(DateObject.calendars.GREGORIAN)
 
         return new Date(date.#year, date.#month, date.#day, date.#hour, date.#minute, date.#second, date.#millisecond)
+    }
+
+    toUTC() {
+        if (!this.#isUTC) {
+            this.minute += new Date().getTimezoneOffset()
+            this.#isUTC = true
+        }
+
+        return this
     }
 
     toUnix() {
