@@ -27,7 +27,5 @@
     "url": "https://github.com/shahabyazdi/DateObject/issues"
   },
   "homepage": "https://github.com/shahabyazdi/DateObject#readme",
-  "dependencies": {
-    "nodemon": "^2.0.5"
-  }
+  "dependencies": {}
 }
