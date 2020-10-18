@@ -593,7 +593,12 @@ class DateObject {
 
         this.#format = format
 
-        if (typeof date === "string") this.parse(date)
+        if (typeof date === "string") {
+            this.parse(date)
+
+            mustGetLeaps = false
+        }
+
         if (typeof date === "number") date = new Date(date * 1000)
 
         const setDate = () => {
@@ -724,6 +729,7 @@ class DateObject {
             this.#hour = this.#hour + 12
         }
 
+        this.#getLeaps()
         this.#fix()
 
         return this

@@ -1,6 +1,6 @@
 {
   "name": "date-object",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "JavaScript library for working with Date and Time in different calendars and locals",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/shahabyazdi/DateObject/issues"
   },
-  "homepage": "https://github.com/shahabyazdi/DateObject#readme"
+  "homepage": "https://github.com/shahabyazdi/DateObject#readme",
+  "dependencies": {
+    "nodemon": "^2.0.5"
+  }
 }
