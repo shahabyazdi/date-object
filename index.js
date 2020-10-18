@@ -571,7 +571,8 @@ class DateObject {
 
     #yearLength = { [DateObject.calendars.GREGORIAN]: 365, [DateObject.calendars.PERSIAN]: 365, [DateObject.calendars.ARABIC]: 354 }
 
-    constructor(object = { date: new Date() }) {
+    constructor(object) {
+        if (!object || typeof object === "boolean") object = { date: new Date() }//Default parameter doesn't work in null
         if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
         if (typeof object === "number") object = { date: new Date(object * 1000) }
 
@@ -1180,11 +1181,17 @@ class DateObject {
         }
     }
 
+    toJSON() {
+        return this.toObject()
+    }
+
     valueOf() {
         return this.dayOfBeginning
     }
 
     get dayOfBeginning() {
+        if (!this.isValid) return
+
         let days = (this.#year > 0 ? (this.#year - 1) : this.#year) * this.#yearLength[this.#calendar]
         let leapsLength = this.isLeap ? (this.leaps.length - 1) : this.leaps.length
 
@@ -1197,6 +1204,8 @@ class DateObject {
     }
 
     get dayOfYear() {
+        if (!this.isValid) return
+
         let days = this.#day
         let months = this.months
 
@@ -1210,10 +1219,14 @@ class DateObject {
     }
 
     get weekOfYear() {
+        if (!this.isValid) return
+
         return ~~(this.dayOfYear / 7) + 1
     }
 
     get daysLeft() {
+        if (!this.isValid) return
+
         let yearLength = this.#yearLength[this.#calendar]
         let days = this.isLeap ? yearLength + 1 : yearLength
 
