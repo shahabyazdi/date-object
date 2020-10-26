@@ -94,7 +94,8 @@ class DateObject {
     static locals = {
         EN: "EN",
         FA: "FA",
-        AR: "AR"
+        AR: "AR",
+        HI: "HI",
     }
 
     #months = {
@@ -104,7 +105,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "January", shortName: "Jan" },
                     [DateObject.locals.FA]: { name: "ژانویه", shortName: "ژان" },
-                    [DateObject.locals.AR]: { name: "يناير", shortName: "ينا" }
+                    [DateObject.locals.AR]: { name: "يناير", shortName: "ينا" },
+                    [DateObject.locals.HI]: { name: "जनवरी", shortName: "जन" },
                 }
             },
             {
@@ -112,7 +114,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "February", shortName: "Feb" },
                     [DateObject.locals.FA]: { name: "فوریه", shortName: "فور" },
-                    [DateObject.locals.AR]: { name: "فبراير", shortName: "فبر" }
+                    [DateObject.locals.AR]: { name: "فبراير", shortName: "فبر" },
+                    [DateObject.locals.HI]: { name: "फ़रवरी", shortName: "फ़र" }
                 }
             },
             {
@@ -120,7 +123,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "March", shortName: "Mar" },
                     [DateObject.locals.FA]: { name: "مارس", shortName: "ما" },
-                    [DateObject.locals.AR]: { name: "مارس", shortName: "ما" }
+                    [DateObject.locals.AR]: { name: "مارس", shortName: "ما" },
+                    [DateObject.locals.HI]: { name: "मार्च", shortName: "मार्च" }
                 }
             },
             {
@@ -129,6 +133,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "April", shortName: "Apr" },
                     [DateObject.locals.FA]: { name: "آوریل", shortName: "آور" },
                     [DateObject.locals.AR]: { name: "إبريل", shortName: "إبر" },
+                    [DateObject.locals.HI]: { name: "अप्रैल", shortName: "अप्रैल" }
                 }
             },
             {
@@ -137,6 +142,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "May", shortName: "May" },
                     [DateObject.locals.FA]: { name: "مه", shortName: "مه" },
                     [DateObject.locals.AR]: { name: "مايو", shortName: "ما" },
+                    [DateObject.locals.HI]: { name: "मई", shortName: "मई" },
                 }
             },
             {
@@ -144,7 +150,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "June", shortName: "Jun" },
                     [DateObject.locals.FA]: { name: "ژوئن", shortName: "ژو" },
-                    [DateObject.locals.AR]: { name: "يونيو", shortName: "يو" }
+                    [DateObject.locals.AR]: { name: "يونيو", shortName: "يو" },
+                    [DateObject.locals.HI]: { name: "जून", shortName: "जून" },
                 }
             },
             {
@@ -153,6 +160,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "July", shortName: "Jul" },
                     [DateObject.locals.FA]: { name: "ژوئیه", shortName: "ژوئیه" },
                     [DateObject.locals.AR]: { name: "يوليو", shortName: "يوليو" },
+                    [DateObject.locals.HI]: { name: "जुलाई", shortName: "जुल" },
                 }
             },
             {
@@ -160,7 +168,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "August", shortName: "Aug" },
                     [DateObject.locals.FA]: { name: "اوت", shortName: "اوت" },
-                    [DateObject.locals.AR]: { name: "أغسطس", shortName: "أغس" }
+                    [DateObject.locals.AR]: { name: "أغسطس", shortName: "أغس" },
+                    [DateObject.locals.HI]: { name: "अगस्त", shortName: "अग" }
                 }
             },
             {
@@ -169,6 +178,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "September", shortName: "Sep" },
                     [DateObject.locals.FA]: { name: "سپتامبر", shortName: "سپ" },
                     [DateObject.locals.AR]: { name: "سبتمبر", shortName: "سب" },
+                    [DateObject.locals.HI]: { name: "सितंबर", shortName: "सित" },
                 }
             },
             {
@@ -177,6 +187,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "October", shortName: "Oct" },
                     [DateObject.locals.FA]: { name: "اکتبر", shortName: "اک" },
                     [DateObject.locals.AR]: { name: "أكتوبر", shortName: "اک" },
+                    [DateObject.locals.HI]: { name: "अक्तूबर", shortName: "अक्तू" },
                 }
             },
             {
@@ -185,6 +196,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "November", shortName: "Nov" },
                     [DateObject.locals.FA]: { name: "نوامبر", shortName: "نو" },
                     [DateObject.locals.AR]: { name: "نوفمبر", shortName: "نو" },
+                    [DateObject.locals.HI]: { name: "नवंबर", shortName: "नव" },
                 }
             },
             {
@@ -193,6 +205,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "December", shortName: "Dec" },
                     [DateObject.locals.FA]: { name: "دسامبر", shortName: "دس" },
                     [DateObject.locals.AR]: { name: "ديسمبر", shortName: "دس" },
+                    [DateObject.locals.HI]: { name: "दिसंबर", shortName: "दिस" },
                 }
             }
         ],
@@ -202,7 +215,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Farvardin", shortName: "Far" },
                     [DateObject.locals.FA]: { name: "فروردین", shortName: "فر" },
-                    [DateObject.locals.AR]: { name: "فروردین", shortName: "فر" }
+                    [DateObject.locals.AR]: { name: "فروردین", shortName: "فر" },
+                    [DateObject.locals.HI]: { name: "फर्वादिन", shortName: "फर्वादिन" },
                 },
             },
             {
@@ -210,7 +224,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Ordibehesht", shortName: "Ord" },
                     [DateObject.locals.FA]: { name: "اردیبهشت", shortName: "ار" },
-                    [DateObject.locals.AR]: { name: "اردیبهشت", shortName: "ار" }
+                    [DateObject.locals.AR]: { name: "اردیبهشت", shortName: "ار" },
+                    [DateObject.locals.HI]: { name: "ओर्दिवेहेस्ट", shortName: "ओर्दिवेहेस्ट" },
                 },
             },
             {
@@ -218,7 +233,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Khordad", shortName: "Kho" },
                     [DateObject.locals.FA]: { name: "خرداد", shortName: "خرد" },
-                    [DateObject.locals.AR]: { name: "خرداد", shortName: "خرد" }
+                    [DateObject.locals.AR]: { name: "خرداد", shortName: "خرد" },
+                    [DateObject.locals.HI]: { name: "खोरर्दाद", shortName: "खोरर्दाद" }
                 },
             },
             {
@@ -227,6 +243,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Tir", shortName: "Tir" },
                     [DateObject.locals.FA]: { name: "تیر", shortName: "تیر" },
                     [DateObject.locals.AR]: { name: "تیر", shortName: "تیر" },
+                    [DateObject.locals.HI]: { name: "टिर", shortName: "टिर" },
                 },
             },
             {
@@ -235,6 +252,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Mordad", shortName: "Mor" },
                     [DateObject.locals.FA]: { name: "مرداد", shortName: "مر" },
                     [DateObject.locals.AR]: { name: "مرداد", shortName: "مر" },
+                    [DateObject.locals.HI]: { name: "मोरदाद", shortName: "मोरदाद" },
                 },
             },
             {
@@ -242,7 +260,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Shahrivar", shortName: "Sha" },
                     [DateObject.locals.FA]: { name: "شهریور", shortName: "شه" },
-                    [DateObject.locals.AR]: { name: "شهریور", shortName: "شه" }
+                    [DateObject.locals.AR]: { name: "شهریور", shortName: "شه" },
+                    [DateObject.locals.HI]: { name: "शाहरीवर्", shortName: "शाहरीवर्" },
                 },
             },
             {
@@ -250,7 +269,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Mehr", shortName: "Meh" },
                     [DateObject.locals.FA]: { name: "مهر", shortName: "مه" },
-                    [DateObject.locals.AR]: { name: "مهر", shortName: "مه" }
+                    [DateObject.locals.AR]: { name: "مهر", shortName: "مه" },
+                    [DateObject.locals.HI]: { name: "मेहर", shortName: "मेहर" },
                 },
             },
             {
@@ -258,7 +278,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Aban", shortName: "Aba" },
                     [DateObject.locals.FA]: { name: "آبان", shortName: "آبا" },
-                    [DateObject.locals.AR]: { name: "آبان", shortName: "آبا" }
+                    [DateObject.locals.AR]: { name: "آبان", shortName: "آبا" },
+                    [DateObject.locals.HI]: { name: "अवन", shortName: "अवन" },
                 },
             },
             {
@@ -266,7 +287,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Azar", shortName: "Aza" },
                     [DateObject.locals.FA]: { name: "آذر", shortName: "آذ" },
-                    [DateObject.locals.AR]: { name: "آذر", shortName: "آذ" }
+                    [DateObject.locals.AR]: { name: "آذر", shortName: "آذ" },
+                    [DateObject.locals.HI]: { name: "अज़र", shortName: "अज़र" },
                 },
             },
             {
@@ -274,7 +296,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Dey", shortName: "Dey" },
                     [DateObject.locals.FA]: { name: "دی", shortName: "دی" },
-                    [DateObject.locals.AR]: { name: "دی", shortName: "دی" }
+                    [DateObject.locals.AR]: { name: "دی", shortName: "دی" },
+                    [DateObject.locals.HI]: { name: "डे", shortName: "डे" },
                 },
             },
             {
@@ -282,7 +305,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Bahman", shortName: "Bah" },
                     [DateObject.locals.FA]: { name: "بهمن", shortName: "بهم" },
-                    [DateObject.locals.AR]: { name: "بهمن", shortName: "بهم" }
+                    [DateObject.locals.AR]: { name: "بهمن", shortName: "بهم" },
+                    [DateObject.locals.HI]: { name: "बहमन", shortName: "बहमन" },
                 },
             },
             {
@@ -290,7 +314,8 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Esfand", shortName: "Esf" },
                     [DateObject.locals.FA]: { name: "اسفند", shortName: "اسف" },
-                    [DateObject.locals.AR]: { name: "اسفند", shortName: "اسف" }
+                    [DateObject.locals.AR]: { name: "اسفند", shortName: "اسف" },
+                    [DateObject.locals.HI]: { name: "ईस्फन्द्", shortName: "ईस्फन्द्" },
                 },
             }
         ],
@@ -300,6 +325,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "محرم", shortName: "محرم" },
                     [DateObject.locals.EN]: { name: "Muharram", shortName: "Mu" },
                     [DateObject.locals.FA]: { name: "محرم", shortName: "محرم" },
+                    [DateObject.locals.HI]: { name: "मुहर्रम", shortName: "मुहर्रम" },
                 }
             },
             {
@@ -307,6 +333,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "صفر", shortName: "صفر" },
                     [DateObject.locals.EN]: { name: "Safar", shortName: "Sa" },
                     [DateObject.locals.FA]: { name: "صفر", shortName: "صفر" },
+                    [DateObject.locals.HI]: { name: "सफर", shortName: "सफर" },
                 }
             },
             {
@@ -314,6 +341,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "ربیع الاول", shortName: "ربیع الاول" },
                     [DateObject.locals.EN]: { name: "Rabi`al-Awwal", shortName: "RI" },
                     [DateObject.locals.FA]: { name: "ربیع الاول", shortName: "ربیع الاول" },
+                    [DateObject.locals.HI]: { name: "राबी प्रथम", shortName: "राबी प्रथम" },
                 }
             },
             {
@@ -321,6 +349,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "ربیع الثانی", shortName: "ربیع الثانی" },
                     [DateObject.locals.EN]: { name: "Rabi`ath-Thani", shortName: "RII" },
                     [DateObject.locals.FA]: { name: "ربیع الثانی", shortName: "ربیع الثانی" },
+                    [DateObject.locals.HI]: { name: "राबी द्वितीय", shortName: "राबी द्वितीय" },
                 }
             },
             {
@@ -328,6 +357,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "جمادی الاول", shortName: "جمادی الاول" },
                     [DateObject.locals.EN]: { name: "Jumada l-Ula", shortName: "JI" },
                     [DateObject.locals.FA]: { name: "جمادی الاول", shortName: "جمادی الاول" },
+                    [DateObject.locals.HI]: { name: "जुम्डा प्रथम", shortName: "जुम्डा प्रथम" },
                 }
             },
             {
@@ -335,6 +365,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "جمادی الثانی", shortName: "جمادی الثانی" },
                     [DateObject.locals.EN]: { name: "Jumada t-Tania", shortName: "JII" },
                     [DateObject.locals.FA]: { name: "جمادی الثانی", shortName: "جمادی الثانی" },
+                    [DateObject.locals.HI]: { name: "जुम्डा द्वितीय", shortName: "जुम्डा द्वितीय" },
                 }
             },
             {
@@ -342,6 +373,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "رجب", shortName: "رجب" },
                     [DateObject.locals.EN]: { name: "Rajab", shortName: "Ra" },
                     [DateObject.locals.FA]: { name: "رجب", shortName: "رجب" },
+                    [DateObject.locals.HI]: { name: "रजब", shortName: "रजब" },
                 }
             },
             {
@@ -349,6 +381,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "شعبان", shortName: "شعبان" },
                     [DateObject.locals.EN]: { name: "Sha`ban", shortName: "Sh" },
                     [DateObject.locals.FA]: { name: "شعبان", shortName: "شعبان" },
+                    [DateObject.locals.HI]: { name: "शावन", shortName: "शावन" },
                 }
             },
             {
@@ -356,6 +389,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "رمضان", shortName: "رمضان" },
                     [DateObject.locals.EN]: { name: "Ramadan", shortName: "Ra" },
                     [DateObject.locals.FA]: { name: "رمضان", shortName: "رمضان" },
+                    [DateObject.locals.HI]: { name: "रमजान", shortName: "रमजान" },
                 }
             },
             {
@@ -363,13 +397,14 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "شوال", shortName: "شوال" },
                     [DateObject.locals.EN]: { name: "Shawwal", shortName: "Sh" },
                     [DateObject.locals.FA]: { name: "شوال", shortName: "شوال" },
+                    [DateObject.locals.HI]: { name: "शव्व्ल", shortName: "शव्व्ल" },
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.AR]: { name: "ذیقعده ", shortName: "ذیقعده" },
                     [DateObject.locals.EN]: { name: "Dhu l-Qa`da ", shortName: "DhQ" },
-                    [DateObject.locals.FA]: { name: "ذیقعده ", shortName: "ذیقعده" },
+                    [DateObject.locals.HI]: { name: "जिल-क्दाह ", shortName: "जिल-क्दाह" },
                 }
             },
             {
@@ -377,6 +412,7 @@ class DateObject {
                     [DateObject.locals.AR]: { name: "ذیحجه", shortName: "ذیحجه" },
                     [DateObject.locals.EN]: { name: "Dhu l-Hijja", shortName: "DhH" },
                     [DateObject.locals.FA]: { name: "ذیحجه", shortName: "ذیحجه" },
+                    [DateObject.locals.HI]: { name: "जिल्-हिज्जाह", shortName: "जिल्-हिज्जाह" },
                 }
             }
         ],
@@ -385,84 +421,96 @@ class DateObject {
                 length: undefined, locals: {
                     [DateObject.locals.EN]: { name: "chaitra", shortName: "Cha" },
                     [DateObject.locals.FA]: { name: "چیتره", shortName: "چیت" },
-                    [DateObject.locals.AR]: { name: "شيترا", shortName: "شیت" }
+                    [DateObject.locals.AR]: { name: "شيترا", shortName: "شیت" },
+                    [DateObject.locals.HI]: { name: "चैत्र", shortName: "चैत्र" }
                 }
             },
             {
                 length: 31, locals: {
                     [DateObject.locals.EN]: { name: "Vaishakh", shortName: "Vai" },
                     [DateObject.locals.FA]: { name: "ویشاکهه", shortName: "ویش" },
-                    [DateObject.locals.AR]: { name: "فيشاخ", shortName: "فیش" }
+                    [DateObject.locals.AR]: { name: "فيشاخ", shortName: "فیش" },
+                    [DateObject.locals.HI]: { name: "वैशाख", shortName: "वैशाख" }
                 }
             },
             {
                 length: 31, locals: {
                     [DateObject.locals.EN]: { name: "Jyaishtha", shortName: "Jya" },
                     [DateObject.locals.FA]: { name: "جییشته", shortName: "جیش" },
-                    [DateObject.locals.AR]: { name: "جیشتا", shortName: "جیش" }
+                    [DateObject.locals.AR]: { name: "جیشتا", shortName: "جیش" },
+                    [DateObject.locals.HI]: { name: "ज्येष्ठ", shortName: "ज्येष्ठ" }
                 }
             },
             {
                 length: 31, locals: {
                     [DateObject.locals.EN]: { name: "Ashadha", shortName: "Ash" },
                     [DateObject.locals.FA]: { name: "آشادهه", shortName: "آشا" },
-                    [DateObject.locals.AR]: { name: "أشاد", shortName: "أشا" }
+                    [DateObject.locals.AR]: { name: "أشاد", shortName: "أشا" },
+                    [DateObject.locals.HI]: { name: "आषाढ़", shortName: "आषाढ़" }
                 }
             },
             {
                 length: 31, locals: {
                     [DateObject.locals.EN]: { name: "Shravana", shortName: "Shr" },
                     [DateObject.locals.FA]: { name: "شراونه", shortName: "شرا" },
-                    [DateObject.locals.AR]: { name: "شرافان", shortName: "شرا" }
+                    [DateObject.locals.AR]: { name: "شرافان", shortName: "شرا" },
+                    [DateObject.locals.HI]: { name: "श्रावण", shortName: "श्रावण" }
                 }
             },
             {
                 length: 31, locals: {
                     [DateObject.locals.EN]: { name: "Bhadrapad", shortName: "Bha" },
                     [DateObject.locals.FA]: { name: "بهادره", shortName: "بها" },
-                    [DateObject.locals.AR]: { name: "بهادرابادا", shortName: "بها" }
+                    [DateObject.locals.AR]: { name: "بهادرابادا", shortName: "بها" },
+                    [DateObject.locals.HI]: { name: "भाद्रपद", shortName: "भाद्रपद" }
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.EN]: { name: "Ashwin", shortName: "Ash" },
                     [DateObject.locals.FA]: { name: "آشوین", shortName: "آشو" },
-                    [DateObject.locals.AR]: { name: "اشوين", shortName: "اشو" }
+                    [DateObject.locals.AR]: { name: "اشوين", shortName: "اشو" },
+                    [DateObject.locals.HI]: { name: "आश्विन", shortName: "आश्विन" }
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.EN]: { name: "Kartik", shortName: "Kar" },
                     [DateObject.locals.FA]: { name: "کارتیکه", shortName: "کار" },
-                    [DateObject.locals.AR]: { name: "كارتيك", shortName: "کار" }
+                    [DateObject.locals.AR]: { name: "كارتيك", shortName: "کار" },
+                    [DateObject.locals.HI]: { name: "कार्तिक", shortName: "कार्तिक" }
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.EN]: { name: "Agrahayana", shortName: "Agr" },
                     [DateObject.locals.FA]: { name: "اگرهینه", shortName: "اگر" },
-                    [DateObject.locals.AR]: { name: "أجراهيان", shortName: "اجر" }
+                    [DateObject.locals.AR]: { name: "أجراهيان", shortName: "اجر" },
+                    [DateObject.locals.HI]: { name: "अग्रहायण", shortName: "अग्रहायण" }
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.EN]: { name: "Paush", shortName: "Pau" },
                     [DateObject.locals.FA]: { name: "پاوشه", shortName: "پاو" },
-                    [DateObject.locals.AR]: { name: "بوش", shortName: "بوش" }
+                    [DateObject.locals.AR]: { name: "بوش", shortName: "بوش" },
+                    [DateObject.locals.HI]: { name: "पौष", shortName: "पौष" }
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.EN]: { name: "Magh", shortName: "Mag" },
                     [DateObject.locals.FA]: { name: "ماگهه", shortName: "ماگ" },
-                    [DateObject.locals.AR]: { name: "ماک", shortName: "ماک" }
+                    [DateObject.locals.AR]: { name: "ماک", shortName: "ماک" },
+                    [DateObject.locals.HI]: { name: "माघ", shortName: "माघ" }
                 }
             },
             {
                 length: 30, locals: {
                     [DateObject.locals.EN]: { name: "Phalgun", shortName: "Pha" },
                     [DateObject.locals.FA]: { name: "پهالگونه", shortName: "پها" },
-                    [DateObject.locals.AR]: { name: "فالغون", shortName: "فال" }
+                    [DateObject.locals.AR]: { name: "فالغون", shortName: "فال" },
+                    [DateObject.locals.HI]: { name: "फाल्गुन", shortName: "फाल्गुन" }
                 }
             },
         ]
@@ -476,6 +524,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Sunday", shortName: "Sun" },
                     [DateObject.locals.FA]: { name: "یکشنبه", shortName: "یک" },
                     [DateObject.locals.AR]: { name: "الأحد", shortName: "اح" },
+                    [DateObject.locals.HI]: { name: "रविवार", shortName: "रवि" }
                 }
             },
             {
@@ -484,6 +533,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Monday", shortName: "Mon" },
                     [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" },
                     [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "ثن" },
+                    [DateObject.locals.HI]: { name: "सोमवार", shortName: "सोम" }
                 }
             },
             {
@@ -492,6 +542,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Tuesday", shortName: "Tue" },
                     [DateObject.locals.FA]: { name: "سه شنبه", shortName: "سه" },
                     [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "ثل" },
+                    [DateObject.locals.HI]: { name: "मंगलवार", shortName: "मंगल" }
                 }
             },
             {
@@ -500,6 +551,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Wednesday", shortName: "Wed" },
                     [DateObject.locals.FA]: { name: "چهارشنبه", shortName: "چهار" },
                     [DateObject.locals.AR]: { name: "الأربعاء", shortName: "ار" },
+                    [DateObject.locals.HI]: { name: "बुधवार", shortName: "बुध" }
                 }
             },
             {
@@ -508,6 +560,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Thursday", shortName: "Thu" },
                     [DateObject.locals.FA]: { name: "پنجشنبه", shortName: "پنج" },
                     [DateObject.locals.AR]: { name: "الخميس", shortName: "خم" },
+                    [DateObject.locals.HI]: { name: "गुरुवार", shortName: "गुरु" }
                 }
             },
             {
@@ -516,6 +569,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Friday", shortName: "Fri" },
                     [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" },
                     [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" },
+                    [DateObject.locals.HI]: { name: "शुक्रवार", shortName: "शुक्र" }
                 }
             },
             {
@@ -524,6 +578,7 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Saturday", shortName: "Sat" },
                     [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" },
                     [DateObject.locals.AR]: { name: "السّبت", shortName: "سب" },
+                    [DateObject.locals.HI]: { name: "शनिवार", shortName: "शनि" }
                 }
             }
         ],
@@ -534,6 +589,9 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "YekShanbeh", shortName: "Yek" },
                     [DateObject.locals.FA]: { name: "یکشنبه", shortName: "یک" },
                     [DateObject.locals.AR]: { name: "الأحد", shortName: "اح" },
+                    [DateObject.locals.HI]: { name: "रविवार", shortName: "रवि" }
+
+
                 }
             },
             {
@@ -542,6 +600,8 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Doshanbeh", shortName: "Do" },
                     [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" },
                     [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "ثن" },
+                    [DateObject.locals.HI]: { name: "सोमवार", shortName: "सोम" }
+
                 }
             },
             {
@@ -550,6 +610,8 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Seshanbeh", shortName: "Se" },
                     [DateObject.locals.FA]: { name: "سه شنبه", shortName: "سه" },
                     [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "ثل" },
+                    [DateObject.locals.HI]: { name: "मंगलवार", shortName: "मंगल" }
+
                 }
             },
             {
@@ -558,6 +620,8 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Chaharshanbeh", shortName: "Cha" },
                     [DateObject.locals.FA]: { name: "چهارشنبه", shortName: "چهار" },
                     [DateObject.locals.AR]: { name: "الأربعاء", shortName: "ار" },
+                    [DateObject.locals.HI]: { name: "बुधवार", shortName: "बुध" }
+
                 }
             },
             {
@@ -566,6 +630,8 @@ class DateObject {
                     [DateObject.locals.EN]: { name: "Panjshanbeh", shortName: "Pan" },
                     [DateObject.locals.FA]: { name: "پنجشنبه", shortName: "پنج" },
                     [DateObject.locals.AR]: { name: "الخميس", shortName: "خم" },
+                    [DateObject.locals.HI]: { name: "गुरुवार", shortName: "गुरु" }
+
                 }
             },
             {
@@ -573,7 +639,9 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Jom'eh", shortName: "Jom" },
                     [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" },
-                    [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" }
+                    [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" },
+                    [DateObject.locals.HI]: { name: "शुक्रवार", shortName: "शुक्र" }
+
                 }
             },
             {
@@ -581,7 +649,9 @@ class DateObject {
                 locals: {
                     [DateObject.locals.EN]: { name: "Shanbeh", shortName: "Sha" },
                     [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" },
-                    [DateObject.locals.AR]: { name: "السّبت", shortName: "سب" }
+                    [DateObject.locals.AR]: { name: "السّبت", shortName: "سب" },
+                    [DateObject.locals.HI]: { name: "शनिवार", shortName: "शनि" }
+
                 }
             }
         ],
@@ -590,49 +660,56 @@ class DateObject {
                 index: 1, locals: {
                     [DateObject.locals.AR]: { name: "الأحد", shortName: "احد" },
                     [DateObject.locals.EN]: { name: "al-'ahad", shortName: "Aha" },
-                    [DateObject.locals.FA]: { name: "يکشنبه", shortName: "یک" }
+                    [DateObject.locals.FA]: { name: "يکشنبه", shortName: "یک" },
+                    [DateObject.locals.HI]: { name: "रविवार", shortName: "रवि" }
                 }
             },
             {
                 index: 2, locals: {
                     [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "ثن" },
                     [DateObject.locals.EN]: { name: "al-'ithnayn", shortName: "Ith" },
-                    [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" }
+                    [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" },
+                    [DateObject.locals.HI]: { name: "सोमवार", shortName: "सोम" }
                 }
             },
             {
                 index: 3, locals: {
                     [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "ثلا" },
                     [DateObject.locals.EN]: { name: "ath-thalatha", shortName: "Tha" },
-                    [DateObject.locals.FA]: { name: "سه شنبه", shortName: "سه" }
+                    [DateObject.locals.FA]: { name: "سه شنبه", shortName: "سه" },
+                    [DateObject.locals.HI]: { name: "मंगलवार", shortName: "मंगल" }
                 }
             },
             {
                 index: 4, locals: {
                     [DateObject.locals.AR]: { name: "الأربعاء", shortName: "ارب" },
                     [DateObject.locals.EN]: { name: "al-'arb`a'", shortName: "Arb" },
-                    [DateObject.locals.FA]: { name: "چهار شنبه", shortName: "چهار" }
+                    [DateObject.locals.FA]: { name: "چهار شنبه", shortName: "چهار" },
+                    [DateObject.locals.HI]: { name: "बुधवार", shortName: "बुध" }
                 }
             },
             {
                 index: 5, locals: {
                     [DateObject.locals.AR]: { name: "الخميس", shortName: "خم" },
                     [DateObject.locals.EN]: { name: "al-khamis", shortName: "Kha" },
-                    [DateObject.locals.FA]: { name: "پنج شنبه	", shortName: "پنج" }
+                    [DateObject.locals.FA]: { name: "پنج شنبه	", shortName: "پنج" },
+                    [DateObject.locals.HI]: { name: "गुरुवार", shortName: "गुरु" }
                 }
             },
             {
                 index: 6, locals: {
                     [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" },
                     [DateObject.locals.EN]: { name: "al-jum`a", shortName: "Jum" },
-                    [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" }
+                    [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" },
+                    [DateObject.locals.HI]: { name: "शुक्रवार", shortName: "शुक्र" }
                 }
             },
             {
                 index: 0, locals: {
                     [DateObject.locals.AR]: { name: "السّبت", shortName: "سبت" },
                     [DateObject.locals.EN]: { name: "as-sabt", shortName: "Sab" },
-                    [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" }
+                    [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" },
+                    [DateObject.locals.HI]: { name: "शनिवार", shortName: "शनि" }
                 }
             },
         ],
@@ -641,49 +718,56 @@ class DateObject {
                 index: 0, locals: {
                     [DateObject.locals.EN]: { name: "Ravivara", shortName: "Rav" },
                     [DateObject.locals.FA]: { name: "يکشنبه", shortName: "یک" },
-                    [DateObject.locals.AR]: { name: "الأحد", shortName: "احد" }
+                    [DateObject.locals.AR]: { name: "الأحد", shortName: "احد" },
+                    [DateObject.locals.HI]: { name: "रविवार", shortName: "रवि" }
                 }
             },
             {
                 index: 1, locals: {
                     [DateObject.locals.EN]: { name: "Somavara", shortName: "Som" },
                     [DateObject.locals.FA]: { name: "دوشنبه", shortName: "دو" },
-                    [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "ثن" }
+                    [DateObject.locals.AR]: { name: "الإثنينِ", shortName: "ثن" },
+                    [DateObject.locals.HI]: { name: "सोमवार", shortName: "सोम" }
                 }
             },
             {
                 index: 2, locals: {
                     [DateObject.locals.EN]: { name: "Mangalavara", shortName: "Man" },
                     [DateObject.locals.FA]: { name: "سه شنبه	", shortName: "سه" },
-                    [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "ثلا" }
+                    [DateObject.locals.AR]: { name: "الثلاثاء", shortName: "ثلا" },
+                    [DateObject.locals.HI]: { name: "मंगलवार", shortName: "मंगल" }
                 }
             },
             {
                 index: 3, locals: {
                     [DateObject.locals.EN]: { name: "Budhavara", shortName: "Bud" },
                     [DateObject.locals.FA]: { name: "چهار شنبه", shortName: "چهار" },
-                    [DateObject.locals.AR]: { name: "الأربعاء", shortName: "ارب" }
+                    [DateObject.locals.AR]: { name: "الأربعاء", shortName: "ارب" },
+                    [DateObject.locals.HI]: { name: "बुधवार", shortName: "बुध" }
                 }
             },
             {
                 index: 4, locals: {
                     [DateObject.locals.EN]: { name: "Brihaspatvara", shortName: "Bri" },
                     [DateObject.locals.FA]: { name: "پنج شنبه	", shortName: "پنج" },
-                    [DateObject.locals.AR]: { name: "الخميس", shortName: "خم" }
+                    [DateObject.locals.AR]: { name: "الخميس", shortName: "خم" },
+                    [DateObject.locals.HI]: { name: "गुरुवार", shortName: "गुरु" }
                 }
             },
             {
                 index: 5, locals: {
                     [DateObject.locals.EN]: { name: "Sukravara", shortName: "Suk" },
                     [DateObject.locals.FA]: { name: "جمعه", shortName: "جم" },
-                    [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" }
+                    [DateObject.locals.AR]: { name: "الجمعة", shortName: "جم" },
+                    [DateObject.locals.HI]: { name: "शुक्रवार", shortName: "शुक्र" }
                 }
             },
             {
                 index: 6, locals: {
                     [DateObject.locals.EN]: { name: "Sanivara", shortName: "San" },
                     [DateObject.locals.FA]: { name: "شنبه", shortName: "شن" },
-                    [DateObject.locals.AR]: { name: "السّبت", shortName: "سبت" }
+                    [DateObject.locals.AR]: { name: "السّبت", shortName: "سبت" },
+                    [DateObject.locals.HI]: { name: "शनिवार", shortName: "शनि" }
                 }
             }
         ]
@@ -692,13 +776,15 @@ class DateObject {
     #digits = {
         [DateObject.locals.EN]: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
         [DateObject.locals.FA]: ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"],
-        [DateObject.locals.AR]: ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]
+        [DateObject.locals.AR]: ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"],
+        [DateObject.locals.HI]: ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"],
     }
 
     #meridiems = {
         [DateObject.locals.EN]: [{ name: "AM", shortName: "am" }, { name: "PM", shortName: "pm" }],
         [DateObject.locals.FA]: [{ name: "قبل از ظهر", shortName: "ق.ظ" }, { name: "بعد از ظهر", shortName: "ب.ظ" }],
-        [DateObject.locals.AR]: [{ name: "قبل الظهر", shortName: "ق.ظ" }, { name: "بعد الظهر", shortName: "ب.ظ" }]
+        [DateObject.locals.AR]: [{ name: "قبل الظهر", shortName: "ق.ظ" }, { name: "بعد الظهر", shortName: "ب.ظ" }],
+        [DateObject.locals.HI]: [{ name: "दोपहर से पहले", shortName: "पूर्वाह्न" }, { name: "मध्याह्न के बाद", shortName: "अपराह्न" }]
     }
 
     #epoch = {
