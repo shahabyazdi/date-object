@@ -419,7 +419,7 @@ class DateObject {
         [DateObject.calendars.INDIAN]: [
             {
                 length: undefined, locals: {
-                    [DateObject.locals.EN]: { name: "chaitra", shortName: "Cha" },
+                    [DateObject.locals.EN]: { name: "Chaitra", shortName: "Cha" },
                     [DateObject.locals.FA]: { name: "چیتره", shortName: "چیت" },
                     [DateObject.locals.AR]: { name: "شيترا", shortName: "شیت" },
                     [DateObject.locals.HI]: { name: "चैत्र", shortName: "चैत्र" }
