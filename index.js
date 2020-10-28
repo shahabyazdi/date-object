@@ -814,14 +814,7 @@ class DateObject {
             this.#calendar = calendar
         }
 
-        if (local) {
-            local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
-            this.#local = local
-        }
-
         if ((calendar || local) && (!date && !year && !month && !day && !hour && !minute && !second && !millisecond)) date = new Date()
-
-        this.#format = format
 
         if (typeof date === "string") {
             this.parse(date)
@@ -845,55 +838,20 @@ class DateObject {
             this.#local = local || DateObject.locals.EN
         }
 
-        if (date instanceof DateObject) {
-            this.#year = date.year
-            this.#month = date.month.index
-            this.#day = date.day
-            this.#hour = date.hour || 0
-            this.#minute = date.minute || 0
-            this.#second = date.second || 0
-            this.#millisecond = date.millisecond || 0
-            this.#local = local || date.local.toUpperCase()
-            this.#format = format || date._format
-            this.#leaps = date.leaps
-            this.#calendar = date.calendar.toUpperCase()
+        if (date instanceof DateObject || date instanceof Date) {
+            this.setDate(date)
 
             if (calendar) this.convert(calendar)
 
             mustGetLeaps = false
         }
 
-        if (date instanceof Date) {
-            year = date.getFullYear()
-            month = date.getMonth() + 1
-            day = date.getDate()
-            hour = date.getHours()
-            minute = date.getMinutes()
-            second = date.getSeconds()
-            millisecond = date.getMilliseconds()
-
-            if (calendar && calendar !== DateObject.calendars.GREGORIAN) {
-                let dateObject = new DateObject({
-                    year,
-                    month,
-                    day,
-                    hour,
-                    minute,
-                    second,
-                    millisecond
-                }).convert(calendar)
-
-                year = dateObject.year
-                month = dateObject.month.number
-                day = dateObject.day
-                hour = dateObject.hour
-                minute = dateObject.minute
-                second = dateObject.second
-                millisecond = dateObject.millisecond
-            }
-
-            setDate()
+        if (local) {
+            local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
+            this.#local = local
         }
+
+        this.#format = format
 
         if (!date) setDate()
 
@@ -1303,6 +1261,40 @@ class DateObject {
 
     setCalendar(calendar) {
         this.calendar = calendar
+
+        return this
+    }
+
+    setDate(date) {
+        if (!date instanceof Date && !date instanceof DateObject) return this
+
+        if (date instanceof Date) {
+            this.#calendar = DateObject.calendars.GREGORIAN
+            this.#year = date.getFullYear()
+            this.#month = date.getMonth()
+            this.#day = date.getDate()
+            this.#hour = date.getHours()
+            this.#minute = date.getMinutes()
+            this.#second = date.getSeconds()
+            this.#millisecond = date.getMilliseconds()
+
+            this.#getLeaps()
+            this.#fix()
+        }
+
+        if (date instanceof DateObject) {
+            this.#year = date.year
+            this.#month = date.month.index
+            this.#day = date.day
+            this.#hour = date.hour
+            this.#minute = date.minute
+            this.#second = date.second
+            this.#millisecond = date.millisecond
+            this.#local = date.local.toUpperCase()
+            this.#format = date._format
+            this.#leaps = date.leaps
+            this.#calendar = date.calendar.toUpperCase()
+        }
 
         return this
     }
