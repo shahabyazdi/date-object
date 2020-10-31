@@ -802,58 +802,51 @@ class DateObject {
     }
 
     constructor(object) {
-        if (!object || typeof object === "boolean") object = { date: new Date() }//Default parameter doesn't work in null
-        if (object instanceof Date || object instanceof DateObject || typeof object === "string") object = { date: object }
-        if (typeof object === "number") object = { date: new Date(object * 1000) }
+        let obj = object && object.constructor === Object ? { ...object } : object
 
-        let { calendar, local, format, date, year, month, day, hour, minute, second, millisecond } = object
-        let mustGetLeaps = true
+        if (!obj || typeof obj === "boolean") obj = { date: new Date() } //Default parameter doesn't work in null
+        if (obj instanceof Date || obj instanceof DateObject || typeof obj === "string") obj = { date: obj }
+        if (typeof obj === "number") obj = { date: new Date(obj * 1000) }
+        if (typeof obj.date === "number") obj.date = new Date(obj.date * 1000)
 
-        if (calendar) {
-            calendar = DateObject.calendars[calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
-            this.#calendar = calendar
+        if (obj.calendar) {
+            obj.calendar = DateObject.calendars[obj.calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
+            this.#calendar = obj.calendar
         }
 
-        if ((calendar || local) && (!date && !year && !month && !day && !hour && !minute && !second && !millisecond)) date = new Date()
+        let mustGetLeaps = true,
+            validKeys = Object.keys(obj).filter(key => obj[key] || obj[key] === 0),
+            mustSetNewDate = validKeys.length > 0 && validKeys.length <= 3 && validKeys.every(key => ["calendar", "local", "format"].includes(key))
 
-        if (typeof date === "string") {
-            this.parse(date)
+        if (mustSetNewDate) obj.date = new Date()
+
+        this.#format = obj.format
+
+        if (typeof obj.date === "string") {
+            this.parse(obj.date)
 
             mustGetLeaps = false
         }
 
-        if (typeof date === "number") date = new Date(date * 1000)
+        if (obj.date instanceof DateObject || obj.date instanceof Date) {
+            this.setDate(obj.date)
 
-        const setDate = () => {
-            if (month === 0) month = 1
-
-            this.#year = this.#toNumber(year)
-            this.#month = this.#toNumber(month - 1)
-            this.#day = this.#toNumber(day)
-            this.#hour = this.#toNumber(hour) || 0
-            this.#minute = this.#toNumber(minute) || 0
-            this.#second = this.#toNumber(second) || 0
-            this.#millisecond = this.#toNumber(millisecond) || 0
-            this.#calendar = calendar || DateObject.calendars.GREGORIAN
-            this.#local = local || DateObject.locals.EN
-        }
-
-        if (date instanceof DateObject || date instanceof Date) {
-            this.setDate(date)
-
-            if (calendar) this.convert(calendar)
+            if (obj.calendar) this.convert(obj.calendar)
 
             mustGetLeaps = false
         }
 
-        if (local) {
-            local = DateObject.locals[local.toUpperCase()] || DateObject.locals.EN
-            this.#local = local
+        if (obj.local) {
+            obj.local = DateObject.locals[obj.local.toUpperCase()] || DateObject.locals.EN
+            this.#local = obj.local
         }
 
-        this.#format = format
+        delete obj.calendar
+        delete obj.local
+        delete obj.date
+        delete obj.format
 
-        if (!date) setDate()
+        for (let key in obj) this.set(key, obj[key])
 
         if (this.#year === 0 && this.#calendar !== DateObject.calendars.INDIAN) {
             /**
@@ -1297,6 +1290,23 @@ class DateObject {
         }
 
         return this
+    }
+
+    set(key, value) {
+        switch (key) {
+            case "calendar": return this.convert(value)
+            case "local": return this.setLocal(value)
+            case "format": return this.setFormat(value)
+            case "year": return this.setYear(value)
+            case "month": return this.setMonth(value)
+            case "day": return this.setDay(value)
+            case "hour": return this.setHour(value)
+            case "minute": return this.setMinute(value)
+            case "second": return this.setSecond(value)
+            case "millisecond": return this.setMillisecond(value)
+            case "date": return this.setDate(value)
+            default: return this
+        }
     }
 
     add(duration, type) {
