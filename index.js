@@ -9,37 +9,9 @@ class DateObject {
     #format
     #local = DateObject.locals.EN
     #calendar = DateObject.calendars.GREGORIAN
-    #isUTC
+    #isUTC = false
     #leaps = []
-    #types = {
-        YYYY: /\d{4}/,
-        YY: /\d\d/,
-        MMMM: /[A-z]+/, //month name
-        MMM: /[A-z]+/, //month shortName
-        MM: /\d\d/,
-        M: /\d/,
-        WW: /\d\d/, //week of year
-        W: /\d/,     //week of year
-        DDDD: /\d{1,3}/,
-        DDD: /\d{1,3}/,
-        DD: /\d\d/,
-        D: /\d/,
-        dddd: /[A-z]+/, //weekDay name
-        ddd: /[A-z]+/, //weekDay shortName
-        HH: /\d\d/,
-        H: /\d/,
-        hh: /\d\d/,
-        h: /\d/,
-        mm: /\d\d/,
-        m: /\d/,
-        ss: /\d\d/,
-        s: /\d/,
-        SSS: /\d{3}/,
-        SS: /\d\d/,
-        S: /\d/,
-        a: /[a-z]{2,9}/,
-        A: /[a-z]{2,9}/
-    }
+    #custom = {}
 
     #reverse = {
         "YYYY": string => this.#year = this.#toNumber(string),
@@ -516,7 +488,7 @@ class DateObject {
         ]
     }
 
-    #weeks = {
+    #weekDays = {
         [DateObject.calendars.GREGORIAN]: [
             {
                 index: 0,
@@ -1123,16 +1095,16 @@ class DateObject {
 
         switch (calendar) {
             case DateObject.calendars.PERSIAN:
-                year = ~~((days + 0.5) / 365.241) + 1
+                year = ~~((days + 0.5) / 365.241)
                 break
             case DateObject.calendars.ARABIC:
-                year = ~~((days - 0.5) / 354.366) + 1
+                year = ~~((days - 0.5) / 354.366)
                 break
             default:
-                year = ~~(days / 365.24) + 1
+                year = ~~(days / 365.24)
         }
 
-        return year
+        return year + (this.#year > 0 ? 1 : -1)
     }
 
     format(format) {
@@ -1140,30 +1112,19 @@ class DateObject {
         if (format && typeof format !== "string") return
         if (!format) format = this.#format || "YYYY/MM/DD"
 
-        let index = 1
-        let object = {}
+        let regex = /YYYY|YY|MMMM|MMM|MM|M|WW|W|DDDD|DDD|DD|D|dddd|ddd|dd|d|HH|H|hh|h|mm|m|ss|s|SSS|SS|S|A|a|./g,
+            array = format.match(regex) || [],
+            result = ""
 
-        for (let key in this.#types) {
-            while (format.includes(key)) {
-                let id = `~~r00${index}~`
-
-                format = format.replace(key, id)
-                object[id] = this.getProperty(key)
-                index++
-            }
-        }
-
-        for (let key in object) {
-            format = format.replace(key, object[key])
-        }
+        for (let item of array) result += this.getProperty(item) || item
 
         if (this.#local !== DateObject.locals.en) {
             let digits = this.#digits[this.#local]
 
-            format = format.replace(/[0-9]/g, w => digits[w])
+            result = result.replace(/[0-9]/g, w => digits[w])
         }
 
-        return format
+        return result
     }
 
     getProperty(key) {
@@ -1186,6 +1147,8 @@ class DateObject {
             case "H": return this.hour
             case "dddd": return this.weekDay.name
             case "ddd": return this.weekDay.shortName
+            case "dd": return pad(this.weekDay.number)
+            case "d": return this.weekDay.number
             case "hh": return pad(this.hour > 12 ? this.hour - 12 : this.hour || 12)
             case "h": return this.hour > 12 ? this.hour - 12 : this.hour || 12
             case "mm": return pad(this.minute)
@@ -1273,6 +1236,7 @@ class DateObject {
             this.#minute = date.getMinutes()
             this.#second = date.getSeconds()
             this.#millisecond = date.getMilliseconds()
+            this.#isUTC = false
 
             this.#getLeaps()
             this.#fix()
@@ -1290,6 +1254,7 @@ class DateObject {
             this.#format = date._format
             this.#leaps = date.leaps
             this.#calendar = date.calendar.toUpperCase()
+            this.#isUTC = date.isUTC
         }
 
         return this
@@ -1316,9 +1281,7 @@ class DateObject {
                 delete object.local
             }
 
-            for (let key in object) {
-                if (object[key] || object[key] === 0) this.set(key, object[key])
-            }
+            for (let key in object) this.set(key, object[key])
 
             return this
         }
@@ -1569,15 +1532,17 @@ class DateObject {
 
     get weekDay() {
         let index = (this.toJulianDay() + 2) % 7
-        let weekDay = this.#weeks[this.#calendar][index]
+        let weekDay = this.#weekDays[this.#calendar][index]
 
         if (!weekDay) return {}
+
+        let names = this.#custom.weekDays ? this.#custom.weekDays[weekDay.index] : weekDay.locals[this.#local]
 
         weekDay = {
             index: weekDay.index,
             number: weekDay.index + 1,
             toString: function () { return this.number },
-            ...weekDay.locals[this.#local]
+            ...names
         }
 
         return weekDay
@@ -1613,23 +1578,33 @@ class DateObject {
                 months[11].length = this.isLeap ? 30 : 29
         }
 
-        months = months.map(month => {
+        months = months.map((month, index) => {
+            let $month = this.#custom.months ? this.#custom.months[index] : month.locals[this.#local]
+
             return {
                 length: month.length,
-                ...month.locals[this.#local]
+                ...$month
             }
         })
 
         return months
     }
 
-    get weeks() {
-        let weeks = this.#weeks[this.#calendar]
+    get weekDays() {
+        let weekDays = this.#weekDays[this.#calendar]
 
-        weeks.sort((a, b) => a.index - b.index)
-        weeks = weeks.map(week => { return { index: week.index, number: week.index + 1, ...week.locals[this.#local] } })
+        weekDays.sort((a, b) => a.index - b.index)
+        weekDays = weekDays.map((week, index) => {
+            let $week = this.#custom.weekDays ? this.#custom.weekDays[index] : week.locals[this.#local]
 
-        return weeks
+            return {
+                index: week.index,
+                number: week.index + 1,
+                ...$week
+            }
+        })
+
+        return weekDays
     }
 
     get leaps() {
@@ -1664,6 +1639,10 @@ class DateObject {
         return !Number.isNaN(Number(this.#year + this.#month + this.#day))
     }
 
+    get isUTC() {
+        return this.#isUTC
+    }
+
     get unix() {
         return Math.round(this.toDate().getTime() / 1000)
     }
@@ -1676,10 +1655,37 @@ class DateObject {
         this.#fix()
     }
 
+    set months(value) {
+        if (!value) return delete this.#custom.months
+
+        let isValidValue = Array.isArray(value) && value.length === 12 && value.every(array => {
+            return Array.isArray(array) && array.length === 2 && array.every(string => typeof string === "string")
+        })
+
+        if (!isValidValue) return console.warn("Invalid Months")
+
+        this.#custom.months = value.map(array => { return { name: array[0], shortName: array[1] } })
+    }
+
     set month(value) {
+        if (value && value.constructor === Object && value.number) value = value.number
+
         value = this.#toNumber(value)
+
         this.#month = value - 1
         this.#fix()
+    }
+
+    set weekDays(value) {
+        if (!value) return delete this.#custom.weekDays
+
+        let isValidValue = Array.isArray(value) && value.length === 7 && value.every(array => {
+            return Array.isArray(array) && array.length === 2 && array.every(string => typeof string === "string")
+        })
+
+        if (!isValidValue) return console.warn("Invalid weekDays")
+
+        this.#custom.weekDays = value.map(array => { return { name: array[0], shortName: array[1] } })
     }
 
     set day(value) {
