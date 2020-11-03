@@ -1170,8 +1170,20 @@ class DateObject {
         return this
     }
 
+    setMonths(value) {
+        this.months = value
+
+        return this
+    }
+
     setMonth(number) {
         this.month = number
+
+        return this
+    }
+
+    setWeekDays(value) {
+        this.weekDays = value
 
         return this
     }

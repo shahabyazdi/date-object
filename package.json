@@ -1,6 +1,6 @@
 {
   "name": "date-object",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "JavaScript library for working with Date and Time in different calendars and locals",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "persian-calendar",
     "islamic-calendar",
     "indian-calendar",
+    "format",
     "format-date"
   ],
   "author": "Shahab Yazdi sh.yazdi@gmail.com",
