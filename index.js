@@ -12,6 +12,7 @@ class DateObject {
     #isUTC = false
     #leaps = []
     #custom = {}
+    #isoDate = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ$/
 
     #reverse = {
         "YYYY": string => this.#year = this.#toNumber(string),
@@ -763,7 +764,8 @@ class DateObject {
         [DateObject.calendars.GREGORIAN]: 1721424,
         [DateObject.calendars.PERSIAN]: 1948319,
         [DateObject.calendars.ARABIC]: 1948438,
-        [DateObject.calendars.INDIAN]: 1749628
+        [DateObject.calendars.INDIAN]: 1749628,
+        "unix": 2440587
     }
 
     #yearLength = {
@@ -777,9 +779,7 @@ class DateObject {
         let obj = object && object.constructor === Object ? { ...object } : object
 
         if (!obj || typeof obj === "boolean") obj = { date: new Date() } //Default parameter doesn't work in null
-        if (obj instanceof Date || obj instanceof DateObject || typeof obj === "string") obj = { date: obj }
-        if (typeof obj === "number") obj = { date: new Date(obj * 1000) }
-        if (typeof obj.date === "number") obj.date = new Date(obj.date * 1000)
+        if (obj instanceof Date || obj instanceof DateObject || typeof obj === "string" || typeof obj === "number") obj = { date: obj }
 
         if (obj.calendar) {
             obj.calendar = DateObject.calendars[obj.calendar.toUpperCase()] || DateObject.calendars.GREGORIAN
@@ -795,12 +795,16 @@ class DateObject {
         this.#format = obj.format
 
         if (typeof obj.date === "string") {
-            this.parse(obj.date)
+            if (this.#isoDate.test(obj.date)) {
+                obj.date = new Date(obj.date)
+            } else {
+                this.parse(obj.date)
 
-            mustGetLeaps = false
+                mustGetLeaps = false
+            }
         }
 
-        if (obj.date instanceof DateObject || obj.date instanceof Date) {
+        if (obj.date instanceof DateObject || obj.date instanceof Date || typeof obj.date === "number") {
             this.setDate(obj.date)
 
             if (obj.calendar) this.convert(obj.calendar)
@@ -1238,6 +1242,8 @@ class DateObject {
 
     setDate(date) {
         if (!date instanceof Date && !date instanceof DateObject) return this
+        if (typeof date === "string" && this.#isoDate.test(date)) date = new Date(date)
+        if (typeof date === "number") date = new Date(date)
 
         if (date instanceof Date) {
             this.#calendar = DateObject.calendars.GREGORIAN
@@ -1464,7 +1470,15 @@ class DateObject {
     }
 
     valueOf() {
-        return this.dayOfBeginning
+        let days = this.dayOfBeginning + this.#epoch[this.#calendar] - this.#epoch["unix"]
+        let offset = this.#isUTC ? 0 : (new Date().getTimezoneOffset() * 60 * 1000)
+
+        return (days * 24 * 60 * 60 * 1000) +
+            (this.#hour * 60 * 60 * 1000) +
+            (this.#minute * 60 * 1000) +
+            (this.#second * 1000) +
+            this.millisecond +
+            offset
     }
 
     get dayOfBeginning() {
@@ -1656,7 +1670,7 @@ class DateObject {
     }
 
     get unix() {
-        return Math.round(this.toDate().getTime() / 1000)
+        return Math.round(this.valueOf() / 1000)
     }
 
     set year(value) {
