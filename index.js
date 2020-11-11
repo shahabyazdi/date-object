@@ -1111,16 +1111,28 @@ class DateObject {
         return year + (this.#year > 0 ? 1 : -1)
     }
 
-    format(format) {
+    format(format, ignoreList) {
         if (!this.isValid) return ""
         if (format && typeof format !== "string") return
         if (!format) format = this.#format || "YYYY/MM/DD"
+        if (!Array.isArray(ignoreList)) ignoreList = []
 
-        let regex = /YYYY|YY|MMMM|MMM|MM|M|WW|W|DDDD|DDD|DD|D|dddd|ddd|dd|d|HH|H|hh|h|mm|m|ss|s|SSS|SS|S|A|a|./g,
+        ignoreList = ignoreList.filter(item => {
+            if (typeof item !== "string") {
+                console.warn("type of all items in the ignore list must be string, found", typeof item)
+                return false
+            }
+
+            return true
+        }).map(string => string.replace(/[*/+\-()[\]{}\s$^]/g, w => "\\" + w))
+
+        let regex = new RegExp(`${ignoreList.join("|")}${ignoreList.length > 0 ? "|" : ""}YYYY|YY|MMMM|MMM|MM|M|WW|W|DDDD|DDD|DD|D|dddd|ddd|dd|d|HH|H|hh|h|mm|m|ss|s|SSS|SS|S|A|a|.`, "g"),
             array = format.match(regex) || [],
             result = ""
 
-        for (let item of array) result += this.getProperty(item) || item
+        for (let item of array) {
+            result += this.getProperty(item) || item
+        }
 
         if (this.#local !== DateObject.locals.en) {
             let digits = this.#digits[this.#local]

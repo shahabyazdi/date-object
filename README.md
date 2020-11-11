@@ -22,10 +22,10 @@ npm install date-object --save
 yarn add date-object
 ```
 
-## jsDelivr
+## jsDelivr:
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.2/dist/date-object.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.3/dist/date-object.js"></script>
 ```
 
 # 2- Usage
@@ -219,7 +219,7 @@ date.convert(DateObject.calendars.GREGORIAN); //2020/10/31 or date.convert()
 
 ## 4-3- format(token:String)
 
-default format is YYYY/MM/DD
+default format is YYYY/MM/DD.
 to see all format types click [here](#5--format-types)
 
 ```javascript
@@ -230,6 +230,20 @@ date.format("MM/DD/YYYY"); //10/31/2020
 date.format("MMM/DD/YYYY HH:mm:ss"); //Oct/31/2020 18:17:28
 date.format("dddd DD MMMM YYYY, hh:mm:ss A"); //Saturday 31 October 2020, 06:19:18 PM
 date.format("ddd DD MMM YYYY, hh:mm a"); //Sat 31 Oct 2020, 06:20 pm
+```
+
+### formatting with ignore list:
+
+```javascript
+var date = new DateObject();
+
+date.format("hours:HH minutes:mm seconds:ss", ["hours", "minutes", "seconds"]); //hours:12 minutes:22 seconds:40
+date.format("it's HH o'clock", ["it's", "o'clock"]); //it's 12 o'clock
+date.format(`DD MMMM at hh:mm ${date.hour >= 12 ? "Afternoon" : "Morning"}`, [
+  "at",
+  "Afternoon",
+  "Morning",
+]); //11 November at 12:22 Afternoon
 ```
 
 ## 4-4- setter methods
