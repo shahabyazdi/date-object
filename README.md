@@ -25,7 +25,7 @@ yarn add date-object
 ## jsDelivr:
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.3/dist/date-object.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.4/dist/date-object.js"></script>
 ```
 
 # 2- Usage
