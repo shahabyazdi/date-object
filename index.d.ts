@@ -10,13 +10,15 @@ declare class DateObject {
         millisecond?:number,
         calendar?:string,
         local?:string,
-        format?:string
+        format?:string,
+        ignoreList?:string[]
     })
     constructor(object:{
         date?:Date,
         calendar?:string,
         local?:string,
-        format?:string
+        format?:string,
+        ignoreList?:string[]
     })
     constructor(date:Date)
     constructor(date:DateObject)
@@ -48,7 +50,7 @@ declare class DateObject {
     convert(calendar:string|undefined): DateObject
     /**
      * Formatting current time from given token.
-     * Default token is "YYYY/MM/SS".
+     * Default token is "YYYY/MM/DD".
      * If you do not specify a formatting token, The default token is considered.
      * @param format 
      * @param ignoreList 
@@ -124,7 +126,8 @@ declare class DateObject {
         millisecond?:number,
         calendar?:string,
         local?:string,
-        format?:string
+        format?:string,
+        ignoreList?:string[]
     }):DateObject
 
     add(duration:number|string,type:string):DateObject
@@ -244,6 +247,7 @@ declare class DateObject {
      * persian,
      * arabic,
      * indian
+     * @default "gregorian"
      */
     calendar:string
     /**
@@ -254,6 +258,7 @@ declare class DateObject {
      * fa,
      * ar,
      * hi
+     * @default "en"
      */
     local:string
     /**
@@ -284,6 +289,20 @@ declare class DateObject {
      * @get Unix time in seconds
      */
     unix:number
+    /**
+     * formatting ignore list
+     * 
+     * @example
+     * 
+     * var date = new DateObject({
+     *   format: "Date:MM/DD/YYYY",
+     *   ignoreList: ["Date"]
+     * })
+     * 
+     * date.format() //Date:12/04/2020
+     * date.format("time:hh:mm a", ["time"]) //time:06:50 pm
+     */
+    ignoreList:string[]
 }
 
 export = DateObject

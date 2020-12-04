@@ -13,6 +13,7 @@ class DateObject {
     #leaps = []
     #custom = {}
     #isoDate = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ$/
+    #ignoreList = []
 
     #reverse = {
         "YYYY": string => this.#year = this.#toNumber(string),
@@ -788,7 +789,14 @@ class DateObject {
 
         let mustGetLeaps = true,
             validKeys = Object.keys(obj).filter(key => obj[key] || obj[key] === 0),
-            mustSetNewDate = validKeys.length > 0 && validKeys.length <= 3 && validKeys.every(key => ["calendar", "local", "format"].includes(key))//e.g: new DateObject({ calendar: "gregorian" })
+            mustSetNewDate = validKeys.length > 0 &&
+                validKeys.length <= 4 &&
+                validKeys.every(key => [
+                    "calendar",
+                    "local",
+                    "format",
+                    "ignoreList"
+                ].includes(key)) //e.g: new DateObject({ calendar: "gregorian" })
 
         if (mustSetNewDate) obj.date = new Date()
 
@@ -1117,6 +1125,8 @@ class DateObject {
         if (!format) format = this.#format || "YYYY/MM/DD"
         if (!Array.isArray(ignoreList)) ignoreList = []
 
+        ignoreList = ignoreList.concat(this.#ignoreList)
+
         ignoreList = ignoreList.filter(item => {
             if (typeof item !== "string") {
                 console.warn("type of all items in the ignore list must be string, found", typeof item)
@@ -1131,7 +1141,7 @@ class DateObject {
             result = ""
 
         for (let item of array) {
-            result += this.getProperty(item) || item
+            result += ignoreList.includes(item) ? item : (this.getProperty(item) || item)
         }
 
         if (this.#local !== DateObject.locals.en) {
@@ -1290,6 +1300,12 @@ class DateObject {
         return this
     }
 
+    setIgnoreList(ignoreList) {
+        if (Array.isArray(ignoreList)) this.#ignoreList = ignoreList
+
+        return this
+    }
+
     set(key, value) {
         if (key === undefined || key === null) return this
 
@@ -1328,6 +1344,7 @@ class DateObject {
             case "second": return this.setSecond(value)
             case "millisecond": return this.setMillisecond(value)
             case "date": return this.setDate(value)
+            case "ignoreList": return this.setIgnoreList(value)
             default: return this
         }
     }
@@ -1685,6 +1702,10 @@ class DateObject {
         return Math.round(this.valueOf() / 1000)
     }
 
+    get ignoreList() {
+        return this.#ignoreList
+    }
+
     set year(value) {
         value = this.#toNumber(value)
 
@@ -1772,6 +1793,10 @@ class DateObject {
         if (typeof format !== "string") return
 
         this.#format = format
+    }
+
+    set ignoreList(ignoreList) {
+        if (Array.isArray(ignoreList)) this.#ignoreList = ignoreList
     }
 
     #toNumber = value => {

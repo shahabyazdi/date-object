@@ -25,7 +25,7 @@ yarn add date-object
 ## jsDelivr:
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.4/dist/date-object.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.5/dist/date-object.js"></script>
 ```
 
 # 2- Usage
@@ -117,7 +117,8 @@ date.format(); //2019/09/20
   date: String , Number(unix time in milliseconds), JavaScript Date or DateObject, //default new Date()
   calendar: `gregorian`, `persian` or `arabic`, //default `gregorian`
   local: `en`, `fa` or `ar`, //default `en`
-  format: `String` //default `YYYY/MM/DD`
+  format: `String`, //default `YYYY/MM/DD`
+  ignoreList:`Array`//If the format contained words that should be ignored
 }
 
 ```
@@ -162,7 +163,8 @@ date.format(); //31 Mordad 1399
   millisecond: Number, //default 0
   calendar: `gregorian`, `persian` or `arabic`, //default `gregorian`
   local: `en`, `fa` or `ar`, //default `en`
-  format: String //default `YYYY/MM/DD`
+  format: String, //default `YYYY/MM/DD`
+  ignoreList:`Array`//If the format contained words that should be ignored
 }
 
 ```
@@ -475,6 +477,7 @@ var date = new DateObject(); //2020/10/31
 date.set({ calendar: "persian", format: "dddd DD MMMM YYYY" }); //Shanbeh 10 Aban 1399
 date.set({ calendar: "gregorian", year: 2020, month: 11, day: 12 }); //Saturday 12 December 2020
 date.set(new DateObject().toObject()); //2020/10/31
+date.set({ format: "Date:MM/DD/YYYY", ignoreList: ["Date"] }).format(); //Date:10/31/2020
 ```
 
 ## 4-10- toUTC()
