@@ -25,7 +25,7 @@ yarn add date-object
 ## jsDelivr:
 
 ```javascript
-<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.5/dist/date-object.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-object@1.1.6/dist/date-object.min.js"></script>
 ```
 
 # 2- Usage
@@ -117,8 +117,8 @@ date.format(); //2019/09/20
   date: String , Number(unix time in milliseconds), JavaScript Date or DateObject, //default new Date()
   calendar: `gregorian`, `persian` or `arabic`, //default `gregorian`
   local: `en`, `fa` or `ar`, //default `en`
-  format: `String`, //default `YYYY/MM/DD`
-  ignoreList:`Array`//If the format contained words that should be ignored
+  format: String, //default `YYYY/MM/DD`
+  ignoreList:Array//If the format contained words that should be ignored
 }
 
 ```
@@ -164,7 +164,7 @@ date.format(); //31 Mordad 1399
   calendar: `gregorian`, `persian` or `arabic`, //default `gregorian`
   local: `en`, `fa` or `ar`, //default `en`
   format: String, //default `YYYY/MM/DD`
-  ignoreList:`Array`//If the format contained words that should be ignored
+  ignoreList:Array//If the format contained words that should be ignored
 }
 
 ```

@@ -1301,7 +1301,7 @@ class DateObject {
     }
 
     setIgnoreList(ignoreList) {
-        if (Array.isArray(ignoreList)) this.#ignoreList = ignoreList
+        this.ignoreList = ignoreList
 
         return this
     }

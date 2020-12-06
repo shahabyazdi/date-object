@@ -1,11 +1,11 @@
 {
   "name": "date-object",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "JavaScript library for working with Date and Time in different calendars and locals",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -39,5 +39,13 @@
     "url": "https://github.com/shahabyazdi/DateObject/issues"
   },
   "homepage": "https://github.com/shahabyazdi/DateObject#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.2",
+    "rollup": "^2.34.2",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
 }
