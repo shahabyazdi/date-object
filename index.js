@@ -1,4 +1,4 @@
-class DateObject {
+export default class DateObject {
     #year
     #month
     #day
@@ -1803,5 +1803,3 @@ class DateObject {
         if (!isNaN(value)) return parseInt(value)
     }
 }
-
-module.exports = DateObject

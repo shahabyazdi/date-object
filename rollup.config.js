@@ -1,22 +1,48 @@
 import babel from "@rollup/plugin-babel"
-import { uglify } from "rollup-plugin-uglify"
+import { terser } from "rollup-plugin-terser"
 
-export default {
-    input: "dist/date-object.js",
-    output: [
-        { file: "dist/date-object.es5.js", },
-        {
-            file: "dist/date-object.min.js",
-            plugins: [uglify()]
-        }
-    ],
-    plugins: [
-        babel({
-            exclude: /node_modules/,
-            presets: [
-                "@babel/preset-env",
-                { "plugins": ["@babel/plugin-proposal-class-properties"] }
-            ]
-        })
-    ]
-}
+export default [
+    {
+        input: "index.js",
+        output: [
+            {
+                file: "dist/cjs/date-object.es6.js",
+                format: "cjs",
+                exports: "default"
+            }
+        ]
+    },
+    {
+        input: "index.js",
+        output: [
+            {
+                file: "dist/cjs/date-object.es5.js",
+                format: "cjs",
+                exports: "default"
+            },
+            {
+                file: "dist/cjs/date-object.es5.min.js",
+                format: "cjs",
+                plugins: [terser()],
+                exports: "default"
+            },
+            {
+                file: "dist/date-object.min.js",
+                format: "umd",
+                plugins: [terser()],
+                name: "DateObject",
+                exports: "default"
+            }
+        ],
+        plugins: [
+            babel({
+                exclude: /node_modules/,
+                presets: [
+                    "@babel/preset-env",
+                    { "plugins": ["@babel/plugin-proposal-class-properties"] }
+                ]
+            })
+        ]
+    }
+]
+

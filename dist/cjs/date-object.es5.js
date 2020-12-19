@@ -1,3 +1,5 @@
+'use strict';
+
 function _typeof(obj) {
   "@babel/helpers - typeof";
 
@@ -3296,3 +3298,5 @@ _defineProperty(DateObject, "locals", {
   AR: "AR",
   HI: "HI"
 });
+
+module.exports = DateObject;
