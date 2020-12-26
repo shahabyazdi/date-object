@@ -2265,16 +2265,7 @@ var DateObject = /*#__PURE__*/function () {
 
     _classPrivateFieldSet(this, _format, obj.format);
 
-    if (typeof obj.date === "string") {
-      if (_classPrivateFieldGet(this, _isoDate).test(obj.date)) {
-        obj.date = new Date(obj.date);
-      } else {
-        this.parse(obj.date);
-        _mustGetLeaps = false;
-      }
-    }
-
-    if (obj.date instanceof DateObject || obj.date instanceof Date || typeof obj.date === "number") {
+    if (obj.date instanceof DateObject || obj.date instanceof Date || typeof obj.date === "number" || typeof obj.date === "string") {
       this.setDate(obj.date);
       if (obj.calendar) this.convert(obj.calendar);
       _mustGetLeaps = false;
@@ -2656,8 +2647,14 @@ var DateObject = /*#__PURE__*/function () {
   }, {
     key: "setDate",
     value: function setDate(date) {
-      if (!date instanceof Date && !date instanceof DateObject) return this;
-      if (typeof date === "string" && _classPrivateFieldGet(this, _isoDate).test(date)) date = new Date(date);
+      if (typeof date === "string") {
+        if (_classPrivateFieldGet(this, _isoDate).test(date)) {
+          date = new Date(date);
+        } else {
+          return this.parse(date);
+        }
+      }
+
       if (typeof date === "number") date = new Date(date);
 
       if (date instanceof Date) {
@@ -3270,7 +3267,7 @@ var DateObject = /*#__PURE__*/function () {
   }, {
     key: "unix",
     get: function get() {
-      return Math.round(this.valueOf() / 1000);
+      return (this.valueOf() - this.millisecond) / 1000;
     }
   }, {
     key: "ignoreList",
