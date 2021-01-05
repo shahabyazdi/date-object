@@ -250,7 +250,7 @@ var _millisecond = new WeakMap();
 
 var _format = new WeakMap();
 
-var _local = new WeakMap();
+var _locale = new WeakMap();
 
 var _calendar = new WeakMap();
 
@@ -289,83 +289,83 @@ var _toNumber = new WeakMap();
 var DateObject = /*#__PURE__*/function () {
   function DateObject(object) {
     var _this = this,
-        _locals,
-        _locals2,
-        _locals3,
-        _locals4,
-        _locals5,
-        _locals6,
-        _locals7,
-        _locals8,
-        _locals9,
-        _locals10,
-        _locals11,
-        _locals12,
-        _locals13,
-        _locals14,
-        _locals15,
-        _locals16,
-        _locals17,
-        _locals18,
-        _locals19,
-        _locals20,
-        _locals21,
-        _locals22,
-        _locals23,
-        _locals24,
-        _locals25,
-        _locals26,
-        _locals27,
-        _locals28,
-        _locals29,
-        _locals30,
-        _locals31,
-        _locals32,
-        _locals33,
-        _locals34,
-        _locals35,
-        _locals36,
-        _locals37,
-        _locals38,
-        _locals39,
-        _locals40,
-        _locals41,
-        _locals42,
-        _locals43,
-        _locals44,
-        _locals45,
-        _locals46,
-        _locals47,
-        _locals48,
+        _locales,
+        _locales2,
+        _locales3,
+        _locales4,
+        _locales5,
+        _locales6,
+        _locales7,
+        _locales8,
+        _locales9,
+        _locales10,
+        _locales11,
+        _locales12,
+        _locales13,
+        _locales14,
+        _locales15,
+        _locales16,
+        _locales17,
+        _locales18,
+        _locales19,
+        _locales20,
+        _locales21,
+        _locales22,
+        _locales23,
+        _locales24,
+        _locales25,
+        _locales26,
+        _locales27,
+        _locales28,
+        _locales29,
+        _locales30,
+        _locales31,
+        _locales32,
+        _locales33,
+        _locales34,
+        _locales35,
+        _locales36,
+        _locales37,
+        _locales38,
+        _locales39,
+        _locales40,
+        _locales41,
+        _locales42,
+        _locales43,
+        _locales44,
+        _locales45,
+        _locales46,
+        _locales47,
+        _locales48,
         _value,
-        _locals49,
-        _locals50,
-        _locals51,
-        _locals52,
-        _locals53,
-        _locals54,
-        _locals55,
-        _locals56,
-        _locals57,
-        _locals58,
-        _locals59,
-        _locals60,
-        _locals61,
-        _locals62,
-        _locals63,
-        _locals64,
-        _locals65,
-        _locals66,
-        _locals67,
-        _locals68,
-        _locals69,
-        _locals70,
-        _locals71,
-        _locals72,
-        _locals73,
-        _locals74,
-        _locals75,
-        _locals76,
+        _locales49,
+        _locales50,
+        _locales51,
+        _locales52,
+        _locales53,
+        _locales54,
+        _locales55,
+        _locales56,
+        _locales57,
+        _locales58,
+        _locales59,
+        _locales60,
+        _locales61,
+        _locales62,
+        _locales63,
+        _locales64,
+        _locales65,
+        _locales66,
+        _locales67,
+        _locales68,
+        _locales69,
+        _locales70,
+        _locales71,
+        _locales72,
+        _locales73,
+        _locales74,
+        _locales75,
+        _locales76,
         _value2,
         _value3,
         _value4,
@@ -414,9 +414,9 @@ var DateObject = /*#__PURE__*/function () {
       value: void 0
     });
 
-    _local.set(this, {
+    _locale.set(this, {
       writable: true,
-      value: DateObject.locals.EN
+      value: DateObject.locales.EN
     });
 
     _calendar.set(this, {
@@ -537,721 +537,721 @@ var DateObject = /*#__PURE__*/function () {
       writable: true,
       value: (_value = {}, _defineProperty(_value, DateObject.calendars.GREGORIAN, [{
         length: 31,
-        locals: (_locals = {}, _defineProperty(_locals, DateObject.locals.EN, {
+        locales: (_locales = {}, _defineProperty(_locales, DateObject.locales.EN, {
           name: "January",
           shortName: "Jan"
-        }), _defineProperty(_locals, DateObject.locals.FA, {
+        }), _defineProperty(_locales, DateObject.locales.FA, {
           name: "ژانویه",
           shortName: "ژان"
-        }), _defineProperty(_locals, DateObject.locals.AR, {
+        }), _defineProperty(_locales, DateObject.locales.AR, {
           name: "يناير",
           shortName: "ينا"
-        }), _defineProperty(_locals, DateObject.locals.HI, {
+        }), _defineProperty(_locales, DateObject.locales.HI, {
           name: "जनवरी",
           shortName: "जन"
-        }), _locals)
+        }), _locales)
       }, {
         length: undefined,
-        locals: (_locals2 = {}, _defineProperty(_locals2, DateObject.locals.EN, {
+        locales: (_locales2 = {}, _defineProperty(_locales2, DateObject.locales.EN, {
           name: "February",
           shortName: "Feb"
-        }), _defineProperty(_locals2, DateObject.locals.FA, {
+        }), _defineProperty(_locales2, DateObject.locales.FA, {
           name: "فوریه",
           shortName: "فور"
-        }), _defineProperty(_locals2, DateObject.locals.AR, {
+        }), _defineProperty(_locales2, DateObject.locales.AR, {
           name: "فبراير",
           shortName: "فبر"
-        }), _defineProperty(_locals2, DateObject.locals.HI, {
+        }), _defineProperty(_locales2, DateObject.locales.HI, {
           name: "फ़रवरी",
           shortName: "फ़र"
-        }), _locals2)
+        }), _locales2)
       }, {
         length: 31,
-        locals: (_locals3 = {}, _defineProperty(_locals3, DateObject.locals.EN, {
+        locales: (_locales3 = {}, _defineProperty(_locales3, DateObject.locales.EN, {
           name: "March",
           shortName: "Mar"
-        }), _defineProperty(_locals3, DateObject.locals.FA, {
+        }), _defineProperty(_locales3, DateObject.locales.FA, {
           name: "مارس",
           shortName: "ما"
-        }), _defineProperty(_locals3, DateObject.locals.AR, {
+        }), _defineProperty(_locales3, DateObject.locales.AR, {
           name: "مارس",
           shortName: "ما"
-        }), _defineProperty(_locals3, DateObject.locals.HI, {
+        }), _defineProperty(_locales3, DateObject.locales.HI, {
           name: "मार्च",
           shortName: "मार्च"
-        }), _locals3)
+        }), _locales3)
       }, {
         length: 30,
-        locals: (_locals4 = {}, _defineProperty(_locals4, DateObject.locals.EN, {
+        locales: (_locales4 = {}, _defineProperty(_locales4, DateObject.locales.EN, {
           name: "April",
           shortName: "Apr"
-        }), _defineProperty(_locals4, DateObject.locals.FA, {
+        }), _defineProperty(_locales4, DateObject.locales.FA, {
           name: "آوریل",
           shortName: "آور"
-        }), _defineProperty(_locals4, DateObject.locals.AR, {
+        }), _defineProperty(_locales4, DateObject.locales.AR, {
           name: "إبريل",
           shortName: "إبر"
-        }), _defineProperty(_locals4, DateObject.locals.HI, {
+        }), _defineProperty(_locales4, DateObject.locales.HI, {
           name: "अप्रैल",
           shortName: "अप्रैल"
-        }), _locals4)
+        }), _locales4)
       }, {
         length: 31,
-        locals: (_locals5 = {}, _defineProperty(_locals5, DateObject.locals.EN, {
+        locales: (_locales5 = {}, _defineProperty(_locales5, DateObject.locales.EN, {
           name: "May",
           shortName: "May"
-        }), _defineProperty(_locals5, DateObject.locals.FA, {
+        }), _defineProperty(_locales5, DateObject.locales.FA, {
           name: "مه",
           shortName: "مه"
-        }), _defineProperty(_locals5, DateObject.locals.AR, {
+        }), _defineProperty(_locales5, DateObject.locales.AR, {
           name: "مايو",
           shortName: "ما"
-        }), _defineProperty(_locals5, DateObject.locals.HI, {
+        }), _defineProperty(_locales5, DateObject.locales.HI, {
           name: "मई",
           shortName: "मई"
-        }), _locals5)
+        }), _locales5)
       }, {
         length: 30,
-        locals: (_locals6 = {}, _defineProperty(_locals6, DateObject.locals.EN, {
+        locales: (_locales6 = {}, _defineProperty(_locales6, DateObject.locales.EN, {
           name: "June",
           shortName: "Jun"
-        }), _defineProperty(_locals6, DateObject.locals.FA, {
+        }), _defineProperty(_locales6, DateObject.locales.FA, {
           name: "ژوئن",
           shortName: "ژو"
-        }), _defineProperty(_locals6, DateObject.locals.AR, {
+        }), _defineProperty(_locales6, DateObject.locales.AR, {
           name: "يونيو",
           shortName: "يو"
-        }), _defineProperty(_locals6, DateObject.locals.HI, {
+        }), _defineProperty(_locales6, DateObject.locales.HI, {
           name: "जून",
           shortName: "जून"
-        }), _locals6)
+        }), _locales6)
       }, {
         length: 31,
-        locals: (_locals7 = {}, _defineProperty(_locals7, DateObject.locals.EN, {
+        locales: (_locales7 = {}, _defineProperty(_locales7, DateObject.locales.EN, {
           name: "July",
           shortName: "Jul"
-        }), _defineProperty(_locals7, DateObject.locals.FA, {
+        }), _defineProperty(_locales7, DateObject.locales.FA, {
           name: "ژوئیه",
           shortName: "ژوئیه"
-        }), _defineProperty(_locals7, DateObject.locals.AR, {
+        }), _defineProperty(_locales7, DateObject.locales.AR, {
           name: "يوليو",
           shortName: "يوليو"
-        }), _defineProperty(_locals7, DateObject.locals.HI, {
+        }), _defineProperty(_locales7, DateObject.locales.HI, {
           name: "जुलाई",
           shortName: "जुल"
-        }), _locals7)
+        }), _locales7)
       }, {
         length: 31,
-        locals: (_locals8 = {}, _defineProperty(_locals8, DateObject.locals.EN, {
+        locales: (_locales8 = {}, _defineProperty(_locales8, DateObject.locales.EN, {
           name: "August",
           shortName: "Aug"
-        }), _defineProperty(_locals8, DateObject.locals.FA, {
+        }), _defineProperty(_locales8, DateObject.locales.FA, {
           name: "اوت",
           shortName: "اوت"
-        }), _defineProperty(_locals8, DateObject.locals.AR, {
+        }), _defineProperty(_locales8, DateObject.locales.AR, {
           name: "أغسطس",
           shortName: "أغس"
-        }), _defineProperty(_locals8, DateObject.locals.HI, {
+        }), _defineProperty(_locales8, DateObject.locales.HI, {
           name: "अगस्त",
           shortName: "अग"
-        }), _locals8)
+        }), _locales8)
       }, {
         length: 30,
-        locals: (_locals9 = {}, _defineProperty(_locals9, DateObject.locals.EN, {
+        locales: (_locales9 = {}, _defineProperty(_locales9, DateObject.locales.EN, {
           name: "September",
           shortName: "Sep"
-        }), _defineProperty(_locals9, DateObject.locals.FA, {
+        }), _defineProperty(_locales9, DateObject.locales.FA, {
           name: "سپتامبر",
           shortName: "سپ"
-        }), _defineProperty(_locals9, DateObject.locals.AR, {
+        }), _defineProperty(_locales9, DateObject.locales.AR, {
           name: "سبتمبر",
           shortName: "سب"
-        }), _defineProperty(_locals9, DateObject.locals.HI, {
+        }), _defineProperty(_locales9, DateObject.locales.HI, {
           name: "सितंबर",
           shortName: "सित"
-        }), _locals9)
+        }), _locales9)
       }, {
         length: 31,
-        locals: (_locals10 = {}, _defineProperty(_locals10, DateObject.locals.EN, {
+        locales: (_locales10 = {}, _defineProperty(_locales10, DateObject.locales.EN, {
           name: "October",
           shortName: "Oct"
-        }), _defineProperty(_locals10, DateObject.locals.FA, {
+        }), _defineProperty(_locales10, DateObject.locales.FA, {
           name: "اکتبر",
           shortName: "اک"
-        }), _defineProperty(_locals10, DateObject.locals.AR, {
+        }), _defineProperty(_locales10, DateObject.locales.AR, {
           name: "أكتوبر",
           shortName: "اک"
-        }), _defineProperty(_locals10, DateObject.locals.HI, {
+        }), _defineProperty(_locales10, DateObject.locales.HI, {
           name: "अक्तूबर",
           shortName: "अक्तू"
-        }), _locals10)
+        }), _locales10)
       }, {
         length: 30,
-        locals: (_locals11 = {}, _defineProperty(_locals11, DateObject.locals.EN, {
+        locales: (_locales11 = {}, _defineProperty(_locales11, DateObject.locales.EN, {
           name: "November",
           shortName: "Nov"
-        }), _defineProperty(_locals11, DateObject.locals.FA, {
+        }), _defineProperty(_locales11, DateObject.locales.FA, {
           name: "نوامبر",
           shortName: "نو"
-        }), _defineProperty(_locals11, DateObject.locals.AR, {
+        }), _defineProperty(_locales11, DateObject.locales.AR, {
           name: "نوفمبر",
           shortName: "نو"
-        }), _defineProperty(_locals11, DateObject.locals.HI, {
+        }), _defineProperty(_locales11, DateObject.locales.HI, {
           name: "नवंबर",
           shortName: "नव"
-        }), _locals11)
+        }), _locales11)
       }, {
         length: 31,
-        locals: (_locals12 = {}, _defineProperty(_locals12, DateObject.locals.EN, {
+        locales: (_locales12 = {}, _defineProperty(_locales12, DateObject.locales.EN, {
           name: "December",
           shortName: "Dec"
-        }), _defineProperty(_locals12, DateObject.locals.FA, {
+        }), _defineProperty(_locales12, DateObject.locales.FA, {
           name: "دسامبر",
           shortName: "دس"
-        }), _defineProperty(_locals12, DateObject.locals.AR, {
+        }), _defineProperty(_locales12, DateObject.locales.AR, {
           name: "ديسمبر",
           shortName: "دس"
-        }), _defineProperty(_locals12, DateObject.locals.HI, {
+        }), _defineProperty(_locales12, DateObject.locales.HI, {
           name: "दिसंबर",
           shortName: "दिस"
-        }), _locals12)
+        }), _locales12)
       }]), _defineProperty(_value, DateObject.calendars.PERSIAN, [{
         length: 31,
-        locals: (_locals13 = {}, _defineProperty(_locals13, DateObject.locals.EN, {
+        locales: (_locales13 = {}, _defineProperty(_locales13, DateObject.locales.EN, {
           name: "Farvardin",
           shortName: "Far"
-        }), _defineProperty(_locals13, DateObject.locals.FA, {
+        }), _defineProperty(_locales13, DateObject.locales.FA, {
           name: "فروردین",
           shortName: "فر"
-        }), _defineProperty(_locals13, DateObject.locals.AR, {
+        }), _defineProperty(_locales13, DateObject.locales.AR, {
           name: "فروردین",
           shortName: "فر"
-        }), _defineProperty(_locals13, DateObject.locals.HI, {
+        }), _defineProperty(_locales13, DateObject.locales.HI, {
           name: "फर्वादिन",
           shortName: "फर्वादिन"
-        }), _locals13)
+        }), _locales13)
       }, {
         length: 31,
-        locals: (_locals14 = {}, _defineProperty(_locals14, DateObject.locals.EN, {
+        locales: (_locales14 = {}, _defineProperty(_locales14, DateObject.locales.EN, {
           name: "Ordibehesht",
           shortName: "Ord"
-        }), _defineProperty(_locals14, DateObject.locals.FA, {
+        }), _defineProperty(_locales14, DateObject.locales.FA, {
           name: "اردیبهشت",
           shortName: "ار"
-        }), _defineProperty(_locals14, DateObject.locals.AR, {
+        }), _defineProperty(_locales14, DateObject.locales.AR, {
           name: "اردیبهشت",
           shortName: "ار"
-        }), _defineProperty(_locals14, DateObject.locals.HI, {
+        }), _defineProperty(_locales14, DateObject.locales.HI, {
           name: "ओर्दिवेहेस्ट",
           shortName: "ओर्दिवेहेस्ट"
-        }), _locals14)
+        }), _locales14)
       }, {
         length: 31,
-        locals: (_locals15 = {}, _defineProperty(_locals15, DateObject.locals.EN, {
+        locales: (_locales15 = {}, _defineProperty(_locales15, DateObject.locales.EN, {
           name: "Khordad",
           shortName: "Kho"
-        }), _defineProperty(_locals15, DateObject.locals.FA, {
+        }), _defineProperty(_locales15, DateObject.locales.FA, {
           name: "خرداد",
           shortName: "خرد"
-        }), _defineProperty(_locals15, DateObject.locals.AR, {
+        }), _defineProperty(_locales15, DateObject.locales.AR, {
           name: "خرداد",
           shortName: "خرد"
-        }), _defineProperty(_locals15, DateObject.locals.HI, {
+        }), _defineProperty(_locales15, DateObject.locales.HI, {
           name: "खोरर्दाद",
           shortName: "खोरर्दाद"
-        }), _locals15)
+        }), _locales15)
       }, {
         length: 31,
-        locals: (_locals16 = {}, _defineProperty(_locals16, DateObject.locals.EN, {
+        locales: (_locales16 = {}, _defineProperty(_locales16, DateObject.locales.EN, {
           name: "Tir",
           shortName: "Tir"
-        }), _defineProperty(_locals16, DateObject.locals.FA, {
+        }), _defineProperty(_locales16, DateObject.locales.FA, {
           name: "تیر",
           shortName: "تیر"
-        }), _defineProperty(_locals16, DateObject.locals.AR, {
+        }), _defineProperty(_locales16, DateObject.locales.AR, {
           name: "تیر",
           shortName: "تیر"
-        }), _defineProperty(_locals16, DateObject.locals.HI, {
+        }), _defineProperty(_locales16, DateObject.locales.HI, {
           name: "टिर",
           shortName: "टिर"
-        }), _locals16)
+        }), _locales16)
       }, {
         length: 31,
-        locals: (_locals17 = {}, _defineProperty(_locals17, DateObject.locals.EN, {
+        locales: (_locales17 = {}, _defineProperty(_locales17, DateObject.locales.EN, {
           name: "Mordad",
           shortName: "Mor"
-        }), _defineProperty(_locals17, DateObject.locals.FA, {
+        }), _defineProperty(_locales17, DateObject.locales.FA, {
           name: "مرداد",
           shortName: "مر"
-        }), _defineProperty(_locals17, DateObject.locals.AR, {
+        }), _defineProperty(_locales17, DateObject.locales.AR, {
           name: "مرداد",
           shortName: "مر"
-        }), _defineProperty(_locals17, DateObject.locals.HI, {
+        }), _defineProperty(_locales17, DateObject.locales.HI, {
           name: "मोरदाद",
           shortName: "मोरदाद"
-        }), _locals17)
+        }), _locales17)
       }, {
         length: 31,
-        locals: (_locals18 = {}, _defineProperty(_locals18, DateObject.locals.EN, {
+        locales: (_locales18 = {}, _defineProperty(_locales18, DateObject.locales.EN, {
           name: "Shahrivar",
           shortName: "Sha"
-        }), _defineProperty(_locals18, DateObject.locals.FA, {
+        }), _defineProperty(_locales18, DateObject.locales.FA, {
           name: "شهریور",
           shortName: "شه"
-        }), _defineProperty(_locals18, DateObject.locals.AR, {
+        }), _defineProperty(_locales18, DateObject.locales.AR, {
           name: "شهریور",
           shortName: "شه"
-        }), _defineProperty(_locals18, DateObject.locals.HI, {
+        }), _defineProperty(_locales18, DateObject.locales.HI, {
           name: "शाहरीवर्",
           shortName: "शाहरीवर्"
-        }), _locals18)
+        }), _locales18)
       }, {
         length: 30,
-        locals: (_locals19 = {}, _defineProperty(_locals19, DateObject.locals.EN, {
+        locales: (_locales19 = {}, _defineProperty(_locales19, DateObject.locales.EN, {
           name: "Mehr",
           shortName: "Meh"
-        }), _defineProperty(_locals19, DateObject.locals.FA, {
+        }), _defineProperty(_locales19, DateObject.locales.FA, {
           name: "مهر",
           shortName: "مه"
-        }), _defineProperty(_locals19, DateObject.locals.AR, {
+        }), _defineProperty(_locales19, DateObject.locales.AR, {
           name: "مهر",
           shortName: "مه"
-        }), _defineProperty(_locals19, DateObject.locals.HI, {
+        }), _defineProperty(_locales19, DateObject.locales.HI, {
           name: "मेहर",
           shortName: "मेहर"
-        }), _locals19)
+        }), _locales19)
       }, {
         length: 30,
-        locals: (_locals20 = {}, _defineProperty(_locals20, DateObject.locals.EN, {
+        locales: (_locales20 = {}, _defineProperty(_locales20, DateObject.locales.EN, {
           name: "Aban",
           shortName: "Aba"
-        }), _defineProperty(_locals20, DateObject.locals.FA, {
+        }), _defineProperty(_locales20, DateObject.locales.FA, {
           name: "آبان",
           shortName: "آبا"
-        }), _defineProperty(_locals20, DateObject.locals.AR, {
+        }), _defineProperty(_locales20, DateObject.locales.AR, {
           name: "آبان",
           shortName: "آبا"
-        }), _defineProperty(_locals20, DateObject.locals.HI, {
+        }), _defineProperty(_locales20, DateObject.locales.HI, {
           name: "अवन",
           shortName: "अवन"
-        }), _locals20)
+        }), _locales20)
       }, {
         length: 30,
-        locals: (_locals21 = {}, _defineProperty(_locals21, DateObject.locals.EN, {
+        locales: (_locales21 = {}, _defineProperty(_locales21, DateObject.locales.EN, {
           name: "Azar",
           shortName: "Aza"
-        }), _defineProperty(_locals21, DateObject.locals.FA, {
+        }), _defineProperty(_locales21, DateObject.locales.FA, {
           name: "آذر",
           shortName: "آذ"
-        }), _defineProperty(_locals21, DateObject.locals.AR, {
+        }), _defineProperty(_locales21, DateObject.locales.AR, {
           name: "آذر",
           shortName: "آذ"
-        }), _defineProperty(_locals21, DateObject.locals.HI, {
+        }), _defineProperty(_locales21, DateObject.locales.HI, {
           name: "अज़र",
           shortName: "अज़र"
-        }), _locals21)
+        }), _locales21)
       }, {
         length: 30,
-        locals: (_locals22 = {}, _defineProperty(_locals22, DateObject.locals.EN, {
+        locales: (_locales22 = {}, _defineProperty(_locales22, DateObject.locales.EN, {
           name: "Dey",
           shortName: "Dey"
-        }), _defineProperty(_locals22, DateObject.locals.FA, {
+        }), _defineProperty(_locales22, DateObject.locales.FA, {
           name: "دی",
           shortName: "دی"
-        }), _defineProperty(_locals22, DateObject.locals.AR, {
+        }), _defineProperty(_locales22, DateObject.locales.AR, {
           name: "دی",
           shortName: "دی"
-        }), _defineProperty(_locals22, DateObject.locals.HI, {
+        }), _defineProperty(_locales22, DateObject.locales.HI, {
           name: "डे",
           shortName: "डे"
-        }), _locals22)
+        }), _locales22)
       }, {
         length: 30,
-        locals: (_locals23 = {}, _defineProperty(_locals23, DateObject.locals.EN, {
+        locales: (_locales23 = {}, _defineProperty(_locales23, DateObject.locales.EN, {
           name: "Bahman",
           shortName: "Bah"
-        }), _defineProperty(_locals23, DateObject.locals.FA, {
+        }), _defineProperty(_locales23, DateObject.locales.FA, {
           name: "بهمن",
           shortName: "بهم"
-        }), _defineProperty(_locals23, DateObject.locals.AR, {
+        }), _defineProperty(_locales23, DateObject.locales.AR, {
           name: "بهمن",
           shortName: "بهم"
-        }), _defineProperty(_locals23, DateObject.locals.HI, {
+        }), _defineProperty(_locales23, DateObject.locales.HI, {
           name: "बहमन",
           shortName: "बहमन"
-        }), _locals23)
+        }), _locales23)
       }, {
         length: undefined,
-        locals: (_locals24 = {}, _defineProperty(_locals24, DateObject.locals.EN, {
+        locales: (_locales24 = {}, _defineProperty(_locales24, DateObject.locales.EN, {
           name: "Esfand",
           shortName: "Esf"
-        }), _defineProperty(_locals24, DateObject.locals.FA, {
+        }), _defineProperty(_locales24, DateObject.locales.FA, {
           name: "اسفند",
           shortName: "اسف"
-        }), _defineProperty(_locals24, DateObject.locals.AR, {
+        }), _defineProperty(_locales24, DateObject.locales.AR, {
           name: "اسفند",
           shortName: "اسف"
-        }), _defineProperty(_locals24, DateObject.locals.HI, {
+        }), _defineProperty(_locales24, DateObject.locales.HI, {
           name: "ईस्फन्द्",
           shortName: "ईस्फन्द्"
-        }), _locals24)
+        }), _locales24)
       }]), _defineProperty(_value, DateObject.calendars.ARABIC, [{
         length: 30,
-        locals: (_locals25 = {}, _defineProperty(_locals25, DateObject.locals.AR, {
+        locales: (_locales25 = {}, _defineProperty(_locales25, DateObject.locales.AR, {
           name: "محرم",
           shortName: "محرم"
-        }), _defineProperty(_locals25, DateObject.locals.EN, {
+        }), _defineProperty(_locales25, DateObject.locales.EN, {
           name: "Muharram",
           shortName: "Mu"
-        }), _defineProperty(_locals25, DateObject.locals.FA, {
+        }), _defineProperty(_locales25, DateObject.locales.FA, {
           name: "محرم",
           shortName: "محرم"
-        }), _defineProperty(_locals25, DateObject.locals.HI, {
+        }), _defineProperty(_locales25, DateObject.locales.HI, {
           name: "मुहर्रम",
           shortName: "मुहर्रम"
-        }), _locals25)
+        }), _locales25)
       }, {
         length: 29,
-        locals: (_locals26 = {}, _defineProperty(_locals26, DateObject.locals.AR, {
+        locales: (_locales26 = {}, _defineProperty(_locales26, DateObject.locales.AR, {
           name: "صفر",
           shortName: "صفر"
-        }), _defineProperty(_locals26, DateObject.locals.EN, {
+        }), _defineProperty(_locales26, DateObject.locales.EN, {
           name: "Safar",
           shortName: "Sa"
-        }), _defineProperty(_locals26, DateObject.locals.FA, {
+        }), _defineProperty(_locales26, DateObject.locales.FA, {
           name: "صفر",
           shortName: "صفر"
-        }), _defineProperty(_locals26, DateObject.locals.HI, {
+        }), _defineProperty(_locales26, DateObject.locales.HI, {
           name: "सफर",
           shortName: "सफर"
-        }), _locals26)
+        }), _locales26)
       }, {
         length: 30,
-        locals: (_locals27 = {}, _defineProperty(_locals27, DateObject.locals.AR, {
+        locales: (_locales27 = {}, _defineProperty(_locales27, DateObject.locales.AR, {
           name: "ربیع الاول",
           shortName: "ربیع الاول"
-        }), _defineProperty(_locals27, DateObject.locals.EN, {
+        }), _defineProperty(_locales27, DateObject.locales.EN, {
           name: "Rabi`al-Awwal",
           shortName: "RI"
-        }), _defineProperty(_locals27, DateObject.locals.FA, {
+        }), _defineProperty(_locales27, DateObject.locales.FA, {
           name: "ربیع الاول",
           shortName: "ربیع الاول"
-        }), _defineProperty(_locals27, DateObject.locals.HI, {
+        }), _defineProperty(_locales27, DateObject.locales.HI, {
           name: "राबी प्रथम",
           shortName: "राबी प्रथम"
-        }), _locals27)
+        }), _locales27)
       }, {
         length: 29,
-        locals: (_locals28 = {}, _defineProperty(_locals28, DateObject.locals.AR, {
+        locales: (_locales28 = {}, _defineProperty(_locales28, DateObject.locales.AR, {
           name: "ربیع الثانی",
           shortName: "ربیع الثانی"
-        }), _defineProperty(_locals28, DateObject.locals.EN, {
+        }), _defineProperty(_locales28, DateObject.locales.EN, {
           name: "Rabi`ath-Thani",
           shortName: "RII"
-        }), _defineProperty(_locals28, DateObject.locals.FA, {
+        }), _defineProperty(_locales28, DateObject.locales.FA, {
           name: "ربیع الثانی",
           shortName: "ربیع الثانی"
-        }), _defineProperty(_locals28, DateObject.locals.HI, {
+        }), _defineProperty(_locales28, DateObject.locales.HI, {
           name: "राबी द्वितीय",
           shortName: "राबी द्वितीय"
-        }), _locals28)
+        }), _locales28)
       }, {
         length: 30,
-        locals: (_locals29 = {}, _defineProperty(_locals29, DateObject.locals.AR, {
+        locales: (_locales29 = {}, _defineProperty(_locales29, DateObject.locales.AR, {
           name: "جمادی الاول",
           shortName: "جمادی الاول"
-        }), _defineProperty(_locals29, DateObject.locals.EN, {
+        }), _defineProperty(_locales29, DateObject.locales.EN, {
           name: "Jumada l-Ula",
           shortName: "JI"
-        }), _defineProperty(_locals29, DateObject.locals.FA, {
+        }), _defineProperty(_locales29, DateObject.locales.FA, {
           name: "جمادی الاول",
           shortName: "جمادی الاول"
-        }), _defineProperty(_locals29, DateObject.locals.HI, {
+        }), _defineProperty(_locales29, DateObject.locales.HI, {
           name: "जुम्डा प्रथम",
           shortName: "जुम्डा प्रथम"
-        }), _locals29)
+        }), _locales29)
       }, {
         length: 29,
-        locals: (_locals30 = {}, _defineProperty(_locals30, DateObject.locals.AR, {
+        locales: (_locales30 = {}, _defineProperty(_locales30, DateObject.locales.AR, {
           name: "جمادی الثانی",
           shortName: "جمادی الثانی"
-        }), _defineProperty(_locals30, DateObject.locals.EN, {
+        }), _defineProperty(_locales30, DateObject.locales.EN, {
           name: "Jumada t-Tania",
           shortName: "JII"
-        }), _defineProperty(_locals30, DateObject.locals.FA, {
+        }), _defineProperty(_locales30, DateObject.locales.FA, {
           name: "جمادی الثانی",
           shortName: "جمادی الثانی"
-        }), _defineProperty(_locals30, DateObject.locals.HI, {
+        }), _defineProperty(_locales30, DateObject.locales.HI, {
           name: "जुम्डा द्वितीय",
           shortName: "जुम्डा द्वितीय"
-        }), _locals30)
+        }), _locales30)
       }, {
         length: 30,
-        locals: (_locals31 = {}, _defineProperty(_locals31, DateObject.locals.AR, {
+        locales: (_locales31 = {}, _defineProperty(_locales31, DateObject.locales.AR, {
           name: "رجب",
           shortName: "رجب"
-        }), _defineProperty(_locals31, DateObject.locals.EN, {
+        }), _defineProperty(_locales31, DateObject.locales.EN, {
           name: "Rajab",
           shortName: "Ra"
-        }), _defineProperty(_locals31, DateObject.locals.FA, {
+        }), _defineProperty(_locales31, DateObject.locales.FA, {
           name: "رجب",
           shortName: "رجب"
-        }), _defineProperty(_locals31, DateObject.locals.HI, {
+        }), _defineProperty(_locales31, DateObject.locales.HI, {
           name: "रजब",
           shortName: "रजब"
-        }), _locals31)
+        }), _locales31)
       }, {
         length: 29,
-        locals: (_locals32 = {}, _defineProperty(_locals32, DateObject.locals.AR, {
+        locales: (_locales32 = {}, _defineProperty(_locales32, DateObject.locales.AR, {
           name: "شعبان",
           shortName: "شعبان"
-        }), _defineProperty(_locals32, DateObject.locals.EN, {
+        }), _defineProperty(_locales32, DateObject.locales.EN, {
           name: "Sha`ban",
           shortName: "Sh"
-        }), _defineProperty(_locals32, DateObject.locals.FA, {
+        }), _defineProperty(_locales32, DateObject.locales.FA, {
           name: "شعبان",
           shortName: "شعبان"
-        }), _defineProperty(_locals32, DateObject.locals.HI, {
+        }), _defineProperty(_locales32, DateObject.locales.HI, {
           name: "शावन",
           shortName: "शावन"
-        }), _locals32)
+        }), _locales32)
       }, {
         length: 30,
-        locals: (_locals33 = {}, _defineProperty(_locals33, DateObject.locals.AR, {
+        locales: (_locales33 = {}, _defineProperty(_locales33, DateObject.locales.AR, {
           name: "رمضان",
           shortName: "رمضان"
-        }), _defineProperty(_locals33, DateObject.locals.EN, {
+        }), _defineProperty(_locales33, DateObject.locales.EN, {
           name: "Ramadan",
           shortName: "Ra"
-        }), _defineProperty(_locals33, DateObject.locals.FA, {
+        }), _defineProperty(_locales33, DateObject.locales.FA, {
           name: "رمضان",
           shortName: "رمضان"
-        }), _defineProperty(_locals33, DateObject.locals.HI, {
+        }), _defineProperty(_locales33, DateObject.locales.HI, {
           name: "रमजान",
           shortName: "रमजान"
-        }), _locals33)
+        }), _locales33)
       }, {
         length: 29,
-        locals: (_locals34 = {}, _defineProperty(_locals34, DateObject.locals.AR, {
+        locales: (_locales34 = {}, _defineProperty(_locales34, DateObject.locales.AR, {
           name: "شوال",
           shortName: "شوال"
-        }), _defineProperty(_locals34, DateObject.locals.EN, {
+        }), _defineProperty(_locales34, DateObject.locales.EN, {
           name: "Shawwal",
           shortName: "Sh"
-        }), _defineProperty(_locals34, DateObject.locals.FA, {
+        }), _defineProperty(_locales34, DateObject.locales.FA, {
           name: "شوال",
           shortName: "شوال"
-        }), _defineProperty(_locals34, DateObject.locals.HI, {
+        }), _defineProperty(_locales34, DateObject.locales.HI, {
           name: "शव्व्ल",
           shortName: "शव्व्ल"
-        }), _locals34)
+        }), _locales34)
       }, {
         length: 30,
-        locals: (_locals35 = {}, _defineProperty(_locals35, DateObject.locals.AR, {
+        locales: (_locales35 = {}, _defineProperty(_locales35, DateObject.locales.AR, {
           name: "ذیقعده ",
           shortName: "ذیقعده"
-        }), _defineProperty(_locals35, DateObject.locals.EN, {
+        }), _defineProperty(_locales35, DateObject.locales.EN, {
           name: "Dhu l-Qa`da ",
           shortName: "DhQ"
-        }), _defineProperty(_locals35, DateObject.locals.HI, {
+        }), _defineProperty(_locales35, DateObject.locales.HI, {
           name: "जिल-क्दाह ",
           shortName: "जिल-क्दाह"
-        }), _locals35)
+        }), _locales35)
       }, {
         length: undefined,
-        locals: (_locals36 = {}, _defineProperty(_locals36, DateObject.locals.AR, {
+        locales: (_locales36 = {}, _defineProperty(_locales36, DateObject.locales.AR, {
           name: "ذیحجه",
           shortName: "ذیحجه"
-        }), _defineProperty(_locals36, DateObject.locals.EN, {
+        }), _defineProperty(_locales36, DateObject.locales.EN, {
           name: "Dhu l-Hijja",
           shortName: "DhH"
-        }), _defineProperty(_locals36, DateObject.locals.FA, {
+        }), _defineProperty(_locales36, DateObject.locales.FA, {
           name: "ذیحجه",
           shortName: "ذیحجه"
-        }), _defineProperty(_locals36, DateObject.locals.HI, {
+        }), _defineProperty(_locales36, DateObject.locales.HI, {
           name: "जिल्-हिज्जाह",
           shortName: "जिल्-हिज्जाह"
-        }), _locals36)
+        }), _locales36)
       }]), _defineProperty(_value, DateObject.calendars.INDIAN, [{
         length: undefined,
-        locals: (_locals37 = {}, _defineProperty(_locals37, DateObject.locals.EN, {
+        locales: (_locales37 = {}, _defineProperty(_locales37, DateObject.locales.EN, {
           name: "Chaitra",
           shortName: "Cha"
-        }), _defineProperty(_locals37, DateObject.locals.FA, {
+        }), _defineProperty(_locales37, DateObject.locales.FA, {
           name: "چیتره",
           shortName: "چیت"
-        }), _defineProperty(_locals37, DateObject.locals.AR, {
+        }), _defineProperty(_locales37, DateObject.locales.AR, {
           name: "شيترا",
           shortName: "شیت"
-        }), _defineProperty(_locals37, DateObject.locals.HI, {
+        }), _defineProperty(_locales37, DateObject.locales.HI, {
           name: "चैत्र",
           shortName: "चैत्र"
-        }), _locals37)
+        }), _locales37)
       }, {
         length: 31,
-        locals: (_locals38 = {}, _defineProperty(_locals38, DateObject.locals.EN, {
+        locales: (_locales38 = {}, _defineProperty(_locales38, DateObject.locales.EN, {
           name: "Vaishakh",
           shortName: "Vai"
-        }), _defineProperty(_locals38, DateObject.locals.FA, {
+        }), _defineProperty(_locales38, DateObject.locales.FA, {
           name: "ویشاکهه",
           shortName: "ویش"
-        }), _defineProperty(_locals38, DateObject.locals.AR, {
+        }), _defineProperty(_locales38, DateObject.locales.AR, {
           name: "فيشاخ",
           shortName: "فیش"
-        }), _defineProperty(_locals38, DateObject.locals.HI, {
+        }), _defineProperty(_locales38, DateObject.locales.HI, {
           name: "वैशाख",
           shortName: "वैशाख"
-        }), _locals38)
+        }), _locales38)
       }, {
         length: 31,
-        locals: (_locals39 = {}, _defineProperty(_locals39, DateObject.locals.EN, {
+        locales: (_locales39 = {}, _defineProperty(_locales39, DateObject.locales.EN, {
           name: "Jyaishtha",
           shortName: "Jya"
-        }), _defineProperty(_locals39, DateObject.locals.FA, {
+        }), _defineProperty(_locales39, DateObject.locales.FA, {
           name: "جییشته",
           shortName: "جیش"
-        }), _defineProperty(_locals39, DateObject.locals.AR, {
+        }), _defineProperty(_locales39, DateObject.locales.AR, {
           name: "جیشتا",
           shortName: "جیش"
-        }), _defineProperty(_locals39, DateObject.locals.HI, {
+        }), _defineProperty(_locales39, DateObject.locales.HI, {
           name: "ज्येष्ठ",
           shortName: "ज्येष्ठ"
-        }), _locals39)
+        }), _locales39)
       }, {
         length: 31,
-        locals: (_locals40 = {}, _defineProperty(_locals40, DateObject.locals.EN, {
+        locales: (_locales40 = {}, _defineProperty(_locales40, DateObject.locales.EN, {
           name: "Ashadha",
           shortName: "Ash"
-        }), _defineProperty(_locals40, DateObject.locals.FA, {
+        }), _defineProperty(_locales40, DateObject.locales.FA, {
           name: "آشادهه",
           shortName: "آشا"
-        }), _defineProperty(_locals40, DateObject.locals.AR, {
+        }), _defineProperty(_locales40, DateObject.locales.AR, {
           name: "أشاد",
           shortName: "أشا"
-        }), _defineProperty(_locals40, DateObject.locals.HI, {
+        }), _defineProperty(_locales40, DateObject.locales.HI, {
           name: "आषाढ़",
           shortName: "आषाढ़"
-        }), _locals40)
+        }), _locales40)
       }, {
         length: 31,
-        locals: (_locals41 = {}, _defineProperty(_locals41, DateObject.locals.EN, {
+        locales: (_locales41 = {}, _defineProperty(_locales41, DateObject.locales.EN, {
           name: "Shravana",
           shortName: "Shr"
-        }), _defineProperty(_locals41, DateObject.locals.FA, {
+        }), _defineProperty(_locales41, DateObject.locales.FA, {
           name: "شراونه",
           shortName: "شرا"
-        }), _defineProperty(_locals41, DateObject.locals.AR, {
+        }), _defineProperty(_locales41, DateObject.locales.AR, {
           name: "شرافان",
           shortName: "شرا"
-        }), _defineProperty(_locals41, DateObject.locals.HI, {
+        }), _defineProperty(_locales41, DateObject.locales.HI, {
           name: "श्रावण",
           shortName: "श्रावण"
-        }), _locals41)
+        }), _locales41)
       }, {
         length: 31,
-        locals: (_locals42 = {}, _defineProperty(_locals42, DateObject.locals.EN, {
+        locales: (_locales42 = {}, _defineProperty(_locales42, DateObject.locales.EN, {
           name: "Bhadrapad",
           shortName: "Bha"
-        }), _defineProperty(_locals42, DateObject.locals.FA, {
+        }), _defineProperty(_locales42, DateObject.locales.FA, {
           name: "بهادره",
           shortName: "بها"
-        }), _defineProperty(_locals42, DateObject.locals.AR, {
+        }), _defineProperty(_locales42, DateObject.locales.AR, {
           name: "بهادرابادا",
           shortName: "بها"
-        }), _defineProperty(_locals42, DateObject.locals.HI, {
+        }), _defineProperty(_locales42, DateObject.locales.HI, {
           name: "भाद्रपद",
           shortName: "भाद्रपद"
-        }), _locals42)
+        }), _locales42)
       }, {
         length: 30,
-        locals: (_locals43 = {}, _defineProperty(_locals43, DateObject.locals.EN, {
+        locales: (_locales43 = {}, _defineProperty(_locales43, DateObject.locales.EN, {
           name: "Ashwin",
           shortName: "Ash"
-        }), _defineProperty(_locals43, DateObject.locals.FA, {
+        }), _defineProperty(_locales43, DateObject.locales.FA, {
           name: "آشوین",
           shortName: "آشو"
-        }), _defineProperty(_locals43, DateObject.locals.AR, {
+        }), _defineProperty(_locales43, DateObject.locales.AR, {
           name: "اشوين",
           shortName: "اشو"
-        }), _defineProperty(_locals43, DateObject.locals.HI, {
+        }), _defineProperty(_locales43, DateObject.locales.HI, {
           name: "आश्विन",
           shortName: "आश्विन"
-        }), _locals43)
+        }), _locales43)
       }, {
         length: 30,
-        locals: (_locals44 = {}, _defineProperty(_locals44, DateObject.locals.EN, {
+        locales: (_locales44 = {}, _defineProperty(_locales44, DateObject.locales.EN, {
           name: "Kartik",
           shortName: "Kar"
-        }), _defineProperty(_locals44, DateObject.locals.FA, {
+        }), _defineProperty(_locales44, DateObject.locales.FA, {
           name: "کارتیکه",
           shortName: "کار"
-        }), _defineProperty(_locals44, DateObject.locals.AR, {
+        }), _defineProperty(_locales44, DateObject.locales.AR, {
           name: "كارتيك",
           shortName: "کار"
-        }), _defineProperty(_locals44, DateObject.locals.HI, {
+        }), _defineProperty(_locales44, DateObject.locales.HI, {
           name: "कार्तिक",
           shortName: "कार्तिक"
-        }), _locals44)
+        }), _locales44)
       }, {
         length: 30,
-        locals: (_locals45 = {}, _defineProperty(_locals45, DateObject.locals.EN, {
+        locales: (_locales45 = {}, _defineProperty(_locales45, DateObject.locales.EN, {
           name: "Agrahayana",
           shortName: "Agr"
-        }), _defineProperty(_locals45, DateObject.locals.FA, {
+        }), _defineProperty(_locales45, DateObject.locales.FA, {
           name: "اگرهینه",
           shortName: "اگر"
-        }), _defineProperty(_locals45, DateObject.locals.AR, {
+        }), _defineProperty(_locales45, DateObject.locales.AR, {
           name: "أجراهيان",
           shortName: "اجر"
-        }), _defineProperty(_locals45, DateObject.locals.HI, {
+        }), _defineProperty(_locales45, DateObject.locales.HI, {
           name: "अग्रहायण",
           shortName: "अग्रहायण"
-        }), _locals45)
+        }), _locales45)
       }, {
         length: 30,
-        locals: (_locals46 = {}, _defineProperty(_locals46, DateObject.locals.EN, {
+        locales: (_locales46 = {}, _defineProperty(_locales46, DateObject.locales.EN, {
           name: "Paush",
           shortName: "Pau"
-        }), _defineProperty(_locals46, DateObject.locals.FA, {
+        }), _defineProperty(_locales46, DateObject.locales.FA, {
           name: "پاوشه",
           shortName: "پاو"
-        }), _defineProperty(_locals46, DateObject.locals.AR, {
+        }), _defineProperty(_locales46, DateObject.locales.AR, {
           name: "بوش",
           shortName: "بوش"
-        }), _defineProperty(_locals46, DateObject.locals.HI, {
+        }), _defineProperty(_locales46, DateObject.locales.HI, {
           name: "पौष",
           shortName: "पौष"
-        }), _locals46)
+        }), _locales46)
       }, {
         length: 30,
-        locals: (_locals47 = {}, _defineProperty(_locals47, DateObject.locals.EN, {
+        locales: (_locales47 = {}, _defineProperty(_locales47, DateObject.locales.EN, {
           name: "Magh",
           shortName: "Mag"
-        }), _defineProperty(_locals47, DateObject.locals.FA, {
+        }), _defineProperty(_locales47, DateObject.locales.FA, {
           name: "ماگهه",
           shortName: "ماگ"
-        }), _defineProperty(_locals47, DateObject.locals.AR, {
+        }), _defineProperty(_locales47, DateObject.locales.AR, {
           name: "ماک",
           shortName: "ماک"
-        }), _defineProperty(_locals47, DateObject.locals.HI, {
+        }), _defineProperty(_locales47, DateObject.locales.HI, {
           name: "माघ",
           shortName: "माघ"
-        }), _locals47)
+        }), _locales47)
       }, {
         length: 30,
-        locals: (_locals48 = {}, _defineProperty(_locals48, DateObject.locals.EN, {
+        locales: (_locales48 = {}, _defineProperty(_locales48, DateObject.locales.EN, {
           name: "Phalgun",
           shortName: "Pha"
-        }), _defineProperty(_locals48, DateObject.locals.FA, {
+        }), _defineProperty(_locales48, DateObject.locales.FA, {
           name: "پهالگونه",
           shortName: "پها"
-        }), _defineProperty(_locals48, DateObject.locals.AR, {
+        }), _defineProperty(_locales48, DateObject.locales.AR, {
           name: "فالغون",
           shortName: "فال"
-        }), _defineProperty(_locals48, DateObject.locals.HI, {
+        }), _defineProperty(_locales48, DateObject.locales.HI, {
           name: "फाल्गुन",
           shortName: "फाल्गुन"
-        }), _locals48)
+        }), _locales48)
       }]), _value)
     });
 
@@ -1259,453 +1259,453 @@ var DateObject = /*#__PURE__*/function () {
       writable: true,
       value: (_value2 = {}, _defineProperty(_value2, DateObject.calendars.GREGORIAN, [{
         index: 0,
-        locals: (_locals49 = {}, _defineProperty(_locals49, DateObject.locals.EN, {
+        locales: (_locales49 = {}, _defineProperty(_locales49, DateObject.locales.EN, {
           name: "Sunday",
           shortName: "Sun"
-        }), _defineProperty(_locals49, DateObject.locals.FA, {
+        }), _defineProperty(_locales49, DateObject.locales.FA, {
           name: "یکشنبه",
           shortName: "یک"
-        }), _defineProperty(_locals49, DateObject.locals.AR, {
+        }), _defineProperty(_locales49, DateObject.locales.AR, {
           name: "الأحد",
           shortName: "اح"
-        }), _defineProperty(_locals49, DateObject.locals.HI, {
+        }), _defineProperty(_locales49, DateObject.locales.HI, {
           name: "रविवार",
           shortName: "रवि"
-        }), _locals49)
+        }), _locales49)
       }, {
         index: 1,
-        locals: (_locals50 = {}, _defineProperty(_locals50, DateObject.locals.EN, {
+        locales: (_locales50 = {}, _defineProperty(_locales50, DateObject.locales.EN, {
           name: "Monday",
           shortName: "Mon"
-        }), _defineProperty(_locals50, DateObject.locals.FA, {
+        }), _defineProperty(_locales50, DateObject.locales.FA, {
           name: "دوشنبه",
           shortName: "دو"
-        }), _defineProperty(_locals50, DateObject.locals.AR, {
+        }), _defineProperty(_locales50, DateObject.locales.AR, {
           name: "الإثنينِ",
           shortName: "ثن"
-        }), _defineProperty(_locals50, DateObject.locals.HI, {
+        }), _defineProperty(_locales50, DateObject.locales.HI, {
           name: "सोमवार",
           shortName: "सोम"
-        }), _locals50)
+        }), _locales50)
       }, {
         index: 2,
-        locals: (_locals51 = {}, _defineProperty(_locals51, DateObject.locals.EN, {
+        locales: (_locales51 = {}, _defineProperty(_locales51, DateObject.locales.EN, {
           name: "Tuesday",
           shortName: "Tue"
-        }), _defineProperty(_locals51, DateObject.locals.FA, {
+        }), _defineProperty(_locales51, DateObject.locales.FA, {
           name: "سه شنبه",
           shortName: "سه"
-        }), _defineProperty(_locals51, DateObject.locals.AR, {
+        }), _defineProperty(_locales51, DateObject.locales.AR, {
           name: "الثلاثاء",
           shortName: "ثل"
-        }), _defineProperty(_locals51, DateObject.locals.HI, {
+        }), _defineProperty(_locales51, DateObject.locales.HI, {
           name: "मंगलवार",
           shortName: "मंगल"
-        }), _locals51)
+        }), _locales51)
       }, {
         index: 3,
-        locals: (_locals52 = {}, _defineProperty(_locals52, DateObject.locals.EN, {
+        locales: (_locales52 = {}, _defineProperty(_locales52, DateObject.locales.EN, {
           name: "Wednesday",
           shortName: "Wed"
-        }), _defineProperty(_locals52, DateObject.locals.FA, {
+        }), _defineProperty(_locales52, DateObject.locales.FA, {
           name: "چهارشنبه",
           shortName: "چهار"
-        }), _defineProperty(_locals52, DateObject.locals.AR, {
+        }), _defineProperty(_locales52, DateObject.locales.AR, {
           name: "الأربعاء",
           shortName: "ار"
-        }), _defineProperty(_locals52, DateObject.locals.HI, {
+        }), _defineProperty(_locales52, DateObject.locales.HI, {
           name: "बुधवार",
           shortName: "बुध"
-        }), _locals52)
+        }), _locales52)
       }, {
         index: 4,
-        locals: (_locals53 = {}, _defineProperty(_locals53, DateObject.locals.EN, {
+        locales: (_locales53 = {}, _defineProperty(_locales53, DateObject.locales.EN, {
           name: "Thursday",
           shortName: "Thu"
-        }), _defineProperty(_locals53, DateObject.locals.FA, {
+        }), _defineProperty(_locales53, DateObject.locales.FA, {
           name: "پنجشنبه",
           shortName: "پنج"
-        }), _defineProperty(_locals53, DateObject.locals.AR, {
+        }), _defineProperty(_locales53, DateObject.locales.AR, {
           name: "الخميس",
           shortName: "خم"
-        }), _defineProperty(_locals53, DateObject.locals.HI, {
+        }), _defineProperty(_locales53, DateObject.locales.HI, {
           name: "गुरुवार",
           shortName: "गुरु"
-        }), _locals53)
+        }), _locales53)
       }, {
         index: 5,
-        locals: (_locals54 = {}, _defineProperty(_locals54, DateObject.locals.EN, {
+        locales: (_locales54 = {}, _defineProperty(_locales54, DateObject.locales.EN, {
           name: "Friday",
           shortName: "Fri"
-        }), _defineProperty(_locals54, DateObject.locals.FA, {
+        }), _defineProperty(_locales54, DateObject.locales.FA, {
           name: "جمعه",
           shortName: "جم"
-        }), _defineProperty(_locals54, DateObject.locals.AR, {
+        }), _defineProperty(_locales54, DateObject.locales.AR, {
           name: "الجمعة",
           shortName: "جم"
-        }), _defineProperty(_locals54, DateObject.locals.HI, {
+        }), _defineProperty(_locales54, DateObject.locales.HI, {
           name: "शुक्रवार",
           shortName: "शुक्र"
-        }), _locals54)
+        }), _locales54)
       }, {
         index: 6,
-        locals: (_locals55 = {}, _defineProperty(_locals55, DateObject.locals.EN, {
+        locales: (_locales55 = {}, _defineProperty(_locales55, DateObject.locales.EN, {
           name: "Saturday",
           shortName: "Sat"
-        }), _defineProperty(_locals55, DateObject.locals.FA, {
+        }), _defineProperty(_locales55, DateObject.locales.FA, {
           name: "شنبه",
           shortName: "شن"
-        }), _defineProperty(_locals55, DateObject.locals.AR, {
+        }), _defineProperty(_locales55, DateObject.locales.AR, {
           name: "السّبت",
           shortName: "سب"
-        }), _defineProperty(_locals55, DateObject.locals.HI, {
+        }), _defineProperty(_locales55, DateObject.locales.HI, {
           name: "शनिवार",
           shortName: "शनि"
-        }), _locals55)
+        }), _locales55)
       }]), _defineProperty(_value2, DateObject.calendars.PERSIAN, [{
         index: 1,
-        locals: (_locals56 = {}, _defineProperty(_locals56, DateObject.locals.EN, {
+        locales: (_locales56 = {}, _defineProperty(_locales56, DateObject.locales.EN, {
           name: "YekShanbeh",
           shortName: "Yek"
-        }), _defineProperty(_locals56, DateObject.locals.FA, {
+        }), _defineProperty(_locales56, DateObject.locales.FA, {
           name: "یکشنبه",
           shortName: "یک"
-        }), _defineProperty(_locals56, DateObject.locals.AR, {
+        }), _defineProperty(_locales56, DateObject.locales.AR, {
           name: "الأحد",
           shortName: "اح"
-        }), _defineProperty(_locals56, DateObject.locals.HI, {
+        }), _defineProperty(_locales56, DateObject.locales.HI, {
           name: "रविवार",
           shortName: "रवि"
-        }), _locals56)
+        }), _locales56)
       }, {
         index: 2,
-        locals: (_locals57 = {}, _defineProperty(_locals57, DateObject.locals.EN, {
+        locales: (_locales57 = {}, _defineProperty(_locales57, DateObject.locales.EN, {
           name: "Doshanbeh",
           shortName: "Do"
-        }), _defineProperty(_locals57, DateObject.locals.FA, {
+        }), _defineProperty(_locales57, DateObject.locales.FA, {
           name: "دوشنبه",
           shortName: "دو"
-        }), _defineProperty(_locals57, DateObject.locals.AR, {
+        }), _defineProperty(_locales57, DateObject.locales.AR, {
           name: "الإثنينِ",
           shortName: "ثن"
-        }), _defineProperty(_locals57, DateObject.locals.HI, {
+        }), _defineProperty(_locales57, DateObject.locales.HI, {
           name: "सोमवार",
           shortName: "सोम"
-        }), _locals57)
+        }), _locales57)
       }, {
         index: 3,
-        locals: (_locals58 = {}, _defineProperty(_locals58, DateObject.locals.EN, {
+        locales: (_locales58 = {}, _defineProperty(_locales58, DateObject.locales.EN, {
           name: "Seshanbeh",
           shortName: "Se"
-        }), _defineProperty(_locals58, DateObject.locals.FA, {
+        }), _defineProperty(_locales58, DateObject.locales.FA, {
           name: "سه شنبه",
           shortName: "سه"
-        }), _defineProperty(_locals58, DateObject.locals.AR, {
+        }), _defineProperty(_locales58, DateObject.locales.AR, {
           name: "الثلاثاء",
           shortName: "ثل"
-        }), _defineProperty(_locals58, DateObject.locals.HI, {
+        }), _defineProperty(_locales58, DateObject.locales.HI, {
           name: "मंगलवार",
           shortName: "मंगल"
-        }), _locals58)
+        }), _locales58)
       }, {
         index: 4,
-        locals: (_locals59 = {}, _defineProperty(_locals59, DateObject.locals.EN, {
+        locales: (_locales59 = {}, _defineProperty(_locales59, DateObject.locales.EN, {
           name: "Chaharshanbeh",
           shortName: "Cha"
-        }), _defineProperty(_locals59, DateObject.locals.FA, {
+        }), _defineProperty(_locales59, DateObject.locales.FA, {
           name: "چهارشنبه",
           shortName: "چهار"
-        }), _defineProperty(_locals59, DateObject.locals.AR, {
+        }), _defineProperty(_locales59, DateObject.locales.AR, {
           name: "الأربعاء",
           shortName: "ار"
-        }), _defineProperty(_locals59, DateObject.locals.HI, {
+        }), _defineProperty(_locales59, DateObject.locales.HI, {
           name: "बुधवार",
           shortName: "बुध"
-        }), _locals59)
+        }), _locales59)
       }, {
         index: 5,
-        locals: (_locals60 = {}, _defineProperty(_locals60, DateObject.locals.EN, {
+        locales: (_locales60 = {}, _defineProperty(_locales60, DateObject.locales.EN, {
           name: "Panjshanbeh",
           shortName: "Pan"
-        }), _defineProperty(_locals60, DateObject.locals.FA, {
+        }), _defineProperty(_locales60, DateObject.locales.FA, {
           name: "پنجشنبه",
           shortName: "پنج"
-        }), _defineProperty(_locals60, DateObject.locals.AR, {
+        }), _defineProperty(_locales60, DateObject.locales.AR, {
           name: "الخميس",
           shortName: "خم"
-        }), _defineProperty(_locals60, DateObject.locals.HI, {
+        }), _defineProperty(_locales60, DateObject.locales.HI, {
           name: "गुरुवार",
           shortName: "गुरु"
-        }), _locals60)
+        }), _locales60)
       }, {
         index: 6,
-        locals: (_locals61 = {}, _defineProperty(_locals61, DateObject.locals.EN, {
+        locales: (_locales61 = {}, _defineProperty(_locales61, DateObject.locales.EN, {
           name: "Jom'eh",
           shortName: "Jom"
-        }), _defineProperty(_locals61, DateObject.locals.FA, {
+        }), _defineProperty(_locales61, DateObject.locales.FA, {
           name: "جمعه",
           shortName: "جم"
-        }), _defineProperty(_locals61, DateObject.locals.AR, {
+        }), _defineProperty(_locales61, DateObject.locales.AR, {
           name: "الجمعة",
           shortName: "جم"
-        }), _defineProperty(_locals61, DateObject.locals.HI, {
+        }), _defineProperty(_locales61, DateObject.locales.HI, {
           name: "शुक्रवार",
           shortName: "शुक्र"
-        }), _locals61)
+        }), _locales61)
       }, {
         index: 0,
-        locals: (_locals62 = {}, _defineProperty(_locals62, DateObject.locals.EN, {
+        locales: (_locales62 = {}, _defineProperty(_locales62, DateObject.locales.EN, {
           name: "Shanbeh",
           shortName: "Sha"
-        }), _defineProperty(_locals62, DateObject.locals.FA, {
+        }), _defineProperty(_locales62, DateObject.locales.FA, {
           name: "شنبه",
           shortName: "شن"
-        }), _defineProperty(_locals62, DateObject.locals.AR, {
+        }), _defineProperty(_locales62, DateObject.locales.AR, {
           name: "السّبت",
           shortName: "سب"
-        }), _defineProperty(_locals62, DateObject.locals.HI, {
+        }), _defineProperty(_locales62, DateObject.locales.HI, {
           name: "शनिवार",
           shortName: "शनि"
-        }), _locals62)
+        }), _locales62)
       }]), _defineProperty(_value2, DateObject.calendars.ARABIC, [{
         index: 1,
-        locals: (_locals63 = {}, _defineProperty(_locals63, DateObject.locals.AR, {
+        locales: (_locales63 = {}, _defineProperty(_locales63, DateObject.locales.AR, {
           name: "الأحد",
           shortName: "احد"
-        }), _defineProperty(_locals63, DateObject.locals.EN, {
+        }), _defineProperty(_locales63, DateObject.locales.EN, {
           name: "al-'ahad",
           shortName: "Aha"
-        }), _defineProperty(_locals63, DateObject.locals.FA, {
+        }), _defineProperty(_locales63, DateObject.locales.FA, {
           name: "يکشنبه",
           shortName: "یک"
-        }), _defineProperty(_locals63, DateObject.locals.HI, {
+        }), _defineProperty(_locales63, DateObject.locales.HI, {
           name: "रविवार",
           shortName: "रवि"
-        }), _locals63)
+        }), _locales63)
       }, {
         index: 2,
-        locals: (_locals64 = {}, _defineProperty(_locals64, DateObject.locals.AR, {
+        locales: (_locales64 = {}, _defineProperty(_locales64, DateObject.locales.AR, {
           name: "الإثنينِ",
           shortName: "ثن"
-        }), _defineProperty(_locals64, DateObject.locals.EN, {
+        }), _defineProperty(_locales64, DateObject.locales.EN, {
           name: "al-'ithnayn",
           shortName: "Ith"
-        }), _defineProperty(_locals64, DateObject.locals.FA, {
+        }), _defineProperty(_locales64, DateObject.locales.FA, {
           name: "دوشنبه",
           shortName: "دو"
-        }), _defineProperty(_locals64, DateObject.locals.HI, {
+        }), _defineProperty(_locales64, DateObject.locales.HI, {
           name: "सोमवार",
           shortName: "सोम"
-        }), _locals64)
+        }), _locales64)
       }, {
         index: 3,
-        locals: (_locals65 = {}, _defineProperty(_locals65, DateObject.locals.AR, {
+        locales: (_locales65 = {}, _defineProperty(_locales65, DateObject.locales.AR, {
           name: "الثلاثاء",
           shortName: "ثلا"
-        }), _defineProperty(_locals65, DateObject.locals.EN, {
+        }), _defineProperty(_locales65, DateObject.locales.EN, {
           name: "ath-thalatha",
           shortName: "Tha"
-        }), _defineProperty(_locals65, DateObject.locals.FA, {
+        }), _defineProperty(_locales65, DateObject.locales.FA, {
           name: "سه شنبه",
           shortName: "سه"
-        }), _defineProperty(_locals65, DateObject.locals.HI, {
+        }), _defineProperty(_locales65, DateObject.locales.HI, {
           name: "मंगलवार",
           shortName: "मंगल"
-        }), _locals65)
+        }), _locales65)
       }, {
         index: 4,
-        locals: (_locals66 = {}, _defineProperty(_locals66, DateObject.locals.AR, {
+        locales: (_locales66 = {}, _defineProperty(_locales66, DateObject.locales.AR, {
           name: "الأربعاء",
           shortName: "ارب"
-        }), _defineProperty(_locals66, DateObject.locals.EN, {
+        }), _defineProperty(_locales66, DateObject.locales.EN, {
           name: "al-'arb`a'",
           shortName: "Arb"
-        }), _defineProperty(_locals66, DateObject.locals.FA, {
+        }), _defineProperty(_locales66, DateObject.locales.FA, {
           name: "چهار شنبه",
           shortName: "چهار"
-        }), _defineProperty(_locals66, DateObject.locals.HI, {
+        }), _defineProperty(_locales66, DateObject.locales.HI, {
           name: "बुधवार",
           shortName: "बुध"
-        }), _locals66)
+        }), _locales66)
       }, {
         index: 5,
-        locals: (_locals67 = {}, _defineProperty(_locals67, DateObject.locals.AR, {
+        locales: (_locales67 = {}, _defineProperty(_locales67, DateObject.locales.AR, {
           name: "الخميس",
           shortName: "خم"
-        }), _defineProperty(_locals67, DateObject.locals.EN, {
+        }), _defineProperty(_locales67, DateObject.locales.EN, {
           name: "al-khamis",
           shortName: "Kha"
-        }), _defineProperty(_locals67, DateObject.locals.FA, {
+        }), _defineProperty(_locales67, DateObject.locales.FA, {
           name: "پنج شنبه	",
           shortName: "پنج"
-        }), _defineProperty(_locals67, DateObject.locals.HI, {
+        }), _defineProperty(_locales67, DateObject.locales.HI, {
           name: "गुरुवार",
           shortName: "गुरु"
-        }), _locals67)
+        }), _locales67)
       }, {
         index: 6,
-        locals: (_locals68 = {}, _defineProperty(_locals68, DateObject.locals.AR, {
+        locales: (_locales68 = {}, _defineProperty(_locales68, DateObject.locales.AR, {
           name: "الجمعة",
           shortName: "جم"
-        }), _defineProperty(_locals68, DateObject.locals.EN, {
+        }), _defineProperty(_locales68, DateObject.locales.EN, {
           name: "al-jum`a",
           shortName: "Jum"
-        }), _defineProperty(_locals68, DateObject.locals.FA, {
+        }), _defineProperty(_locales68, DateObject.locales.FA, {
           name: "جمعه",
           shortName: "جم"
-        }), _defineProperty(_locals68, DateObject.locals.HI, {
+        }), _defineProperty(_locales68, DateObject.locales.HI, {
           name: "शुक्रवार",
           shortName: "शुक्र"
-        }), _locals68)
+        }), _locales68)
       }, {
         index: 0,
-        locals: (_locals69 = {}, _defineProperty(_locals69, DateObject.locals.AR, {
+        locales: (_locales69 = {}, _defineProperty(_locales69, DateObject.locales.AR, {
           name: "السّبت",
           shortName: "سبت"
-        }), _defineProperty(_locals69, DateObject.locals.EN, {
+        }), _defineProperty(_locales69, DateObject.locales.EN, {
           name: "as-sabt",
           shortName: "Sab"
-        }), _defineProperty(_locals69, DateObject.locals.FA, {
+        }), _defineProperty(_locales69, DateObject.locales.FA, {
           name: "شنبه",
           shortName: "شن"
-        }), _defineProperty(_locals69, DateObject.locals.HI, {
+        }), _defineProperty(_locales69, DateObject.locales.HI, {
           name: "शनिवार",
           shortName: "शनि"
-        }), _locals69)
+        }), _locales69)
       }]), _defineProperty(_value2, DateObject.calendars.INDIAN, [{
         index: 0,
-        locals: (_locals70 = {}, _defineProperty(_locals70, DateObject.locals.EN, {
+        locales: (_locales70 = {}, _defineProperty(_locales70, DateObject.locales.EN, {
           name: "Ravivara",
           shortName: "Rav"
-        }), _defineProperty(_locals70, DateObject.locals.FA, {
+        }), _defineProperty(_locales70, DateObject.locales.FA, {
           name: "يکشنبه",
           shortName: "یک"
-        }), _defineProperty(_locals70, DateObject.locals.AR, {
+        }), _defineProperty(_locales70, DateObject.locales.AR, {
           name: "الأحد",
           shortName: "احد"
-        }), _defineProperty(_locals70, DateObject.locals.HI, {
+        }), _defineProperty(_locales70, DateObject.locales.HI, {
           name: "रविवार",
           shortName: "रवि"
-        }), _locals70)
+        }), _locales70)
       }, {
         index: 1,
-        locals: (_locals71 = {}, _defineProperty(_locals71, DateObject.locals.EN, {
+        locales: (_locales71 = {}, _defineProperty(_locales71, DateObject.locales.EN, {
           name: "Somavara",
           shortName: "Som"
-        }), _defineProperty(_locals71, DateObject.locals.FA, {
+        }), _defineProperty(_locales71, DateObject.locales.FA, {
           name: "دوشنبه",
           shortName: "دو"
-        }), _defineProperty(_locals71, DateObject.locals.AR, {
+        }), _defineProperty(_locales71, DateObject.locales.AR, {
           name: "الإثنينِ",
           shortName: "ثن"
-        }), _defineProperty(_locals71, DateObject.locals.HI, {
+        }), _defineProperty(_locales71, DateObject.locales.HI, {
           name: "सोमवार",
           shortName: "सोम"
-        }), _locals71)
+        }), _locales71)
       }, {
         index: 2,
-        locals: (_locals72 = {}, _defineProperty(_locals72, DateObject.locals.EN, {
+        locales: (_locales72 = {}, _defineProperty(_locales72, DateObject.locales.EN, {
           name: "Mangalavara",
           shortName: "Man"
-        }), _defineProperty(_locals72, DateObject.locals.FA, {
+        }), _defineProperty(_locales72, DateObject.locales.FA, {
           name: "سه شنبه	",
           shortName: "سه"
-        }), _defineProperty(_locals72, DateObject.locals.AR, {
+        }), _defineProperty(_locales72, DateObject.locales.AR, {
           name: "الثلاثاء",
           shortName: "ثلا"
-        }), _defineProperty(_locals72, DateObject.locals.HI, {
+        }), _defineProperty(_locales72, DateObject.locales.HI, {
           name: "मंगलवार",
           shortName: "मंगल"
-        }), _locals72)
+        }), _locales72)
       }, {
         index: 3,
-        locals: (_locals73 = {}, _defineProperty(_locals73, DateObject.locals.EN, {
+        locales: (_locales73 = {}, _defineProperty(_locales73, DateObject.locales.EN, {
           name: "Budhavara",
           shortName: "Bud"
-        }), _defineProperty(_locals73, DateObject.locals.FA, {
+        }), _defineProperty(_locales73, DateObject.locales.FA, {
           name: "چهار شنبه",
           shortName: "چهار"
-        }), _defineProperty(_locals73, DateObject.locals.AR, {
+        }), _defineProperty(_locales73, DateObject.locales.AR, {
           name: "الأربعاء",
           shortName: "ارب"
-        }), _defineProperty(_locals73, DateObject.locals.HI, {
+        }), _defineProperty(_locales73, DateObject.locales.HI, {
           name: "बुधवार",
           shortName: "बुध"
-        }), _locals73)
+        }), _locales73)
       }, {
         index: 4,
-        locals: (_locals74 = {}, _defineProperty(_locals74, DateObject.locals.EN, {
+        locales: (_locales74 = {}, _defineProperty(_locales74, DateObject.locales.EN, {
           name: "Brihaspatvara",
           shortName: "Bri"
-        }), _defineProperty(_locals74, DateObject.locals.FA, {
+        }), _defineProperty(_locales74, DateObject.locales.FA, {
           name: "پنج شنبه	",
           shortName: "پنج"
-        }), _defineProperty(_locals74, DateObject.locals.AR, {
+        }), _defineProperty(_locales74, DateObject.locales.AR, {
           name: "الخميس",
           shortName: "خم"
-        }), _defineProperty(_locals74, DateObject.locals.HI, {
+        }), _defineProperty(_locales74, DateObject.locales.HI, {
           name: "गुरुवार",
           shortName: "गुरु"
-        }), _locals74)
+        }), _locales74)
       }, {
         index: 5,
-        locals: (_locals75 = {}, _defineProperty(_locals75, DateObject.locals.EN, {
+        locales: (_locales75 = {}, _defineProperty(_locales75, DateObject.locales.EN, {
           name: "Sukravara",
           shortName: "Suk"
-        }), _defineProperty(_locals75, DateObject.locals.FA, {
+        }), _defineProperty(_locales75, DateObject.locales.FA, {
           name: "جمعه",
           shortName: "جم"
-        }), _defineProperty(_locals75, DateObject.locals.AR, {
+        }), _defineProperty(_locales75, DateObject.locales.AR, {
           name: "الجمعة",
           shortName: "جم"
-        }), _defineProperty(_locals75, DateObject.locals.HI, {
+        }), _defineProperty(_locales75, DateObject.locales.HI, {
           name: "शुक्रवार",
           shortName: "शुक्र"
-        }), _locals75)
+        }), _locales75)
       }, {
         index: 6,
-        locals: (_locals76 = {}, _defineProperty(_locals76, DateObject.locals.EN, {
+        locales: (_locales76 = {}, _defineProperty(_locales76, DateObject.locales.EN, {
           name: "Sanivara",
           shortName: "San"
-        }), _defineProperty(_locals76, DateObject.locals.FA, {
+        }), _defineProperty(_locales76, DateObject.locales.FA, {
           name: "شنبه",
           shortName: "شن"
-        }), _defineProperty(_locals76, DateObject.locals.AR, {
+        }), _defineProperty(_locales76, DateObject.locales.AR, {
           name: "السّبت",
           shortName: "سبت"
-        }), _defineProperty(_locals76, DateObject.locals.HI, {
+        }), _defineProperty(_locales76, DateObject.locales.HI, {
           name: "शनिवार",
           shortName: "शनि"
-        }), _locals76)
+        }), _locales76)
       }]), _value2)
     });
 
     _digits.set(this, {
       writable: true,
-      value: (_value3 = {}, _defineProperty(_value3, DateObject.locals.EN, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]), _defineProperty(_value3, DateObject.locals.FA, ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]), _defineProperty(_value3, DateObject.locals.AR, ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]), _defineProperty(_value3, DateObject.locals.HI, ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"]), _value3)
+      value: (_value3 = {}, _defineProperty(_value3, DateObject.locales.EN, ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]), _defineProperty(_value3, DateObject.locales.FA, ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"]), _defineProperty(_value3, DateObject.locales.AR, ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"]), _defineProperty(_value3, DateObject.locales.HI, ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"]), _value3)
     });
 
     _meridiems.set(this, {
       writable: true,
-      value: (_value4 = {}, _defineProperty(_value4, DateObject.locals.EN, [{
+      value: (_value4 = {}, _defineProperty(_value4, DateObject.locales.EN, [{
         name: "AM",
         shortName: "am"
       }, {
         name: "PM",
         shortName: "pm"
-      }]), _defineProperty(_value4, DateObject.locals.FA, [{
+      }]), _defineProperty(_value4, DateObject.locales.FA, [{
         name: "قبل از ظهر",
         shortName: "ق.ظ"
       }, {
         name: "بعد از ظهر",
         shortName: "ب.ظ"
-      }]), _defineProperty(_value4, DateObject.locals.AR, [{
+      }]), _defineProperty(_value4, DateObject.locales.AR, [{
         name: "قبل الظهر",
         shortName: "ق.ظ"
       }, {
         name: "بعد الظهر",
         shortName: "ب.ظ"
-      }]), _defineProperty(_value4, DateObject.locals.HI, [{
+      }]), _defineProperty(_value4, DateObject.locales.HI, [{
         name: "दोपहर से पहले",
         shortName: "पूर्वाह्न"
       }, {
@@ -2258,7 +2258,7 @@ var DateObject = /*#__PURE__*/function () {
       return obj[key] || obj[key] === 0;
     }),
         mustSetNewDate = validKeys.length > 0 && validKeys.length <= 4 && validKeys.every(function (key) {
-      return ["calendar", "local", "format", "ignoreList"].includes(key);
+      return ["calendar", "locale", "format", "ignoreList"].includes(key);
     }); //e.g: new DateObject({ calendar: "gregorian" })
 
     if (mustSetNewDate) obj.date = new Date();
@@ -2271,14 +2271,14 @@ var DateObject = /*#__PURE__*/function () {
       _mustGetLeaps = false;
     }
 
-    if (obj.local) {
-      obj.local = DateObject.locals[obj.local.toUpperCase()] || DateObject.locals.EN;
+    if (obj.locale) {
+      obj.locale = DateObject.locales[obj.locale.toUpperCase()] || DateObject.locales.EN;
 
-      _classPrivateFieldSet(this, _local, obj.local);
+      _classPrivateFieldSet(this, _locale, obj.locale);
     }
 
     delete obj.calendar;
-    delete obj.local;
+    delete obj.locale;
     delete obj.date;
     delete obj.format;
 
@@ -2310,8 +2310,8 @@ var DateObject = /*#__PURE__*/function () {
 
       var format = _classPrivateFieldGet(this, _format);
 
-      if (_classPrivateFieldGet(this, _local) !== DateObject.locals.en) {
-        var digits = _classPrivateFieldGet(this, _digits)[_classPrivateFieldGet(this, _local)];
+      if (_classPrivateFieldGet(this, _locale) !== DateObject.locales.en) {
+        var digits = _classPrivateFieldGet(this, _digits)[_classPrivateFieldGet(this, _locale)];
 
         var _iterator = _createForOfIteratorHelper(digits),
             _step;
@@ -2380,11 +2380,11 @@ var DateObject = /*#__PURE__*/function () {
         }
       }
 
-      if (string.includes(_classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)][1].shortName) && _classPrivateFieldGet(this, _hour) < 12) {
+      if (string.includes(_classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)][1].shortName) && _classPrivateFieldGet(this, _hour) < 12) {
         _classPrivateFieldSet(this, _hour, _classPrivateFieldGet(this, _hour) + 12);
       }
 
-      if (string.includes(_classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)][1].name) && _classPrivateFieldGet(this, _hour) < 12) {
+      if (string.includes(_classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)][1].name) && _classPrivateFieldGet(this, _hour) < 12) {
         _classPrivateFieldSet(this, _hour, _classPrivateFieldGet(this, _hour) + 12);
       }
 
@@ -2462,8 +2462,8 @@ var DateObject = /*#__PURE__*/function () {
         _iterator2.f();
       }
 
-      if (_classPrivateFieldGet(this, _local) !== DateObject.locals.en) {
-        var digits = _classPrivateFieldGet(this, _digits)[_classPrivateFieldGet(this, _local)];
+      if (_classPrivateFieldGet(this, _locale) !== DateObject.locales.en) {
+        var digits = _classPrivateFieldGet(this, _custom).digits || _classPrivateFieldGet(this, _digits)[_classPrivateFieldGet(this, _locale)];
 
         result = result.replace(/[0-9]/g, function (w) {
           return digits[w];
@@ -2562,10 +2562,10 @@ var DateObject = /*#__PURE__*/function () {
           return _classPrivateFieldGet(this, _millisecond) < 10 ? "0" : _classPrivateFieldGet(this, _millisecond) < 100 ? "0" : _classPrivateFieldGet(this, _millisecond).toString().substring(0, 1);
 
         case "a":
-          return this.hour >= 12 ? _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)][1].shortName : _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)][0].shortName;
+          return this.hour >= 12 ? _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)][1].shortName : _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)][0].shortName;
 
         case "A":
-          return this.hour >= 12 ? _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)][1].name : _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)][0].name;
+          return this.hour >= 12 ? _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)][1].name : _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)][0].name;
 
         default:
           return "";
@@ -2593,6 +2593,12 @@ var DateObject = /*#__PURE__*/function () {
     key: "setWeekDays",
     value: function setWeekDays(value) {
       this.weekDays = value;
+      return this;
+    }
+  }, {
+    key: "setDigits",
+    value: function setDigits(value) {
+      this.digits = value;
       return this;
     }
   }, {
@@ -2633,9 +2639,9 @@ var DateObject = /*#__PURE__*/function () {
       return this;
     }
   }, {
-    key: "setLocal",
-    value: function setLocal(local) {
-      this.local = local;
+    key: "setLocale",
+    value: function setLocale(locale) {
+      this.locale = locale;
       return this;
     }
   }, {
@@ -2696,7 +2702,7 @@ var DateObject = /*#__PURE__*/function () {
 
         _classPrivateFieldSet(this, _millisecond, date.millisecond);
 
-        _classPrivateFieldSet(this, _local, date.local.toUpperCase());
+        _classPrivateFieldSet(this, _locale, date.locale.toUpperCase());
 
         _classPrivateFieldSet(this, _format, date._format);
 
@@ -2733,9 +2739,9 @@ var DateObject = /*#__PURE__*/function () {
           delete object.calendar;
         }
 
-        if (object.local) {
-          this.setLocal(object.local);
-          delete object.local;
+        if (object.locale) {
+          this.setLocale(object.locale);
+          delete object.locale;
         }
 
         for (var _key in object) {
@@ -2749,8 +2755,8 @@ var DateObject = /*#__PURE__*/function () {
         case "calendar":
           return this.convert(value);
 
-        case "local":
-          return this.setLocal(value);
+        case "locale":
+          return this.setLocale(value);
 
         case "format":
           return this.setFormat(value);
@@ -2760,6 +2766,12 @@ var DateObject = /*#__PURE__*/function () {
 
         case "month":
           return this.setMonth(value);
+
+        case "months":
+          return this.setMonths(value);
+
+        case "weekDays":
+          return this.setWeekDays(value);
 
         case "day":
           return this.setDay(value);
@@ -2781,6 +2793,9 @@ var DateObject = /*#__PURE__*/function () {
 
         case "ignoreList":
           return this.setIgnoreList(value);
+
+        case "digits":
+          return this.setDigits(value);
 
         default:
           return this;
@@ -2944,7 +2959,7 @@ var DateObject = /*#__PURE__*/function () {
         dayOfYear: this.dayOfYear,
         daysLeft: this.daysLeft,
         calendar: _classPrivateFieldGet(this, _calendar).toLowerCase(),
-        local: _classPrivateFieldGet(this, _local).toLowerCase(),
+        locale: _classPrivateFieldGet(this, _locale).toLowerCase(),
         format: _classPrivateFieldGet(this, _format) || "YYYY/MM/DD"
       };
     }
@@ -3070,7 +3085,7 @@ var DateObject = /*#__PURE__*/function () {
       var weekDay = _classPrivateFieldGet(this, _weekDays)[_classPrivateFieldGet(this, _calendar)][index];
 
       if (!weekDay) return {};
-      var names = _classPrivateFieldGet(this, _custom).weekDays ? _classPrivateFieldGet(this, _custom).weekDays[weekDay.index] : weekDay.locals[_classPrivateFieldGet(this, _local)];
+      var names = _classPrivateFieldGet(this, _custom).weekDays ? _classPrivateFieldGet(this, _custom).weekDays[weekDay.index] : weekDay.locales[_classPrivateFieldGet(this, _locale)];
       weekDay = _objectSpread2({
         index: weekDay.index,
         number: weekDay.index + 1,
@@ -3149,7 +3164,7 @@ var DateObject = /*#__PURE__*/function () {
       }
 
       months = months.map(function (month, index) {
-        var $month = _classPrivateFieldGet(_this2, _custom).months ? _classPrivateFieldGet(_this2, _custom).months[index] : month.locals[_classPrivateFieldGet(_this2, _local)];
+        var $month = _classPrivateFieldGet(_this2, _custom).months ? _classPrivateFieldGet(_this2, _custom).months[index] : month.locales[_classPrivateFieldGet(_this2, _locale)];
         return _objectSpread2({
           length: month.length
         }, $month);
@@ -3182,7 +3197,7 @@ var DateObject = /*#__PURE__*/function () {
         return a.index - b.index;
       });
       weekDays = weekDays.map(function (week, index) {
-        var $week = _classPrivateFieldGet(_this3, _custom).weekDays ? _classPrivateFieldGet(_this3, _custom).weekDays[index] : week.locals[_classPrivateFieldGet(_this3, _local)];
+        var $week = _classPrivateFieldGet(_this3, _custom).weekDays ? _classPrivateFieldGet(_this3, _custom).weekDays[index] : week.locales[_classPrivateFieldGet(_this3, _locale)];
         return _objectSpread2({
           index: week.index,
           number: week.index + 1
@@ -3219,25 +3234,31 @@ var DateObject = /*#__PURE__*/function () {
       this.convert(calendar);
     }
   }, {
-    key: "local",
+    key: "locale",
     get: function get() {
-      return _classPrivateFieldGet(this, _local).toLowerCase();
+      return _classPrivateFieldGet(this, _locale).toLowerCase();
     },
-    set: function set(local) {
-      local = local.toUpperCase();
-      if (!DateObject.locals[local]) local = DateObject.locals.EN;
+    set: function set(locale) {
+      locale = locale.toUpperCase();
+      if (!DateObject.locales[locale]) locale = DateObject.locales.EN;
 
-      _classPrivateFieldSet(this, _local, local);
+      _classPrivateFieldSet(this, _locale, locale);
     }
   }, {
     key: "meridiems",
     get: function get() {
-      return _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _local)];
+      return _classPrivateFieldGet(this, _meridiems)[_classPrivateFieldGet(this, _locale)];
     }
   }, {
     key: "digits",
     get: function get() {
-      return _classPrivateFieldGet(this, _digits)[_classPrivateFieldGet(this, _local)];
+      return _classPrivateFieldGet(this, _custom).digits || _classPrivateFieldGet(this, _digits)[_classPrivateFieldGet(this, _locale)];
+    },
+    set: function set(value) {
+      if (!value) return delete _classPrivateFieldGet(this, _custom).digits;
+      var isValidValue = Array.isArray(value) && value.length === 10;
+      if (!isValidValue) return console.warn("Invalid digits");
+      _classPrivateFieldGet(this, _custom).digits = value;
     }
   }, {
     key: "_format",
@@ -3289,7 +3310,7 @@ _defineProperty(DateObject, "calendars", {
   INDIAN: "INDIAN"
 });
 
-_defineProperty(DateObject, "locals", {
+_defineProperty(DateObject, "locales", {
   EN: "EN",
   FA: "FA",
   AR: "AR",
