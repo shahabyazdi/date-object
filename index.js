@@ -881,8 +881,8 @@ export default class DateObject {
                 this.#hour = this.#hour + 12
             }
         } else {
-            const formatArray = format.split(/[^\w\u0600-\u06FF]/)
-            const stringArray = string.split(/[^\w\u0600-\u06FF]/)
+            const formatArray = format.split(/[^\w\u0600-\u06FF]/),
+                stringArray = string.split(/[^\w\u0600-\u06FF]/)
 
             for (let i = 0; i < formatArray.length; i++) {
                 let reverse = this.#reverse[formatArray[i]]
@@ -1405,6 +1405,10 @@ export default class DateObject {
         return this
     }
 
+    subtract(duration, type) {
+        return this.add(-duration, type)
+    }
+
     toFirstOfYear() {
         this.month = 1
         this.day = 1
@@ -1509,8 +1513,8 @@ export default class DateObject {
     }
 
     valueOf() {
-        let days = this.dayOfBeginning + this.#epoch[this.#calendar] - this.#epoch["unix"]
-        let offset = this.#isUTC ? 0 : (new Date().getTimezoneOffset() * 60 * 1000)
+        let days = this.dayOfBeginning + this.#epoch[this.#calendar] - this.#epoch.unix,
+            offset = this.#isUTC ? 0 : (new Date().getTimezoneOffset() * 60 * 1000)
 
         return (days * 24 * 60 * 60 * 1000) +
             (this.#hour * 60 * 60 * 1000) +
@@ -1545,12 +1549,10 @@ export default class DateObject {
     get dayOfYear() {
         if (!this.isValid) return
 
-        let days = this.#day
-        let months = this.months
+        let days = this.#day,
+            months = this.months
 
-        for (let i = 0; i < months.length; i++) {
-            if (i >= this.#month) break
-
+        for (let i = 0; i < this.#month; i++) {
             days += months[i].length
         }
 
@@ -1566,8 +1568,8 @@ export default class DateObject {
     get daysLeft() {
         if (!this.isValid) return
 
-        let yearLength = this.#yearLength[this.#calendar]
-        let days = this.isLeap ? yearLength + 1 : yearLength
+        let yearLength = this.#yearLength[this.#calendar],
+            days = this.isLeap ? yearLength + 1 : yearLength
 
         return days - this.dayOfYear
     }
@@ -1585,6 +1587,10 @@ export default class DateObject {
         month.number = month.index + 1
 
         month.toString = function () {
+            return this.number.toString()
+        }
+
+        month.valueOf = function () {
             return this.number
         }
 
@@ -1596,8 +1602,8 @@ export default class DateObject {
     }
 
     get weekDay() {
-        let index = (this.toJulianDay() + 2) % 7
-        let weekDay = this.#weekDays[this.#calendar][index]
+        let index = (this.toJulianDay() + 2) % 7,
+            weekDay = this.#weekDays[this.#calendar][index]
 
         if (!weekDay) return {}
 
@@ -1606,7 +1612,8 @@ export default class DateObject {
         weekDay = {
             index: weekDay.index,
             number: weekDay.index + 1,
-            toString: function () { return this.number },
+            toString: function () { return this.number.toString() },
+            valueOf: function () { return this.number },
             ...names
         }
 

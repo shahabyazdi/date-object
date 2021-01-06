@@ -2370,8 +2370,8 @@ var DateObject = /*#__PURE__*/function () {
           _classPrivateFieldSet(this, _hour, _classPrivateFieldGet(this, _hour) + 12);
         }
       } else {
-        var formatArray = format.split(/[^\w\u0600-\u06FF]/);
-        var stringArray = string.split(/[^\w\u0600-\u06FF]/);
+        var formatArray = format.split(/[^\w\u0600-\u06FF]/),
+            stringArray = string.split(/[^\w\u0600-\u06FF]/);
 
         for (var i = 0; i < formatArray.length; i++) {
           var reverse = _classPrivateFieldGet(this, _reverse)[formatArray[i]];
@@ -2854,6 +2854,11 @@ var DateObject = /*#__PURE__*/function () {
       return this;
     }
   }, {
+    key: "subtract",
+    value: function subtract(duration, type) {
+      return this.add(-duration, type);
+    }
+  }, {
     key: "toFirstOfYear",
     value: function toFirstOfYear() {
       this.month = 1;
@@ -2971,9 +2976,9 @@ var DateObject = /*#__PURE__*/function () {
   }, {
     key: "valueOf",
     value: function valueOf() {
-      var days = this.dayOfBeginning + _classPrivateFieldGet(this, _epoch)[_classPrivateFieldGet(this, _calendar)] - _classPrivateFieldGet(this, _epoch)["unix"];
+      var days = this.dayOfBeginning + _classPrivateFieldGet(this, _epoch)[_classPrivateFieldGet(this, _calendar)] - _classPrivateFieldGet(this, _epoch).unix,
+          offset = _classPrivateFieldGet(this, _isUTC) ? 0 : new Date().getTimezoneOffset() * 60 * 1000;
 
-      var offset = _classPrivateFieldGet(this, _isUTC) ? 0 : new Date().getTimezoneOffset() * 60 * 1000;
       return days * 24 * 60 * 60 * 1000 + _classPrivateFieldGet(this, _hour) * 60 * 60 * 1000 + _classPrivateFieldGet(this, _minute) * 60 * 1000 + _classPrivateFieldGet(this, _second) * 1000 + this.millisecond + offset;
     }
   }, {
@@ -3001,12 +3006,10 @@ var DateObject = /*#__PURE__*/function () {
     get: function get() {
       if (!this.isValid) return;
 
-      var days = _classPrivateFieldGet(this, _day);
+      var days = _classPrivateFieldGet(this, _day),
+          months = this.months;
 
-      var months = this.months;
-
-      for (var i = 0; i < months.length; i++) {
-        if (i >= _classPrivateFieldGet(this, _month)) break;
+      for (var i = 0; i < _classPrivateFieldGet(this, _month); i++) {
         days += months[i].length;
       }
 
@@ -3023,9 +3026,9 @@ var DateObject = /*#__PURE__*/function () {
     get: function get() {
       if (!this.isValid) return;
 
-      var yearLength = _classPrivateFieldGet(this, _yearLength)[_classPrivateFieldGet(this, _calendar)];
+      var yearLength = _classPrivateFieldGet(this, _yearLength)[_classPrivateFieldGet(this, _calendar)],
+          days = this.isLeap ? yearLength + 1 : yearLength;
 
-      var days = this.isLeap ? yearLength + 1 : yearLength;
       return days - this.dayOfYear;
     }
   }, {
@@ -3052,6 +3055,10 @@ var DateObject = /*#__PURE__*/function () {
       month.number = month.index + 1;
 
       month.toString = function () {
+        return this.number.toString();
+      };
+
+      month.valueOf = function () {
         return this.number;
       };
 
@@ -3080,9 +3087,8 @@ var DateObject = /*#__PURE__*/function () {
   }, {
     key: "weekDay",
     get: function get() {
-      var index = (this.toJulianDay() + 2) % 7;
-
-      var weekDay = _classPrivateFieldGet(this, _weekDays)[_classPrivateFieldGet(this, _calendar)][index];
+      var index = (this.toJulianDay() + 2) % 7,
+          weekDay = _classPrivateFieldGet(this, _weekDays)[_classPrivateFieldGet(this, _calendar)][index];
 
       if (!weekDay) return {};
       var names = _classPrivateFieldGet(this, _custom).weekDays ? _classPrivateFieldGet(this, _custom).weekDays[weekDay.index] : weekDay.locales[_classPrivateFieldGet(this, _locale)];
@@ -3090,6 +3096,9 @@ var DateObject = /*#__PURE__*/function () {
         index: weekDay.index,
         number: weekDay.index + 1,
         toString: function toString() {
+          return this.number.toString();
+        },
+        valueOf: function valueOf() {
           return this.number;
         }
       }, names);
