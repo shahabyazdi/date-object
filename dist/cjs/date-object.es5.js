@@ -2645,6 +2645,11 @@ var DateObject = /*#__PURE__*/function () {
       return this;
     }
   }, {
+    key: "setLocal",
+    value: function setLocal(locale) {
+      return this.setLocale(locale);
+    }
+  }, {
     key: "setCalendar",
     value: function setCalendar(calendar) {
       this.calendar = calendar;
@@ -3306,6 +3311,11 @@ var DateObject = /*#__PURE__*/function () {
     },
     set: function set(ignoreList) {
       if (Array.isArray(ignoreList)) _classPrivateFieldSet(this, _ignoreList, ignoreList);
+    }
+  }, {
+    key: "local",
+    set: function set(locale) {
+      this.locale = locale;
     }
   }]);
 

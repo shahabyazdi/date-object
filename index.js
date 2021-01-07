@@ -1257,6 +1257,10 @@ export default class DateObject {
         return this
     }
 
+    setLocal(locale) {
+        return this.setLocale(locale)
+    }
+
     setCalendar(calendar) {
         this.calendar = calendar
 
@@ -1814,6 +1818,10 @@ export default class DateObject {
         if (!DateObject.locales[locale]) locale = DateObject.locales.EN
 
         this.#locale = locale
+    }
+
+    set local(locale) {
+        this.locale = locale
     }
 
     set _format(format) {
