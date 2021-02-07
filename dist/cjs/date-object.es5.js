@@ -3192,7 +3192,7 @@ var DateObject = /*#__PURE__*/function () {
           return typeof string === "string";
         });
       });
-      if (!isValidValue) return console.warn("Invalid Months");
+      if (!isValidValue) return;
       _classPrivateFieldGet(this, _custom).months = value.map(function (array) {
         return {
           name: array[0],
@@ -3226,7 +3226,7 @@ var DateObject = /*#__PURE__*/function () {
           return typeof string === "string";
         });
       });
-      if (!isValidValue) return console.warn("Invalid weekDays");
+      if (!isValidValue) return;
       _classPrivateFieldGet(this, _custom).weekDays = value.map(function (array) {
         return {
           name: array[0],
@@ -3271,7 +3271,7 @@ var DateObject = /*#__PURE__*/function () {
     set: function set(value) {
       if (!value) return delete _classPrivateFieldGet(this, _custom).digits;
       var isValidValue = Array.isArray(value) && value.length === 10;
-      if (!isValidValue) return console.warn("Invalid digits");
+      if (!isValidValue) return;
       _classPrivateFieldGet(this, _custom).digits = value;
     }
   }, {

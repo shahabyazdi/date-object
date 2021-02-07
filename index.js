@@ -1742,7 +1742,7 @@ export default class DateObject {
             return Array.isArray(array) && array.length === 2 && array.every(string => typeof string === "string")
         })
 
-        if (!isValidValue) return console.warn("Invalid Months")
+        if (!isValidValue) return
 
         this.#custom.months = value.map(array => { return { name: array[0], shortName: array[1] } })
     }
@@ -1763,7 +1763,7 @@ export default class DateObject {
             return Array.isArray(array) && array.length === 2 && array.every(string => typeof string === "string")
         })
 
-        if (!isValidValue) return console.warn("Invalid weekDays")
+        if (!isValidValue) return
 
         this.#custom.weekDays = value.map(array => { return { name: array[0], shortName: array[1] } })
     }
@@ -1773,7 +1773,7 @@ export default class DateObject {
 
         let isValidValue = Array.isArray(value) && value.length === 10
 
-        if (!isValidValue) return console.warn("Invalid digits")
+        if (!isValidValue) return
 
         this.#custom.digits = value
     }
