@@ -800,8 +800,6 @@ export default class DateObject {
 
         if (mustSetNewDate) obj.date = new Date()
 
-        this.#format = obj.format
-
         if (
             (obj.date instanceof DateObject) ||
             (obj.date instanceof Date) ||
@@ -823,7 +821,6 @@ export default class DateObject {
         delete obj.calendar
         delete obj.locale
         delete obj.date
-        delete obj.format
 
         for (let key in obj) this.set(key, obj[key])
 

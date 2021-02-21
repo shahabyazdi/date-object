@@ -2263,8 +2263,6 @@ var DateObject = /*#__PURE__*/function () {
 
     if (mustSetNewDate) obj.date = new Date();
 
-    _classPrivateFieldSet(this, _format, obj.format);
-
     if (obj.date instanceof DateObject || obj.date instanceof Date || typeof obj.date === "number" || typeof obj.date === "string") {
       this.setDate(obj.date);
       if (obj.calendar) this.convert(obj.calendar);
@@ -2280,7 +2278,6 @@ var DateObject = /*#__PURE__*/function () {
     delete obj.calendar;
     delete obj.locale;
     delete obj.date;
-    delete obj.format;
 
     for (var key in obj) {
       this.set(key, obj[key]);
