@@ -806,6 +806,8 @@ export default class DateObject {
             typeof obj.date === "number" ||
             typeof obj.date === "string"
         ) {
+            if (typeof obj.date === "string" && obj.format) this.#format = obj.format
+
             this.setDate(obj.date)
 
             if (obj.calendar) this.convert(obj.calendar)
