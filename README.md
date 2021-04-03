@@ -8,6 +8,8 @@ default: `en`
 
 React: [react-date-object](https://github.com/shahabyazdi/react-date-object)
 
+[descriptions](https://shahabyazdi.github.io/react-multi-date-picker/date-object/)
+
 # 1- Install
 
 ## npm:
