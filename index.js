@@ -1493,10 +1493,11 @@ class DateObject {
   };
 
   convert(calendar = DateObject.calendars.GREGORIAN) {
+    if (typeof calendar !== "string") return this;
+
     calendar = DateObject.calendars[calendar.toUpperCase()];
 
-    if (!calendar) throw new Error("calendar not found");
-    if (calendar === this.#calendar) return this;
+    if (!calendar || calendar === this.#calendar) return this;
 
     let days = this.toJulianDay() - this.#epoch[calendar];
 
@@ -2319,6 +2320,8 @@ class DateObject {
   }
 
   set locale(locale) {
+    if (typeof locale !== "string") return;
+
     locale = locale.toUpperCase();
 
     if (!DateObject.locales[locale]) locale = DateObject.locales.EN;
