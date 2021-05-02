@@ -1785,6 +1785,7 @@ class DateObject {
       this.#leaps = date.leaps;
       this.#calendar = date.calendar.toUpperCase();
       this.#isUTC = date.isUTC;
+      this.#ignoreList = date.ignoreList;
       this.months = date.custom.months;
       this.weekDays = date.custom.weekDays;
       this.digits = date.custom.digits;
