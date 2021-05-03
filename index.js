@@ -1567,9 +1567,13 @@ class DateObject {
       result = "";
 
     for (let item of array) {
+      let property = this.getProperty(item);
+
       result += ignoreList.includes(item)
         ? item
-        : this.getProperty(item) ?? item;
+        : property === 0
+        ? property
+        : property || item;
     }
 
     if (this.#locale !== DateObject.locales.en) {
