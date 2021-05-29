@@ -313,7 +313,7 @@ declare class DateObject {
    * @set number 1-12
    */
   get month(): NameType;
-  set month(month: number);
+  // set month(month: number);
   /**
    * Day of month
    * @get number
@@ -373,7 +373,7 @@ declare class DateObject {
    * date.format("MMMM MMM") //dec d
    */
   get months(): NameType[];
-  set months(months: string[]): this;
+  // set months(months: string[]);
   /**
    * @get Array of week days in current locale
    * @example [{ name: "Sunday", shortName: "Sun", index: 0, number: 1 }, ...]
@@ -396,7 +396,7 @@ declare class DateObject {
    * date.format("dddd ddd") //su s
    */
   get weekDays(): NameType;
-  set weekDays(weekDays: NameType[]): this;
+  // set weekDays(weekDays: NameType[]);
   /**
    * Array of leap years until now
    *
@@ -423,7 +423,7 @@ declare class DateObject {
    *
    * date.calendar = "indian" //1942/09/15
    */
-  get calendar(): string;
+  get calendar(): Calendar;
   set calendar(calendar: Calendar);
   /**
    * @get current locale
@@ -441,7 +441,7 @@ declare class DateObject {
    *
    * date.locale = "fa" //۲۰۲۰/۱۲/۰۶
    */
-  get locale(): string;
+  get locale(): Locale;
   set locale(locale: Locale);
   /**
    * @get meridiems in current locale
