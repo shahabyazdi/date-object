@@ -954,18 +954,10 @@ class DateObject {
     }
 
     if (!format) {
-      const regex = /(-?\d{2,4})?\W?([A-z]{3,9}|\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,3})?\W?(am|pm)?/;
-      let [
-        ,
-        year,
-        month,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        a,
-      ] = string.match(regex);
+      const regex =
+        /(-?\d{2,4})?\W?([A-z]{3,9}|\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,2})?\W?(\d{1,3})?\W?(am|pm)?/;
+      let [, year, month, day, hour, minute, second, millisecond, a] =
+        string.match(regex);
 
       if (month) {
         if (/\d+/.test(month)) {
@@ -1508,7 +1500,7 @@ class DateObject {
       day: 1,
     });
 
-    target.day += days - target.dayOfBeginning;
+    target.day += days - target.toDays();
 
     this.#year = target.year;
     this.#month = target.month.index;
@@ -1968,7 +1960,7 @@ class DateObject {
   }
 
   toJulianDay() {
-    return this.dayOfBeginning + this.#epoch[this.#calendar];
+    return this.toDays() + this.#epoch[this.#calendar];
   }
 
   toObject() {
@@ -1995,21 +1987,10 @@ class DateObject {
   }
 
   valueOf() {
-    let days =
-        this.dayOfBeginning + this.#epoch[this.#calendar] - this.#epoch.unix,
-      offset = this.#isUTC ? 0 : new Date().getTimezoneOffset() * 60 * 1000;
-
-    return (
-      days * 24 * 60 * 60 * 1000 +
-      this.#hour * 60 * 60 * 1000 +
-      this.#minute * 60 * 1000 +
-      this.#second * 1000 +
-      this.millisecond +
-      offset
-    );
+    return this.toDate().valueOf();
   }
 
-  get dayOfBeginning() {
+  toDays() {
     if (!this.isValid) return;
 
     let year = undefined;
@@ -2029,6 +2010,10 @@ class DateObject {
     days += this.dayOfYear;
 
     return days;
+  }
+
+  get dayOfBeginning() {
+    return this.toDays();
   }
 
   get dayOfYear() {
