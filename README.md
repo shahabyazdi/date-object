@@ -346,8 +346,12 @@ date.month.number; //8
 date.weekDay.name; //Friday
 date.weekDay.index; //5
 date.weekDay.number; //6
-
+/**
+ * dayOfBeginning @depricated
+ * use toDays() instead
+ */
 date.dayOfBeginning; //737658
+date.toDays(); //737658
 date.dayOfYear; //234
 date.daysLeft; //132
 date.weekOfYear; //34
