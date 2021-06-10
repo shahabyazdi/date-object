@@ -19,17 +19,17 @@ class DateObject {
 
   constructor(object) {
     let obj = object && object.constructor === Object ? { ...object } : object;
+    let mustFix = true;
 
     if (!obj || typeof obj === "boolean") obj = { date: new Date() };
-    if (obj && obj.constructor !== Object) obj = { date: obj };
-    if (obj.calendar) this.#calendar = obj.calendar;
+    if (obj.constructor !== Object) obj = { date: obj };
     if (Object.keys(obj).length === 0) return;
+    if (obj.calendar) this.#calendar = obj.calendar;
+    if (obj.locale) this.#locale = obj.locale;
 
-    let mustFix = true,
-      mustSetNewDate =
-        isNaN(obj.year) && isNaN(obj.month) && isNaN(obj.day) && !obj.date;
-
-    if (mustSetNewDate) obj.date = new Date();
+    if (isNaN(obj.year) && isNaN(obj.month) && isNaN(obj.day) && !obj.date) {
+      obj.date = new Date();
+    }
 
     if (obj.date) {
       if (typeof obj.date === "string" && obj.format) this.#format = obj.format;
@@ -40,8 +40,6 @@ class DateObject {
 
       mustFix = false;
     }
-
-    if (obj.locale) this.#locale = obj.locale;
 
     delete obj.calendar;
     delete obj.locale;
@@ -339,6 +337,10 @@ class DateObject {
     return result.replace(/[0-9]/g, (w) => digits[w]);
   }
 
+  getProperty(key) {
+    return this.getValue(key);
+  }
+
   getValue(key) {
     const pad = (number) => (number < 10 ? "0" + number : number);
 
@@ -575,7 +577,9 @@ class DateObject {
 
     if (key === "format") key = "_format";
 
-    this[key] = value;
+    try {
+      this[key] = value;
+    } catch {}
 
     return this;
   }
@@ -911,7 +915,7 @@ class DateObject {
 
     let isValidValue =
       Array.isArray(value) &&
-      value.length === this.#calendar.monthsLength &&
+      value.length === 12 &&
       value.every((array) => {
         return (
           Array.isArray(array) &&
@@ -985,8 +989,6 @@ class DateObject {
   }
 
   set calendar(calendar) {
-    this.#calendar = calendar;
-
     this.convert(calendar);
   }
 
