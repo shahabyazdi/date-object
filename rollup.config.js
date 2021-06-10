@@ -1,5 +1,6 @@
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
+import fs from "fs";
 import { terser } from "rollup-plugin-terser";
 
 export default [
@@ -35,7 +36,7 @@ export default [
         exports: "default",
       },
       {
-        file: "dist/date-object.min.js",
+        file: "dist/umd/date-object.min.js",
         format: "umd",
         plugins: [terser()],
         name: "DateObject",
@@ -53,4 +54,38 @@ export default [
       }),
     ],
   },
+  ...get("calendars"),
+  ...get("locales"),
 ];
+
+function get(path) {
+  const array = fs
+    .readdirSync(`./${path}/cjs`)
+    .filter((file) => file.endsWith(".js"))
+    .map((file) => file.replace(/\.js$/, ""));
+
+  return array.map((name) => ({
+    input: `${path}/cjs/${name}.js`,
+    output: [
+      {
+        file: `${path}/es/${name}.js`,
+        format: "es",
+        exports: "default",
+      },
+      {
+        file: `${path}/umd/${name}.js`,
+        format: "umd",
+        name: name,
+        exports: "default",
+      },
+      {
+        file: `${path}/umd/${name}.min.js`,
+        format: "umd",
+        plugins: [terser()],
+        name: name,
+        exports: "default",
+      },
+    ],
+    plugins: [commonjs()],
+  }));
+}

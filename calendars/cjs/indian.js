@@ -1,4 +1,4 @@
-const gregorian = {
+const indian = {
   name: "indian",
   startYear: 0,
   yearLength: 365,
@@ -66,4 +66,4 @@ const gregorian = {
   },
 };
 
-module.exports = gregorian;
+module.exports = indian;

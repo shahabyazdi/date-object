@@ -1,8 +1,8 @@
 const DateObject = require("../index");
-const gregorian = require("../calendars/gregorian");
-const persian = require("../calendars/persian");
-const arabic = require("../calendars/arabic");
-const indian = require("../calendars/indian");
+const gregorian = require("../calendars/cjs/gregorian");
+const persian = require("../calendars/cjs/persian");
+const arabic = require("../calendars/cjs/arabic");
+const indian = require("../calendars/cjs/indian");
 
 describe("current moment", () => {
   test("year month day day-of-week hour minute second", () => {

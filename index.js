@@ -1,5 +1,5 @@
-const en = require("./locales/gregorian_en");
-const gregorian = require("./calendars/gregorian");
+const en = require("./locales/cjs/gregorian_en");
+const gregorian = require("./calendars/cjs/gregorian");
 
 class DateObject {
   #year;
@@ -16,7 +16,6 @@ class DateObject {
   #custom = {};
   #isoDate = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ$/;
   #ignoreList = [];
-  #unixEpoch = 2440587;
 
   constructor(object) {
     let obj = object && object.constructor === Object ? { ...object } : object;
