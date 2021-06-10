@@ -139,9 +139,8 @@ console.log(date.format()); //1943/03/20
 
 <table>
 <thead>
-<tr><th colspan="2"></th><th colspan="4">Calendars</th></tr>
+<tr><th colspan="2" rowspan="2"></th><th colspan="4">Calendars</th></tr>
 <tr>
-<th colspan="2" ></th>
 <th>Gregorian</th>
 <th>Persian</th>
 <th>Arabic</th>
