@@ -61,28 +61,35 @@ console.log(date.format()); //2021/06/10
 <tbody>
 
 <tr>
-<td>gregorian</td>
+<td>Gregorian</td>
 <td>/calendars/cjs/gregorian.js</td>
 <td>/calendars/es/gregorian.js</td>
 <td>/calendars/umd/gregorian.min.js</td>
 <tr>
 
 <tr>
-<td>persian</td>
+<td>Persian</td>
 <td>/calendars/cjs/persian.js</td>
 <td>/calendars/es/persian.js</td>
 <td>/calendars/umd/persian.min.js</td>
 <tr>
 
 <tr>
-<td>arabic</td>
+<td><b>* Jalali</b></td>
+<td>/calendars/cjs/jalali.js</td>
+<td>/calendars/es/jalali.js</td>
+<td>/calendars/umd/jalali.min.js</td>
+<tr>
+
+<tr>
+<td>Arabic</td>
 <td>/calendars/cjs/arabic.js</td>
 <td>/calendars/es/arabic.js</td>
 <td>/calendars/umd/arabic.min.js</td>
 <tr>
 
 <tr>
-<td>indian</td>
+<td>Indian</td>
 <td>/calendars/cjs/indian.js</td>
 <td>/calendars/es/indian.js</td>
 <td>/calendars/umd/indian.min.js</td>
@@ -92,6 +99,8 @@ console.log(date.format()); //2021/06/10
 </table>
 
 <br>
+
+**\* Due to the use of conventional calculations in the Jalali calendar, converting a date to a Jalali calendar from other calendars may differ by one day compared to the Persian (solar Hijri) calendar.**
 
 <details>
   <summary>Examples</summary>
@@ -143,6 +152,7 @@ console.log(date.format()); //1943/03/20
 <tr>
 <th>Gregorian</th>
 <th>Persian</th>
+<th>Jalali</th>
 <th>Arabic</th>
 <th>Indian</th>
 </tr>
@@ -153,6 +163,7 @@ console.log(date.format()); //1943/03/20
 <th>English</th>
 <td>gregorian_en</td>
 <td>persian_en</td>
+<td>persian_en</td>
 <td>arabic_en</td>
 <td>indian_en</td>
 </tr>
@@ -160,6 +171,7 @@ console.log(date.format()); //1943/03/20
 <tr>
 <th>Farsi</th>
 <td>gregorian_fa</td>
+<td>persian_fa</td>
 <td>persian_fa</td>
 <td>arabic_fa</td>
 <td>indian_fa</td>
@@ -169,6 +181,7 @@ console.log(date.format()); //1943/03/20
 <th>Arabic</th>
 <td>gregorian_ar</td>
 <td>persian_ar</td>
+<td>persian_ar</td>
 <td>arabic_ar</td>
 <td>indian_ar</td>
 </tr>
@@ -176,6 +189,7 @@ console.log(date.format()); //1943/03/20
 <tr>
 <th>Hindi</th>
 <td>gregorian_hi</td>
+<td>persian_hi</td>
 <td>persian_hi</td>
 <td>arabic_hi</td>
 <td>indian_hi</td>

@@ -751,6 +751,10 @@ class DateObject {
     return this.#calendar.getAllDays(this);
   }
 
+  get dayOfBeginning() {
+    return this.toDays();
+  }
+
   get dayOfYear() {
     if (!this.isValid) return;
 
@@ -884,7 +888,6 @@ class DateObject {
   }
 
   get isLeap() {
-    // return this.#leaps.includes(this.#year);
     return this.#calendar.isLeap(this.#year);
   }
 
@@ -993,15 +996,11 @@ class DateObject {
   }
 
   set locale(locale) {
-    if (locale?.constructor !== Object) return;
-
-    this.#locale = locale;
+    if (locale?.constructor === Object) this.#locale = locale;
   }
 
   set _format(format) {
-    if (typeof format !== "string") return;
-
-    this.#format = format;
+    if (typeof format === "string") this.#format = format;
   }
 
   set ignoreList(ignoreList) {
