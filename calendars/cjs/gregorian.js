@@ -29,10 +29,10 @@ const gregorian = {
 
     return leaps;
   },
-  getDayOfYear({ year, month: { number: month }, day }) {
+  getDayOfYear({ year, month, day }) {
     let monthLengths = this.getMonthLengths(this.isLeap(year));
 
-    for (let i = 0; i < month - 1; i++) {
+    for (let i = 0; i < month.index; i++) {
       day += monthLengths[i];
     }
 

@@ -32,15 +32,14 @@ const arabic = {
 
     return leaps;
   },
-  getDayOfYear({ year, month: { number: month }, day }) {
-    if (month === 1) return day;
+  getDayOfYear({ year, month, day }) {
+    let monthLengths = this.getMonthLengths(this.isLeap(year));
 
-    return (
-      this.getMonthLengths(this.isLeap(year)).reduce(
-        (previousValue, currentValue, index) =>
-          index >= month - 1 ? previousValue : previousValue + currentValue
-      ) + day
-    );
+    for (let i = 0; i < month.index; i++) {
+      day += monthLengths[i];
+    }
+
+    return day;
   },
   getAllDays(date) {
     const { year } = date;
