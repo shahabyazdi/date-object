@@ -16,6 +16,7 @@ class DateObject {
   #custom = {};
   #isoDate = /^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d\.\d\d\dZ$/;
   #ignoreList = [];
+  #mustFix = true;
 
   constructor(object) {
     let obj = object && object.constructor === Object ? { ...object } : object;
@@ -167,6 +168,8 @@ class DateObject {
   };
 
   #fix = () => {
+    if (!this.#mustFix) return;
+
     const floor = Math.floor,
       getCoefficient = (number) => (number < 0 ? -1 : 1),
       isIncorrect = (value, maximum) => value >= maximum || value < 0,
@@ -189,33 +192,28 @@ class DateObject {
 
     if (!this.isValid) return;
 
-    if (isIncorrect(this.#millisecond, 1000)) {
-      let [extraAmount, millisecond] = getCurrectValue(this.#millisecond, 1000);
+    let properties = [
+      ["millisecond", "second", 1000],
+      ["second", "minute", 60],
+      ["minute", "hour", 60],
+      ["hour", "day", 24],
+    ];
 
-      this.#second += extraAmount;
-      this.#millisecond = millisecond;
-    }
+    this.#mustFix = false;
 
-    if (isIncorrect(this.#second, 60)) {
-      let [extraAmount, second] = getCurrectValue(this.#second, 60);
+    properties.forEach(([currentProperty, nextProperty, maximum]) => {
+      if (isIncorrect(this[currentProperty], maximum)) {
+        let [extraAmount, value] = getCurrectValue(
+          this[currentProperty],
+          maximum
+        );
 
-      this.#minute += extraAmount;
-      this.#second = second;
-    }
+        this[nextProperty] += extraAmount;
+        this[currentProperty] = value;
+      }
+    });
 
-    if (isIncorrect(this.#minute, 60)) {
-      let [extraAmount, minute] = getCurrectValue(this.#minute, 60);
-
-      this.#hour += extraAmount;
-      this.#minute = minute;
-    }
-
-    if (isIncorrect(this.#hour, 24)) {
-      let [extraAmount, hour] = getCurrectValue(this.#hour, 24);
-
-      this.#day += extraAmount;
-      this.#hour = hour;
-    }
+    this.#mustFix = true;
 
     setMonth();
 
@@ -570,7 +568,12 @@ class DateObject {
         delete object.locale;
       }
 
+      this.#mustFix = false;
+
       for (let key in object) this.set(key, object[key]);
+
+      this.#mustFix = true;
+      this.#fix();
 
       return this;
     }
@@ -909,7 +912,6 @@ class DateObject {
 
   set year(value) {
     this.#year = this.#toNumber(value);
-
     this.#fix();
   }
 
