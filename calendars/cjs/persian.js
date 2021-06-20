@@ -343,14 +343,8 @@ const persian = {
 
     return leaps;
   },
-  getDayOfYear({ year, month: { number: month }, day }, isLeap) {
-    let monthLengths = this.getMonthLengths(isLeap ?? this.isLeap(year));
-
-    for (let i = 0; i < month - 1; i++) {
-      day += monthLengths[i];
-    }
-
-    return day;
+  getDayOfYear({ month: { index }, day }) {
+    return (index <= 6 ? index * 31 : 6 * 31 + (index - 6) * 30) + day;
   },
   getAllDays(date) {
     const { year } = date;
@@ -360,7 +354,7 @@ const persian = {
     return (
       this.yearLength * (year - 1) +
       (isLeap ? leaps.length - 1 : leaps.length) +
-      this.getDayOfYear(date, isLeap)
+      this.getDayOfYear(date)
     );
   },
   guessYear(days, currentYear) {
