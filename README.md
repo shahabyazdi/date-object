@@ -38,11 +38,54 @@ yarn add date-object
 
 # 2- Usage
 
+## 2-1- NodeJS:
+
 ```javascript
 var DateObject = require("date-object");
 var date = new DateObject();
 
 console.log(date.format()); //2021/06/10
+```
+
+## 2-1- Browser:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- DateObject -->
+    <script src="https://cdn.jsdelivr.net/npm/date-object@latest/dist/umd/date-object.min.js"></script>
+    <!-- Optional Persian Calendar & Locale -->
+    <script src="https://cdn.jsdelivr.net/npm/date-object@latest/calendars/umd/persian.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-object@latest/locales/umd/persian_fa.min.js"></script>
+    <title>DateObject</title>
+  </head>
+  <body>
+    <h1>Gregorian:</h1>
+    <p id="gregorian"></p>
+
+    <h1>Persian:</h1>
+    <p id="persian"></p>
+
+    <script>
+      const format = "dddd DD MMMM YYYY";
+      const gregorian = new DateObject();
+      const solarHijri = new DateObject({
+        calendar: persian,
+        locale: persian_fa,
+      });
+
+      document.getElementById("gregorian").textContent =
+        gregorian.format(format);
+
+      document.getElementById("persian").textContent =
+        solarHijri.format(format);
+    </script>
+  </body>
+</html>
 ```
 
 # 3- Calendars
