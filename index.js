@@ -338,6 +338,9 @@ class DateObject {
     return result.replace(/[0-9]/g, (w) => digits[w]);
   }
 
+  /**
+   * @deprecated
+   */
   getProperty(key) {
     return this.getValue(key);
   }
@@ -757,6 +760,9 @@ class DateObject {
     return this.#calendar.getAllDays(this);
   }
 
+  /**
+   * @deprecated
+   */
   get dayOfBeginning() {
     return this.toDays();
   }
