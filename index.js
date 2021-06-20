@@ -168,7 +168,7 @@ class DateObject {
   };
 
   #fix = () => {
-    if (!this.#mustFix) return;
+    if (!this.#mustFix || !this.isValid) return;
 
     const floor = Math.floor,
       getCoefficient = (number) => (number < 0 ? -1 : 1),
@@ -188,16 +188,19 @@ class DateObject {
 
           if (this.#mustJumpFromZero()) this.#year = startYear;
         }
-      };
+      },
+      properties = [
+        ["millisecond", "second", 1000],
+        ["second", "minute", 60],
+        ["minute", "hour", 60],
+        ["hour", "day", 24],
+      ];
 
-    if (!this.isValid) return;
-
-    let properties = [
-      ["millisecond", "second", 1000],
-      ["second", "minute", 60],
-      ["minute", "hour", 60],
-      ["hour", "day", 24],
-    ];
+    /**
+     * In order to fixing some incorrect values and
+     * to prevent from running the nested #fix() method,
+     * we set the #mustFix to false.
+     */
 
     this.#mustFix = false;
 
