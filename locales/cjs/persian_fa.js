@@ -1,4 +1,5 @@
 module.exports = {
+  name: "persian_fa",
   months: [
     ["فروردین", "فر"],
     ["اردیبهشت", "ار"],

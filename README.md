@@ -819,7 +819,7 @@ console.log(
 ### 5-10-2 set(object)
 
 ```javascript
-var DateObject = require("date-object/index");
+var DateObject = require("date-object");
 var persian = require("date-object/calendars/cjs/persian");
 var gregorian = require("date-object/calendars/cjs/gregorian");
 var persian_en = require("date-object/locales/cjs/persian_en");
@@ -1097,7 +1097,7 @@ console.log(persian - gregorian === 0); //true
 ## 5-15- using calendars, format & locales
 
 ```javascript
-var DateObject = require("date-object/index");
+var DateObject = require("date-object");
 var gregorian = require("date-object/calendars/cjs/gregorian");
 var persian = require("date-object/calendars/cjs/persian");
 var arabic = require("date-object/calendars/cjs/arabic");

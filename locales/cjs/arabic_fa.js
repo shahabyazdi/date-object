@@ -1,4 +1,5 @@
 module.exports = {
+  name: "arabic_fa",
   months: [
     ["محرم", "محرم"],
     ["صفر", "صفر"],

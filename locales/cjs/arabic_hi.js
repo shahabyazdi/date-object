@@ -1,4 +1,5 @@
 module.exports = {
+  name: "arabic_hi",
   months: [
     ["मुहर्रम", "मुहर्रम"],
     ["सफर", "सफर"],

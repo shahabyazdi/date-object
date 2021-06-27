@@ -1,4 +1,5 @@
 module.exports = {
+  name: "persian_en",
   months: [
     ["Farvardin", "Far"],
     ["Ordibehesht", "Ord"],

@@ -1,4 +1,5 @@
 module.exports = {
+  name: "indian_fa",
   months: [
     ["چیتره", "چیت"],
     ["ویشاکهه", "ویش"],

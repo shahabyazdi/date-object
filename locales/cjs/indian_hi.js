@@ -1,4 +1,5 @@
 module.exports = {
+  name: "indian_hi",
   months: [
     ["चैत्र", "चैत्र"],
     ["वैशाख", "वैशाख"],
