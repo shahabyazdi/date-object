@@ -19,14 +19,14 @@ class DateObject {
   #mustFix = true;
 
   constructor(object) {
-    let obj = object && object.constructor === Object ? { ...object } : object;
+    let obj = this.#isObject(object) ? { ...object } : object;
     let mustFix = true;
 
     if (!obj || typeof obj === "boolean") obj = { date: new Date() };
-    if (obj.constructor !== Object) obj = { date: obj };
+    if (!this.#isObject(obj)) obj = { date: obj };
     if (Object.keys(obj).length === 0) return;
-    if (obj.calendar) this.#calendar = obj.calendar;
-    if (obj.locale) this.#locale = obj.locale;
+    if (this.#isObject(obj.calendar)) this.#calendar = obj.calendar;
+    if (this.#isObject(obj.locale)) this.#locale = obj.locale;
 
     if (isNaN(obj.year) && isNaN(obj.month) && isNaN(obj.day) && !obj.date) {
       obj.date = new Date();
@@ -51,6 +51,10 @@ class DateObject {
     if (this.#mustJumpFromZero()) this.#year = -1;
     if (mustFix) this.#fix();
   }
+
+  #isObject = (obj) => {
+    return obj && obj.constructor === Object;
+  };
 
   #getKeyValue = (token, string) => {
     switch (token) {
@@ -263,15 +267,11 @@ class DateObject {
     if (!this.#millisecond) this.#millisecond = 0;
   };
 
-  convert(calendar, locale) {
-    if (
-      calendar?.constructor !== Object ||
-      calendar.name === this.#calendar.name
-    ) {
+  convert(calendar = gregorian, locale) {
+    if (this.#isObject(locale)) this.#locale = locale;
+    if (!this.#isObject(calendar) || calendar.name === this.#calendar.name) {
       return this;
     }
-
-    if (locale?.constructor === Object) this.#locale = locale;
 
     let days = this.toJulianDay() - calendar.epoch;
 
@@ -556,7 +556,7 @@ class DateObject {
   set(key, value) {
     if (key === undefined || key === null) return this;
 
-    if (key.constructor === Object) {
+    if (this.#isObject(key)) {
       let object = { ...key };
 
       if (object.date) {
@@ -1006,8 +1006,8 @@ class DateObject {
     this.convert(calendar);
   }
 
-  set locale(locale) {
-    if (locale?.constructor === Object) this.#locale = locale;
+  set locale(locale = en) {
+    if (this.#isObject(locale)) this.#locale = locale;
   }
 
   set _format(format) {

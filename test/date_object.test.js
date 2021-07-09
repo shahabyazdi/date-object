@@ -7,6 +7,7 @@ const arabic = require("../calendars/cjs/arabic");
 const indian = require("../calendars/cjs/indian");
 
 const gregorian_en = require("../locales/cjs/gregorian_en");
+const gregorian_fa = require("../locales/cjs/gregorian_fa");
 const persian_en = require("../locales/cjs/persian_en");
 const indian_hi = require("../locales/cjs/indian_hi");
 
@@ -256,11 +257,11 @@ describe("other methods", () => {
     const minute = date.getMinutes();
     const second = date.getSeconds();
 
-    expect(dateObject.format("MMMMDDYYYYHms")).toEqual(
+    expect(dateObject.format("MMMMDYYYYHms")).toEqual(
       `${dateObject.months[month].name}${day}${year}${hour}${minute}${second}`
     );
 
-    expect(dateObject.format("dddd DD MMM YYYY")).toEqual(
+    expect(dateObject.format("dddd D MMM YYYY")).toEqual(
       `${dateObject.weekDays[weekDay].name} ${day} ${dateObject.months[month].shortName} ${year}`
     );
   });
@@ -465,5 +466,77 @@ describe("testing private #fix() method", () => {
 
       expect(getStringDate(date)).toEqual(getStringDateObject(dateObject));
     }
+  });
+});
+
+describe("returning to default calendar & locale (gregorian, gregorian_en)", () => {
+  test("Returning to the default calendar by setting the calendar value to 'undefined'", () => {
+    const dateObject = new DateObject({ calendar: persian });
+    const date = new Date();
+    const stringDate = `${date.getFullYear()}${
+      date.getMonth() + 1
+    }${date.getDate()}`;
+
+    expect(dateObject.calendar.name).toEqual("persian");
+
+    dateObject.calendar = undefined;
+
+    expect(dateObject.calendar.name).toEqual("gregorian");
+    expect(dateObject.format("YYYYMD")).toEqual(stringDate);
+  });
+
+  test("Returning to the default calendar by passing 'undefined' as calendar argument in the convert method", () => {
+    const dateObject = new DateObject({ calendar: arabic });
+    const date = new Date();
+    const stringDate = `${date.getFullYear()}${
+      date.getMonth() + 1
+    }${date.getDate()}`;
+
+    expect(dateObject.calendar.name).toEqual("arabic");
+
+    dateObject.convert();
+
+    expect(dateObject.calendar.name).toEqual("gregorian");
+    expect(dateObject.format("YYYYMD")).toEqual(stringDate);
+  });
+
+  test("Returning to the default calendar with set method", () => {
+    const dateObject = new DateObject({ calendar: indian });
+    const date = new Date();
+    const stringDate = `${date.getFullYear()}${
+      date.getMonth() + 1
+    }${date.getDate()}`;
+
+    expect(dateObject.calendar.name).toEqual("indian");
+
+    dateObject.set({ calendar: undefined });
+
+    expect(dateObject.calendar.name).toEqual("gregorian");
+    expect(dateObject.format("YYYYMD")).toEqual(stringDate);
+  });
+
+  test("Returning to the default locale by setting the locale value to 'undefined'", () => {
+    const dateObject = new DateObject({ locale: gregorian_fa });
+
+    expect(dateObject.locale.name).toEqual("gregorian_fa");
+
+    dateObject.locale = undefined;
+
+    expect(dateObject.locale.name).toEqual("gregorian_en");
+  });
+
+  test("Returning to the default locale with set method", () => {
+    const dateObject = new DateObject({ locale: gregorian_fa });
+    const date = new Date();
+    const stringDate = `${date.getFullYear()}${
+      date.getMonth() + 1
+    }${date.getDate()}`;
+
+    expect(dateObject.locale.name).toEqual("gregorian_fa");
+
+    dateObject.set({ locale: undefined });
+
+    expect(dateObject.locale.name).toEqual("gregorian_en");
+    expect(dateObject.format("YYYYMD")).toEqual(stringDate);
   });
 });
