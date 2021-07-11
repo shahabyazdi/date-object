@@ -796,6 +796,10 @@ class DateObject {
     return this.months[this.#month] || {};
   }
 
+  get monthIndex() {
+    return this.#month;
+  }
+
   get day() {
     return this.#day;
   }
