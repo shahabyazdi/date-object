@@ -514,383 +514,383 @@ declare module "date-object" {
   export type WeekDay = W;
   export type Meridiem = Me;
 
-  export default DateObject;
+  export = DateObject;
 }
 
 declare module "date-object/calendars/cjs/gregorian" {
   const gregorian: Calendar;
 
-  export default gregorian;
+  export = gregorian;
 }
 
 declare module "date-object/calendars/cjs/persian" {
   const persian: Omit<Calendar, "leapsLength">;
 
-  export default persian;
+  export = persian;
 }
 
 declare module "date-object/calendars/cjs/jalali" {
   const jalali: Calendar;
 
-  export default jalali;
+  export = jalali;
 }
 
 declare module "date-object/calendars/cjs/arabic" {
   const arabic: Calendar;
 
-  export default arabic;
+  export = arabic;
 }
 
 declare module "date-object/calendars/cjs/indian" {
   const indian: Calendar;
 
-  export default indian;
+  export = indian;
 }
 
 declare module "date-object/locales/cjs/gregorian_en" {
   const gregorian_en: Locale;
 
-  export default gregorian_en;
+  export = gregorian_en;
 }
 
 declare module "date-object/locales/cjs/gregorian_fa" {
   const gregorian_fa: Locale;
 
-  export default gregorian_fa;
+  export = gregorian_fa;
 }
 
 declare module "date-object/locales/cjs/gregorian_ar" {
   const gregorian_ar: Locale;
 
-  export default gregorian_ar;
+  export = gregorian_ar;
 }
 
 declare module "date-object/locales/cjs/gregorian_hi" {
   const gregorian_hi: Locale;
 
-  export default gregorian_hi;
+  export = gregorian_hi;
 }
 
 declare module "date-object/locales/cjs/persian_en" {
   const persian_en: Locale;
 
-  export default persian_en;
+  export = persian_en;
 }
 
 declare module "date-object/locales/cjs/persian_fa" {
   const persian_fa: Locale;
 
-  export default persian_fa;
+  export = persian_fa;
 }
 
 declare module "date-object/locales/cjs/persian_ar" {
   const persian_ar: Locale;
 
-  export default persian_ar;
+  export = persian_ar;
 }
 
 declare module "date-object/locales/cjs/persian_hi" {
   const persian_hi: Locale;
 
-  export default persian_hi;
+  export = persian_hi;
 }
 
 declare module "date-object/locales/cjs/arabic_en" {
   const arabic_en: Locale;
 
-  export default arabic_en;
+  export = arabic_en;
 }
 
 declare module "date-object/locales/cjs/arabic_fa" {
   const arabic_fa: Locale;
 
-  export default arabic_fa;
+  export = arabic_fa;
 }
 
 declare module "date-object/locales/cjs/arabic_ar" {
   const arabic_ar: Locale;
 
-  export default arabic_ar;
+  export = arabic_ar;
 }
 
 declare module "date-object/locales/cjs/arabic_hi" {
   const arabic_hi: Locale;
 
-  export default arabic_hi;
+  export = arabic_hi;
 }
 
 declare module "date-object/locales/cjs/indian_en" {
   const indian_en: Locale;
 
-  export default indian_en;
+  export = indian_en;
 }
 
 declare module "date-object/locales/cjs/indian_fa" {
   const indian_fa: Locale;
 
-  export default indian_fa;
+  export = indian_fa;
 }
 
 declare module "date-object/locales/cjs/indian_ar" {
   const indian_ar: Locale;
 
-  export default indian_ar;
+  export = indian_ar;
 }
 
 declare module "date-object/locales/cjs/indian_hi" {
   const indian_hi: Locale;
 
-  export default indian_hi;
+  export = indian_hi;
 }
 
 declare module "date-object/calendars/es/gregorian" {
   const gregorian: Calendar;
 
-  export default gregorian;
+  export = gregorian;
 }
 
 declare module "date-object/calendars/es/persian" {
   const persian: Omit<Calendar, "leapsLength">;
 
-  export default persian;
+  export = persian;
 }
 
 declare module "date-object/calendars/es/jalali" {
   const jalali: Calendar;
 
-  export default jalali;
+  export = jalali;
 }
 
 declare module "date-object/calendars/es/arabic" {
   const arabic: Calendar;
 
-  export default arabic;
+  export = arabic;
 }
 
 declare module "date-object/calendars/es/indian" {
   const indian: Calendar;
 
-  export default indian;
+  export = indian;
 }
 
 declare module "date-object/locales/es/gregorian_en" {
   const gregorian_en: Locale;
 
-  export default gregorian_en;
+  export = gregorian_en;
 }
 
 declare module "date-object/locales/es/gregorian_fa" {
   const gregorian_fa: Locale;
 
-  export default gregorian_fa;
+  export = gregorian_fa;
 }
 
 declare module "date-object/locales/es/gregorian_ar" {
   const gregorian_ar: Locale;
 
-  export default gregorian_ar;
+  export = gregorian_ar;
 }
 
 declare module "date-object/locales/es/gregorian_hi" {
   const gregorian_hi: Locale;
 
-  export default gregorian_hi;
+  export = gregorian_hi;
 }
 
 declare module "date-object/locales/es/persian_en" {
   const persian_en: Locale;
 
-  export default persian_en;
+  export = persian_en;
 }
 
 declare module "date-object/locales/es/persian_fa" {
   const persian_fa: Locale;
 
-  export default persian_fa;
+  export = persian_fa;
 }
 
 declare module "date-object/locales/es/persian_ar" {
   const persian_ar: Locale;
 
-  export default persian_ar;
+  export = persian_ar;
 }
 
 declare module "date-object/locales/es/persian_hi" {
   const persian_hi: Locale;
 
-  export default persian_hi;
+  export = persian_hi;
 }
 
 declare module "date-object/locales/es/arabic_en" {
   const arabic_en: Locale;
 
-  export default arabic_en;
+  export = arabic_en;
 }
 
 declare module "date-object/locales/es/arabic_fa" {
   const arabic_fa: Locale;
 
-  export default arabic_fa;
+  export = arabic_fa;
 }
 
 declare module "date-object/locales/es/arabic_ar" {
   const arabic_ar: Locale;
 
-  export default arabic_ar;
+  export = arabic_ar;
 }
 
 declare module "date-object/locales/es/arabic_hi" {
   const arabic_hi: Locale;
 
-  export default arabic_hi;
+  export = arabic_hi;
 }
 
 declare module "date-object/locales/es/indian_en" {
   const indian_en: Locale;
 
-  export default indian_en;
+  export = indian_en;
 }
 
 declare module "date-object/locales/es/indian_fa" {
   const indian_fa: Locale;
 
-  export default indian_fa;
+  export = indian_fa;
 }
 
 declare module "date-object/locales/es/indian_ar" {
   const indian_ar: Locale;
 
-  export default indian_ar;
+  export = indian_ar;
 }
 
 declare module "date-object/locales/es/indian_hi" {
   const indian_hi: Locale;
 
-  export default indian_hi;
+  export = indian_hi;
 }
 
 declare module "date-object/calendars/umd/gregorian" {
   const gregorian: Calendar;
 
-  export default gregorian;
+  export = gregorian;
 }
 
 declare module "date-object/calendars/umd/persian" {
   const persian: Omit<Calendar, "leapsLength">;
 
-  export default persian;
+  export = persian;
 }
 
 declare module "date-object/calendars/umd/jalali" {
   const jalali: Calendar;
 
-  export default jalali;
+  export = jalali;
 }
 
 declare module "date-object/calendars/umd/arabic" {
   const arabic: Calendar;
 
-  export default arabic;
+  export = arabic;
 }
 
 declare module "date-object/calendars/umd/indian" {
   const indian: Calendar;
 
-  export default indian;
+  export = indian;
 }
 
 declare module "date-object/locales/umd/gregorian_en" {
   const gregorian_en: Locale;
 
-  export default gregorian_en;
+  export = gregorian_en;
 }
 
 declare module "date-object/locales/umd/gregorian_fa" {
   const gregorian_fa: Locale;
 
-  export default gregorian_fa;
+  export = gregorian_fa;
 }
 
 declare module "date-object/locales/umd/gregorian_ar" {
   const gregorian_ar: Locale;
 
-  export default gregorian_ar;
+  export = gregorian_ar;
 }
 
 declare module "date-object/locales/umd/gregorian_hi" {
   const gregorian_hi: Locale;
 
-  export default gregorian_hi;
+  export = gregorian_hi;
 }
 
 declare module "date-object/locales/umd/persian_en" {
   const persian_en: Locale;
 
-  export default persian_en;
+  export = persian_en;
 }
 
 declare module "date-object/locales/umd/persian_fa" {
   const persian_fa: Locale;
 
-  export default persian_fa;
+  export = persian_fa;
 }
 
 declare module "date-object/locales/umd/persian_ar" {
   const persian_ar: Locale;
 
-  export default persian_ar;
+  export = persian_ar;
 }
 
 declare module "date-object/locales/umd/persian_hi" {
   const persian_hi: Locale;
 
-  export default persian_hi;
+  export = persian_hi;
 }
 
 declare module "date-object/locales/umd/arabic_en" {
   const arabic_en: Locale;
 
-  export default arabic_en;
+  export = arabic_en;
 }
 
 declare module "date-object/locales/umd/arabic_fa" {
   const arabic_fa: Locale;
 
-  export default arabic_fa;
+  export = arabic_fa;
 }
 
 declare module "date-object/locales/umd/arabic_ar" {
   const arabic_ar: Locale;
 
-  export default arabic_ar;
+  export = arabic_ar;
 }
 
 declare module "date-object/locales/umd/arabic_hi" {
   const arabic_hi: Locale;
 
-  export default arabic_hi;
+  export = arabic_hi;
 }
 
 declare module "date-object/locales/umd/indian_en" {
   const indian_en: Locale;
 
-  export default indian_en;
+  export = indian_en;
 }
 
 declare module "date-object/locales/umd/indian_fa" {
   const indian_fa: Locale;
 
-  export default indian_fa;
+  export = indian_fa;
 }
 
 declare module "date-object/locales/umd/indian_ar" {
   const indian_ar: Locale;
 
-  export default indian_ar;
+  export = indian_ar;
 }
 
 declare module "date-object/locales/umd/indian_hi" {
   const indian_hi: Locale;
 
-  export default indian_hi;
+  export = indian_hi;
 }
