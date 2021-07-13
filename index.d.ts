@@ -10,7 +10,7 @@ type Calendar = {
   yearLength: number;
   epoch: number;
   century: number;
-  weekDaysIndex: number[];
+  weekStartDayIndex: number;
   /**
    *
    * @param isLeap
@@ -496,6 +496,7 @@ declare class DateObject {
     weekDays: string[] | undefined;
   };
   set date(date: DateType);
+  weekStartDayIndex: number;
 }
 
 type D = DateType;

@@ -15,13 +15,13 @@ module.exports = {
     ["December", "Dec"],
   ],
   weekDays: [
+    ["Saturday", "Sat"],
     ["Sunday", "Sun"],
     ["Monday", "Mon"],
     ["Tuesday", "Tue"],
     ["Wednesday", "Wed"],
     ["Thursday", "Thu"],
     ["Friday", "Fri"],
-    ["Saturday", "Sat"],
   ],
   digits: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
   meridiems: [

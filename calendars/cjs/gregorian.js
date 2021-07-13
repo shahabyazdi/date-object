@@ -4,7 +4,7 @@ const gregorian = {
   yearLength: 365,
   epoch: 1721424,
   century: 20,
-  weekDaysIndex: [0, 1, 2, 3, 4, 5, 6],
+  weekStartDayIndex: 1,
   getMonthLengths(isLeap) {
     return [31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   },

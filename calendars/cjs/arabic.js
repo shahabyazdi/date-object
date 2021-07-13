@@ -4,7 +4,7 @@ const arabic = {
   yearLength: 354,
   epoch: 1948438,
   century: 14,
-  weekDaysIndex: [1, 2, 3, 4, 5, 6, 0],
+  weekStartDayIndex: 0,
   getMonthLengths(isLeap) {
     /**
      * @see https://en.wikipedia.org/wiki/Tabular_Islamic_calendar

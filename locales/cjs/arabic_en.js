@@ -15,13 +15,13 @@ module.exports = {
     ["Dhu l-Hijja", "DhH"],
   ],
   weekDays: [
+    ["as-sabt", "Sab"],
     ["al-'ahad", "Aha"],
     ["al-'ithnayn", "Ith"],
     ["ath-thalatha", "Tha"],
     ["al-'arb`a'", "Arb"],
     ["al-khamis", "Kha"],
     ["al-jum`a", "Jum"],
-    ["as-sabt", "Sab"],
   ],
   digits: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
   meridiems: [

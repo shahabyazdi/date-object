@@ -1,6 +1,22 @@
 const en = require("./locales/cjs/gregorian_en");
 const gregorian = require("./calendars/cjs/gregorian");
 
+function isObject(object) {
+  return object && object.constructor === Object;
+}
+
+function toNumber(value) {
+  if (!isNaN(value)) return parseInt(value);
+}
+
+function isArray(value) {
+  return Array.isArray(value);
+}
+
+function notInRange(value, min, max) {
+  return value === undefined || value < min || value > max;
+}
+
 class DateObject {
   #year;
   #month;
@@ -19,14 +35,14 @@ class DateObject {
   #mustFix = true;
 
   constructor(object) {
-    let obj = this.#isObject(object) ? { ...object } : object;
+    let obj = isObject(object) ? { ...object } : object;
     let mustFix = true;
 
     if (!obj || typeof obj === "boolean") obj = { date: new Date() };
-    if (!this.#isObject(obj)) obj = { date: obj };
+    if (!isObject(obj)) obj = { date: obj };
     if (Object.keys(obj).length === 0) return;
-    if (this.#isObject(obj.calendar)) this.#calendar = obj.calendar;
-    if (this.#isObject(obj.locale)) this.#locale = obj.locale;
+    if (isObject(obj.calendar)) this.#calendar = obj.calendar;
+    if (isObject(obj.locale)) this.#locale = obj.locale;
 
     if (isNaN(obj.year) && isNaN(obj.month) && isNaN(obj.day) && !obj.date) {
       obj.date = new Date();
@@ -51,10 +67,6 @@ class DateObject {
     if (this.#mustJumpFromZero()) this.#year = -1;
     if (mustFix) this.#fix();
   }
-
-  #isObject = (obj) => {
-    return obj && obj.constructor === Object;
-  };
 
   #getKeyValue = (token, string) => {
     switch (token) {
@@ -81,7 +93,7 @@ class DateObject {
         return ["hour", string];
       case "hh":
       case "h":
-        let hour = this.#toNumber(string);
+        let hour = toNumber(string);
 
         return ["hour", hour > 12 ? hour - 12 : hour];
       case "mm":
@@ -120,7 +132,7 @@ class DateObject {
 
       if (month) {
         if (/\d+/.test(month)) {
-          month = this.#toNumber(month) - 1;
+          month = toNumber(month) - 1;
         } else {
           month = this.months.findIndex(($month) =>
             new RegExp(month, "i").test($month.name)
@@ -130,9 +142,8 @@ class DateObject {
 
       array[1] = month;
 
-      let [year, $month, day, hour, minute, second, millisecond] = array.map(
-        this.#toNumber
-      );
+      let [year, $month, day, hour, minute, second, millisecond] =
+        array.map(toNumber);
 
       this.#year = year;
       this.#month = $month;
@@ -268,8 +279,8 @@ class DateObject {
   };
 
   convert(calendar = gregorian, locale) {
-    if (this.#isObject(locale)) this.#locale = locale;
-    if (!this.#isObject(calendar) || calendar.name === this.#calendar.name) {
+    if (isObject(locale)) this.#locale = locale;
+    if (!isObject(calendar) || calendar.name === this.#calendar.name) {
       return this;
     }
 
@@ -295,7 +306,7 @@ class DateObject {
   format(format, ignoreList) {
     if (!this.isValid || (format && typeof format !== "string")) return "";
     if (!format) format = this.#format || "YYYY/MM/DD";
-    if (!Array.isArray(ignoreList)) ignoreList = [];
+    if (!isArray(ignoreList)) ignoreList = [];
 
     ignoreList = ignoreList.concat(this.#ignoreList);
 
@@ -556,7 +567,7 @@ class DateObject {
   set(key, value) {
     if (key === undefined || key === null) return this;
 
-    if (this.#isObject(key)) {
+    if (isObject(key)) {
       let object = { ...key };
 
       if (object.date) {
@@ -594,7 +605,7 @@ class DateObject {
   }
 
   add(duration, type) {
-    duration = this.#toNumber(duration);
+    duration = toNumber(duration);
 
     if (!duration || !type) return this;
 
@@ -807,7 +818,7 @@ class DateObject {
   get weekDay() {
     if (!this.isValid) return {};
 
-    let index = (this.toJulianDay() + 2) % 7;
+    let index = (this.toJulianDay() + 3) % 7;
 
     return this.#getWeekDays()[index];
   }
@@ -853,7 +864,9 @@ class DateObject {
   #getWeekDays = () => {
     return (this.#custom.weekDays || this.#locale.weekDays).map(
       ([name, shortName], i) => {
-        let index = this.#calendar.weekDaysIndex[i];
+        let index = i - this.weekStartDayIndex;
+
+        if (index < 0) index += 7;
 
         return {
           name,
@@ -923,8 +936,12 @@ class DateObject {
     return this.#ignoreList;
   }
 
+  get weekStartDayIndex() {
+    return this.#calendar.weekStartDayIndex;
+  }
+
   set year(value) {
-    this.#year = this.#toNumber(value);
+    this.#year = toNumber(value);
     this.#fix();
   }
 
@@ -932,11 +949,11 @@ class DateObject {
     if (!value) return delete this.#custom.months;
 
     let isValidValue =
-      Array.isArray(value) &&
+      isArray(value) &&
       value.length === 12 &&
       value.every((array) => {
         return (
-          Array.isArray(array) &&
+          isArray(array) &&
           array.length === 2 &&
           array.every((string) => typeof string === "string")
         );
@@ -948,19 +965,22 @@ class DateObject {
   }
 
   set month(value) {
-    this.#month = this.#toNumber(value.valueOf()) - 1 ?? undefined;
-    this.#fix();
+    value = toNumber(value.valueOf()) - 1 ?? undefined;
+
+    this.#month = value;
+
+    if (notInRange(value, 0, 11)) this.#fix();
   }
 
   set weekDays(value) {
     if (!value) return delete this.#custom.weekDays;
 
     let isValidValue =
-      Array.isArray(value) &&
+      isArray(value) &&
       value.length === 7 &&
       value.every((array) => {
         return (
-          Array.isArray(array) &&
+          isArray(array) &&
           array.length === 2 &&
           array.every((string) => typeof string === "string")
         );
@@ -974,7 +994,7 @@ class DateObject {
   set digits(value) {
     if (!value) return delete this.#custom.digits;
 
-    let isValidValue = Array.isArray(value) && value.length === 10;
+    let isValidValue = isArray(value) && value.length === 10;
 
     if (!isValidValue) return;
 
@@ -982,28 +1002,43 @@ class DateObject {
   }
 
   set day(value) {
-    this.#day = this.#toNumber(value);
-    this.#fix();
+    value = toNumber(value);
+
+    this.#day = value;
+
+    if (notInRange(value, 1, 28)) this.#fix();
   }
 
   set hour(value) {
-    this.#hour = this.#toNumber(value);
-    this.#fix();
+    value = toNumber(value);
+
+    this.#hour = value;
+
+    if (notInRange(value, 0, 23)) this.#fix();
   }
 
   set minute(value) {
-    this.#minute = this.#toNumber(value);
-    this.#fix();
+    value = toNumber(value);
+
+    this.#minute = value;
+
+    if (notInRange(value, 0, 59)) this.#fix();
   }
 
   set second(value) {
-    this.#second = this.#toNumber(value);
-    this.#fix();
+    value = toNumber(value);
+
+    this.#second = value;
+
+    if (notInRange(value, 0, 59)) this.#fix();
   }
 
   set millisecond(value) {
-    this.#millisecond = this.#toNumber(value);
-    this.#fix();
+    value = toNumber(value);
+
+    this.#millisecond = value;
+
+    if (notInRange(value, 0, 999)) this.#fix();
   }
 
   set calendar(calendar) {
@@ -1011,7 +1046,7 @@ class DateObject {
   }
 
   set locale(locale = en) {
-    if (this.#isObject(locale)) this.#locale = locale;
+    if (isObject(locale)) this.#locale = locale;
   }
 
   set _format(format) {
@@ -1019,16 +1054,20 @@ class DateObject {
   }
 
   set ignoreList(ignoreList) {
-    if (Array.isArray(ignoreList)) this.#ignoreList = ignoreList;
+    if (isArray(ignoreList)) this.#ignoreList = ignoreList;
   }
 
   set date(date) {
     this.setDate(date);
   }
 
-  #toNumber = (value) => {
-    if (!isNaN(value)) return parseInt(value);
-  };
+  set weekStartDayIndex(index) {
+    index = toNumber(index);
+
+    if (index === undefined) return;
+
+    this.#calendar.weekStartDayIndex = Math.abs(index) % 7;
+  }
 }
 
 module.exports = DateObject;

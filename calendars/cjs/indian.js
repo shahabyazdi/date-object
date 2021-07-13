@@ -4,7 +4,7 @@ const indian = {
   yearLength: 365,
   epoch: 1749628,
   century: 19,
-  weekDaysIndex: [0, 1, 2, 3, 4, 5, 6],
+  weekStartDayIndex: 1,
   getMonthLengths(isLeap) {
     return [isLeap ? 31 : 30, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 30];
   },

@@ -4,7 +4,7 @@ const persian = {
   yearLength: 365,
   epoch: 1948319,
   century: 14,
-  weekDaysIndex: [1, 2, 3, 4, 5, 6, 0],
+  weekStartDayIndex: 0,
   getMonthLengths(isLeap) {
     return [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, isLeap ? 30 : 29];
   },

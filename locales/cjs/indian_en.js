@@ -15,13 +15,13 @@ module.exports = {
     ["Phalgun", "Pha"],
   ],
   weekDays: [
+    ["Sanivara", "San"],
     ["Ravivara", "Rav"],
     ["Somavara", "Som"],
     ["Mangalavara", "Man"],
     ["Budhavara", "Bud"],
     ["Brihaspatvara", "Bri"],
     ["Sukravara", "Suk"],
-    ["Sanivara", "San"],
   ],
   digits: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
   meridiems: [
