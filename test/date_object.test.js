@@ -7,6 +7,7 @@ const arabic = require("../calendars/cjs/arabic");
 const indian = require("../calendars/cjs/indian");
 
 const gregorian_en = require("../locales/cjs/gregorian_en");
+const gregorian_pt_br = require("../locales/cjs/gregorian_pt_br");
 const gregorian_fa = require("../locales/cjs/gregorian_fa");
 const persian_en = require("../locales/cjs/persian_en");
 const indian_hi = require("../locales/cjs/indian_hi");
@@ -138,8 +139,8 @@ describe("new instance", () => {
   });
 
   test("from number (21 August 2020)", () => {
-    const date = new Date(1597994736000);
-    const dateObject = new DateObject(1597994736000);
+    const date = new Date(1598021736000);
+    const dateObject = new DateObject(date);
 
     expect(dateObject.year).toEqual(date.getFullYear());
     expect(dateObject.month.index).toEqual(date.getMonth());
@@ -538,5 +539,51 @@ describe("returning to default calendar & locale (gregorian, gregorian_en)", () 
 
     expect(dateObject.locale.name).toEqual("gregorian_en");
     expect(dateObject.format("YYYYMD")).toEqual(stringDate);
+  });
+});
+
+describe("runing calendar with locale set to gregorian_pt_br", () => {
+  test("should set locale gregorian_pt_br & calendar gregorian", () => {
+    const dateObject = new DateObject({
+      calendar: gregorian,
+      locale: gregorian_pt_br,
+    });
+
+    expect(dateObject.calendar.name).toEqual("gregorian");
+    expect(dateObject.locale.name).toEqual("gregorian_pt_br");
+  });
+
+  test("should return month equal 'Janeiro'", () => {
+    const date = new Date(1579618536000);
+    const dateObject = new DateObject({
+      date,
+      calendar: gregorian,
+      locale: gregorian_pt_br,
+    });
+    const fullMonthName = "Janeiro";
+
+    expect(dateObject.month.name).toEqual(fullMonthName);
+  });
+
+  test("should return from number (15 Agosto 1989)", () => {
+    const date = new Date(1989, 7, 15, 11, 0, 0);
+    const dateObject = new DateObject({
+      date,
+      date,
+      calendar: gregorian,
+      locale: gregorian_pt_br,
+    });
+
+    expect(dateObject.year).toEqual(date.getFullYear());
+    expect(dateObject.month.index).toEqual(date.getMonth());
+    expect(dateObject.day).toEqual(date.getDate());
+    expect(dateObject.weekDay.index).toEqual(date.getDay());
+    expect(dateObject.hour).toEqual(date.getHours());
+    expect(dateObject.minute).toEqual(date.getMinutes());
+    expect(dateObject.second).toEqual(date.getSeconds());
+
+    expect(dateObject.format("dddd DD MMMM YYYY @ hh:mm:ss.SSS a")).toEqual(
+      "Terça-feira 15 Agosto 1989 @ 11:00:00.000 am"
+    );
   });
 });
