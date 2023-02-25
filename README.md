@@ -202,13 +202,22 @@ console.log(date.format()); //1943/03/20
 <thead/>
 <tbody>
 <tr>
-<th rowspan="4">Locales</th>
+<th rowspan="5">Locales</th>
 <th>English</th>
 <td>gregorian_en</td>
 <td>persian_en</td>
 <td>persian_en</td>
 <td>arabic_en</td>
 <td>indian_en</td>
+</tr>
+
+<tr>
+<th>Portuguese - BRAZIL</th>
+<td>gregorian_pt_br</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 
 <tr>
