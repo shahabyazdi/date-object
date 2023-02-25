@@ -139,7 +139,7 @@ describe("new instance", () => {
   });
 
   test("from number (21 August 2020)", () => {
-    const date = new Date(1598021736000);
+    const date = new Date(2020, 7, 21, 11, 55, 36);
     const dateObject = new DateObject(date);
 
     expect(dateObject.year).toEqual(date.getFullYear());
