@@ -5,6 +5,7 @@ const persian = require("../calendars/cjs/persian");
 const jalali = require("../calendars/cjs/jalali");
 const arabic = require("../calendars/cjs/arabic");
 const indian = require("../calendars/cjs/indian");
+const julian = require("../calendars/cjs/julian");
 
 const gregorian_en = require("../locales/cjs/gregorian_en");
 const gregorian_pt_br = require("../locales/cjs/gregorian_pt_br");
@@ -64,6 +65,7 @@ describe("current moment", () => {
       .convert(persian)
       .convert(arabic)
       .convert(indian)
+      .convert(julian)
       .convert(gregorian);
 
     expect(dateObject.year).toEqual(date.getFullYear());
@@ -78,15 +80,16 @@ describe("current moment", () => {
 });
 
 describe("converting some dates", () => {
-  const calendars = [persian, arabic];
+  const calendars = [persian, arabic, julian];
 
   const dates = [
-    { gregorian: "3000/08/31", persian: "2379/06/09", arabic: "2452/02/08" },
-    { gregorian: "2847/12/20", persian: "2226/09/29", arabic: "2294/09/21" },
-    { gregorian: "2021/06/02", persian: "1400/03/12", arabic: "1442/10/21" },
-    { gregorian: "2008/11/27", persian: "1387/09/07", arabic: "1429/11/28" },
-    { gregorian: "1873/04/01", persian: "1252/01/12", arabic: "1290/02/02" },
-    { gregorian: "1211/05/14", persian: "590/02/24", arabic: "607/11/22" },
+    { gregorian: "3000/08/31", persian: "2379/06/09", arabic: "2452/02/08", julian: "3000/08/10" },
+    { gregorian: "2847/12/20", persian: "2226/09/29", arabic: "2294/09/21", julian: "2847/12/01" },
+    { gregorian: "2021/06/02", persian: "1400/03/12", arabic: "1442/10/21", julian: "2021/05/20" },
+    { gregorian: "2008/11/27", persian: "1387/09/07", arabic: "1429/11/28", julian: "2008/11/14" },
+    { gregorian: "1873/04/01", persian: "1252/01/12", arabic: "1290/02/02", julian: "1873/03/20" },
+    { gregorian: "1211/05/14", persian: "590/02/24", arabic: "607/11/22", julian: "1211/05/07" },
+    { gregorian: "650/07/22", persian: "29/04/31", arabic: "29/11/14", julian: "650/07/19" },
   ];
 
   calendars.forEach((calendar) => {
@@ -121,6 +124,10 @@ describe("converting some dates", () => {
     date.convert(indian);
 
     expect(date.format()).toEqual("1942/08/09");
+
+    date.convert(julian);
+
+    expect(date.format()).toEqual("2020/10/18");
   });
 });
 
@@ -345,10 +352,8 @@ describe("other methods", () => {
     const $gregorian = new DateObject(1604824018304);
     const $arabic = new DateObject({ date: $gregorian, calendar: arabic });
     const $indian = new DateObject({ date: $gregorian, calendar: indian });
-    const $persian = new DateObject({
-      date: $gregorian,
-      calendar: persian,
-    });
+    const $persian = new DateObject({ date: $gregorian, calendar: persian });
+    const $julian = new DateObject({ date: $gregorian, calendar: julian });
 
     expect(`${$gregorian.valueOf()} ${$gregorian.format()}`).toEqual(
       "1604824018304 2020/11/08"
@@ -364,6 +369,10 @@ describe("other methods", () => {
 
     expect(`${$arabic.valueOf()} ${$arabic.format()}`).toEqual(
       "1604824018304 1442/03/22"
+    );
+
+    expect(`${$julian.valueOf()} ${$julian.format()}`).toEqual(
+      "1604824018304 2020/10/26"
     );
 
     expect($persian - $gregorian).toEqual(0);

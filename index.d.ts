@@ -547,6 +547,12 @@ declare module "date-object/calendars/cjs/indian" {
   export = indian;
 }
 
+declare module "date-object/calendars/cjs/julian" {
+  const julian: Calendar;
+
+  export = julian;
+}
+
 declare module "date-object/locales/cjs/gregorian_en" {
   const gregorian_en: Locale;
 
@@ -673,6 +679,12 @@ declare module "date-object/calendars/es/indian" {
   export = indian;
 }
 
+declare module "date-object/calendars/es/julian" {
+  const julian: Calendar;
+
+  export = julian;
+}
+
 declare module "date-object/locales/es/gregorian_en" {
   const gregorian_en: Locale;
 
@@ -797,6 +809,12 @@ declare module "date-object/calendars/umd/indian" {
   const indian: Calendar;
 
   export = indian;
+}
+
+declare module "date-object/calendars/umd/julian" {
+  const julian: Calendar;
+
+  export = julian;
 }
 
 declare module "date-object/locales/umd/gregorian_en" {
