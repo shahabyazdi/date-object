@@ -563,7 +563,7 @@ declare module "date-object/locales/cjs/gregorian_hi" {
   export = gregorian_hi;
 }
 
-declare module "react-date-object/locales/gregorian_pt_br" {
+declare module "date-object/locales/cjs/gregorian_pt_br" {
   const gregorian_pt_br: Locale;
 
   export default gregorian_pt_br;
