@@ -49,7 +49,7 @@ export default [
         exclude: /node_modules/,
         presets: [
           "@babel/preset-env",
-          { plugins: ["@babel/plugin-proposal-class-properties"] },
+          { plugins: ["transform-class-properties"] },
         ],
       }),
     ],

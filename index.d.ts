@@ -1,6 +1,6 @@
-type DateType = Date | number | string | DateObject;
+export type DateType = Date | number | string | DateObject;
 
-type Calendar = {
+export type Calendar = {
   name: string;
   /**
    * specifies what number the calendar year begins with.
@@ -39,7 +39,7 @@ type Calendar = {
   guessYear(days: number, currentYear: number): number;
 };
 
-type Locale = {
+export type Locale = {
   name: string;
   months: [string[]];
   weekDays: [string[]];
@@ -47,7 +47,7 @@ type Locale = {
   meridiems: [string[]];
 };
 
-type Month = {
+export type Month = {
   name: string;
   shortName: string;
   number: number;
@@ -60,9 +60,9 @@ type Month = {
   toString(): string;
 };
 
-type WeekDay = Omit<Month, "length">;
+export type WeekDay = Omit<Month, "length">;
 
-type Meridiem = {
+export type Meridiem = {
   name: string;
   shortName: string;
 };
@@ -85,7 +85,7 @@ type ObjectType = {
   ignoreList: string[];
 };
 
-declare class DateObject {
+export class DateObject {
   constructor();
   constructor(object: {
     year: number;
@@ -499,21 +499,7 @@ declare class DateObject {
   weekStartDayIndex: number;
 }
 
-type D = DateType;
-type C = Calendar;
-type L = Locale;
-type M = Month;
-type W = WeekDay;
-type Me = Meridiem;
-
 declare module "date-object" {
-  export type DateType = D;
-  export type Calendar = C;
-  export type Locale = L;
-  export type Month = M;
-  export type WeekDay = W;
-  export type Meridiem = Me;
-
   export = DateObject;
 }
 
@@ -575,6 +561,12 @@ declare module "date-object/locales/cjs/gregorian_hi" {
   const gregorian_hi: Locale;
 
   export = gregorian_hi;
+}
+
+declare module "react-date-object/locales/gregorian_pt_br" {
+  const gregorian_pt_br: Locale;
+
+  export default gregorian_pt_br;
 }
 
 declare module "date-object/locales/cjs/persian_en" {
