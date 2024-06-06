@@ -1,0 +1,31 @@
+module.exports = {
+  name: "gregorian_pl",
+  months: [
+    ["Styczeń", "Sty"],
+    ["Luty", "Lut"],
+    ["Marzec", "Mar"],
+    ["Kwiecień", "Kwi"],
+    ["Maj", "Maj"],
+    ["Czerwiec", "Cze"],
+    ["Lipiec", "Lip"],
+    ["Sierpień", "Sie"],
+    ["Wrzesień", "Wrz"],
+    ["Październik", "Paź"],
+    ["Listopad", "Lis"],
+    ["Grudzień", "Gru"],
+  ],
+  weekDays: [
+    ["Sobota", "Sob"],
+    ["Niedziela", "Ndz"],
+    ["Poniedziałek", "Pon"],
+    ["Wtorek", "Wt"],
+    ["Środa", "Śr"],
+    ["Czwartek", "Czw"],
+    ["Piątek", "Pt"],
+  ],
+  digits: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+  meridiems: [
+    ["AM", "am"],
+    ["PM", "pm"],
+  ],
+};
